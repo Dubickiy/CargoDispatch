@@ -22,6 +22,10 @@ namespace CargoDispath.DAL.EF
         public virtual DbSet<Photo> _Photos { get; set; }
         public virtual DbSet<Country> _Countries { get; set; }
         public virtual DbSet<Region> _Regions { get; set; }
+        public virtual DbSet<UserCars> _UserCars { get; set; }
+        public virtual DbSet<LoadingType> _LoadignTypes { get; set; }
+        public virtual DbSet<CarType> _CarTypes { get; set; }
+        public virtual DbSet<VehicleType> _VehicleTypes { get; set; }
         // public virtual DbSet<ApplicationUser> _Users { get; set; }
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
@@ -37,6 +41,43 @@ namespace CargoDispath.DAL.EF
         {
             Country cntr1 = new Country { Name = "Украина" };
             Country cntr2 = new Country { Name = "Россия" };
+            List<VehicleType> vehicleTypes = new List<VehicleType>
+            {
+                new VehicleType {Name = "Грузовик" },
+                new VehicleType {Name = "Полуприцеп" },
+                new VehicleType {Name = "Сцепка" }
+            };
+
+            List<CarType> carTypes = new List<CarType>
+            {
+                new CarType {Name = "Тент"},
+                new CarType {Name = "Реф."},
+                new CarType {Name = "Изотерм"},
+                new CarType {Name = "Цельномет"},
+                new CarType {Name = "Бус"},
+                new CarType {Name = "Бортовая"},
+                new CarType {Name = "Контейнеровоз"},
+                new CarType {Name = "Трал/Негабарит"},
+                new CarType {Name = "Платформа"},
+                new CarType {Name = "Манипулятор"},
+                new CarType {Name = "Самосвал"},
+                new CarType {Name = "Зерновоз"},
+                new CarType {Name = "Кран"},
+                new CarType {Name = "Автовоз"},
+                new CarType {Name = "Цистерна"},
+                new CarType {Name = "Лесовоз"},
+                new CarType {Name = "Эвакуатор"}
+            };
+            List<LoadingType> loadingTypes = new List<LoadingType>
+            {
+                new LoadingType {Name="верхняя"},
+                new LoadingType {Name="боковая"},
+                new LoadingType {Name="задняя"},
+                new LoadingType {Name="с полной растентовкой"},
+                new LoadingType {Name="со снятием поперечин"},
+                new LoadingType {Name="со снятием стоек"},
+                new LoadingType {Name="без ворот"},
+            };
             List<Region> regionsUA = new List<Region>{
                 new Region {Name = "Винницкая обл",Country = cntr1,},
                 new Region {Name = "Волынская обл",Country = cntr1,},
@@ -118,6 +159,9 @@ namespace CargoDispath.DAL.EF
             context._Regions.AddRange(regionsRU);
             context._Countries.Add(cntr1);
             context._Countries.Add(cntr2);
+            context._LoadignTypes.AddRange(loadingTypes);
+            context._CarTypes.AddRange(carTypes);
+            context._VehicleTypes.AddRange(vehicleTypes);
             base.Seed(context);
         }
     }

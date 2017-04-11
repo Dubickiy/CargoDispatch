@@ -26,5 +26,18 @@ namespace CargoDispath.Controllers.ViewController
             var data = db._Regions.Where(a => a.Country.Name == id);
             return Json(data, JsonRequestBehavior.AllowGet);
         }
+        public ActionResult GetLoadingTypes()
+        {
+            db._LoadignTypes.Load();
+            var data = db._LoadignTypes.ToList();
+            return Json(data, JsonRequestBehavior.AllowGet);
+        }
+        [HttpGet]
+        public ActionResult GetCarTypes()
+        {
+            db._LoadignTypes.Load();
+            var data = db._LoadignTypes.ToList();
+            return Json(data, JsonRequestBehavior.AllowGet);
+        }
     }
 }

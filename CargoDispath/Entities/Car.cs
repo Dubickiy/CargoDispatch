@@ -1,5 +1,4 @@
-﻿using CargoDispath.Models;
-using Newtonsoft.Json;
+﻿using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
@@ -23,9 +22,7 @@ namespace CargoDispath.DAL.Entities
         public double Volume { get; set; }
         public String LoadingType { get; set; }
         public String AddedInfo { get; set; }
-        // public byte[] photoByte { get; set; }
-        //public String CarPhoto { get; set; }
-        // public String TechPassportPhoto { get; set; }
+
         [JsonIgnore]
         public ICollection<Photo> Photos { get; set; }
         public Car()

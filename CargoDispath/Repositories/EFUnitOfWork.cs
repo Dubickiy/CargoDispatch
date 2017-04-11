@@ -1,6 +1,8 @@
 ﻿using CargoDispath.DAL.EF;
 using CargoDispath.DAL.Entities;
 using CargoDispath.DAL.Interfaces;
+using CargoDispath.Entities;
+using CargoDispath.Repositories;
 using System;
 
 namespace CargoDispath.DAL.Repositories
@@ -10,6 +12,7 @@ namespace CargoDispath.DAL.Repositories
         private CargoContext db;
         private CargoRepository cargoRepository;
         private CarRepository carRepository;
+        private UserCarsRepository userCarRepository;
 
         public IRepository<Cargo> Cargos
         {
@@ -37,7 +40,17 @@ namespace CargoDispath.DAL.Repositories
                 //throw new NotImplementedException();
             }
         }
-       
+        public IRepository<UserCars> UserCars
+        {
+            get
+            {
+                if(userCarRepository == null)
+                {
+                    userCarRepository = new UserCarsRepository(db);
+                }
+                return userCarRepository;
+            }
+        }
         public EFUnitOfWork(string connectionString)
         {
             db = new CargoContext(connectionString);

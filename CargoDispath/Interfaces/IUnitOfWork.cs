@@ -8,7 +8,7 @@ namespace CargoDispath.DAL.Interfaces
     {
         IRepository<Cargo> Cargos { get; }
         IRepository<Car> Cars { get; }
-
+        IRepository<UserCars> UserCars { get; }
 
         void Save();
     }

@@ -1,0 +1,223 @@
+﻿
+@{
+    ViewBag.Title = "Добавить автомобиль";
+}
+<div class="body-container">
+    <div class="round-rectangle add">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <h2 class="section-title">Добавление автомобиля</h2>
+                    <form id="fileUploadForm" enctype="multipart/form-data" action="/MyCars/AddCar" method="post">
+                        @Html.AntiForgeryToken()
+                        <div class="row">
+                        </div>
+                        <div class="row">
+                            <div class="col-md-12">
+                                <h3 class="section-title border">Транспортное средство</h3>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label for="carname">Название *</label>
+                                    <input type="text" class="form-control" id="carname" name="Name" required />
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label for="mycartype">Тип транспорта *</label>
+                                    <select class="form-control" id="mycartype" name="Type"></select>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label for="number">Гос. номер*</label>
+                                    <input type="text" class="form-control" id="number" name="Number" placeholder="Б Б Ц Ц Ц Ц Б Б" required />
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label for="carlabel">Марка *</label>
+                                    <input type="text" class="form-control" id="carlabel" name="Label" required />
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label for="driver">Водитель</label>
+                                    <input type="text" class="form-control" id="driver" />
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label for="mycarbody">Тип кузова *</label>
+                                    <select class="form-control" id="mycarbody" name="Body" required></select>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label>Тех.паспорт *</label><br />
+                                    <label for="inp1" class="btn btn-primary">
+                                        <input type="file" onchange="getPassportPhoto(this)" accept="image/*" id="inp1" style="display:none" name="TechPhoto" multiple />
+                                        Загрузить
+                                    </label>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label>Фото транспортного средства</label><br />
+                                    <label for="inp2" class="btn btn-primary">
+                                        <input type="file" onchange="getCarPhoto(this)" accept="image/*" id="inp2" style="display:none" name="CarPhoto" multiple />
+                                        Загрузить
+                                    </label>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <p id="chosen1"></p>
+                            </div>
+                            <div class="col-md-6">
+                                <p id="chosen2"></p>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <img id="techpassport" src="#" hidden />
+                            </div>
+                            <div class="col-md-6">
+                                <img id="carphoto" hidden src="#" />
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-12">
+                                <h3 class="section-title border"><input type="checkbox" id="cb1" name="hasTrailer" value="true" checked="checked" />Прицеп</h3>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label for="trailernumber">Гос. номер прицепа</label>
+                                    <input type="text" class="form-control" id="trailernumber" placeholder="Б Б Ц Ц Ц Ц Б Б" name="TrailerNumber" required />
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label>Марка прицепа</label>
+                                    <input type="text" class="form-control" id="trailerlabel" name="TrailerLabel" required />
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label>Тех.паспорт прицепа*</label> <br />
+                                    <label class="btn btn-primary">
+                                        <input type="file" onchange="getTrailerPassport(this)" id="inp3" accept="image/*" style="display:none" />
+                                        Загрузить
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <img id="trailerphoto" src="#" hidden />
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-12">
+                                <h3 class="section-title border">Характеристики транспортного средства</h3>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-4">
+                                <label for="capacity1">Грузоподъемность *</label>
+                                <div class="input-group">
+                                    <input type="number" class="form-control" id="capacity1" min="0" name="Weight" required />
+                                    <span class="input-group-addon">тонн</span>
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <label>Объем *</label>
+                                <div class="input-group">
+                                    <input type="number" class="form-control" id="volume1" min="0" name="Volume" required />
+                                    <span class="input-group-addon">куб. м</span>
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="form-group">
+                                    <label for="loading">Тип погрузки *</label>
+                                    <select class="form-control" id="loading2" name="LoadingType" required></select>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="form-group">
+                                    <label>Дополнительные характеристики</label>
+                                    <textarea rows="10" cols="45" name="AddedInfo" class="form-control"></textarea>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <h3 class="section-title border">Тех.осмотр</h3>
+                            </div>
+                            <div class="col-md-6">
+                                <h3 class="section-title border">Полис осаго</h3>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <label>Документ</label><br />
+                                <label class="btn btn-primary">
+                                    <input type="file" accept="image/*" style="display:none" />
+                                    Загрузить
+                                </label>
+                            </div>
+                            <div class="col-md-6">
+                                <label>Документ</label><br />
+                                <label class="btn btn-primary">
+                                    <input type="file" accept="image/*" style="display:none" />
+                                    Загрузить
+                                </label>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6"></div>
+                            <div class="col-md-6"></div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6" style="margin-top:5%">
+                                <label>Действителен</label>
+                                <div class="input-group">
+                                    <span class="input-group-addon">до</span>
+                                    <input type="text" class="form-control " id="dp5" />
+                                </div>
+                            </div>
+                            <div class="col-md-6" style="margin-top:5%">
+                                <label>Действителен</label>
+                                <div class="input-group">
+                                    <span class="input-group-addon">до</span>
+                                    <input type="text" class="form-control " id="dp6" />
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <button type="reset" class="btn btn-default btn-lg btn-block btn-margin-top">Очистить</button>
+                            </div>
+                            <div class="col-md-6">
+                                <button type="submit" id="addcar" class="btn btn-primary btn-lg btn-block btn-margin-top">Добавить автомобиль</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

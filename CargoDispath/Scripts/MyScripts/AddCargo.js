@@ -13,9 +13,9 @@ var map1, autocomplete;
 "use strict";
 $(function () {
     getCountries();
-    //getLoadingTypes();
-    //getCarTypes();
-    //getVehicleTypes();
+    getLoadingTypes();
+    getCarTypes();
+    getVehicleTypes();
     showAllUserCargos();
     showAllCargos();
     //getAllCars();
@@ -512,7 +512,7 @@ function getLoadingTypes() {
     var loading1 = $("#loading1");
     var loading2 = $("#loading2");
     $.ajax({
-        url: "/Home/GetLoadingTypes",
+        url: "/LocateCargo/GetLoadingTypes",
         type: "GET",
         success: function (response) {
             loading.empty();
@@ -551,7 +551,7 @@ function getCarTypes() {
     var car1 = $("#car1");
     var carbody = $("#mycarbody");
     $.ajax({
-        url: "/Home/GetCarTypes",
+        url: "/LocateCargo/GetCarTypes",
         type: "GET",
         success: function (response) {
             car.empty();

@@ -208,16 +208,22 @@
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\RolesController.cs" />
     <Compile Include="Controllers\ViewController\AllCargosController.cs" />
+    <Compile Include="Controllers\ViewController\MyCarsController.cs" />
     <Compile Include="Controllers\ViewController\UserCargoController.cs" />
     <Compile Include="Controllers\ViewController\LocateCargoController.cs" />
     <Compile Include="Controllers\ViewController\SearchController.cs" />
+    <Compile Include="Controllers\WebAPI\CarController.cs" />
     <Compile Include="Controllers\WebAPI\CargoController.cs" />
     <Compile Include="EF\CargoContext.cs" />
     <Compile Include="Entities\Car.cs" />
     <Compile Include="Entities\Cargo.cs" />
+    <Compile Include="Entities\CarType.cs" />
     <Compile Include="Entities\Country.cs" />
+    <Compile Include="Entities\LoadingType.cs" />
     <Compile Include="Entities\Photo.cs" />
     <Compile Include="Entities\Region.cs" />
+    <Compile Include="Entities\UserCars.cs" />
+    <Compile Include="Entities\VehicleType.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -234,6 +240,7 @@
     <Compile Include="Repositories\CargoRepository.cs" />
     <Compile Include="Repositories\CarRepository.cs" />
     <Compile Include="Repositories\EFUnitOfWork.cs" />
+    <Compile Include="Repositories\UserCarsRepository.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\bootstrap.css" />
@@ -265,6 +272,7 @@
     <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
     <Content Include="Scripts\modernizr-2.6.2.js" />
     <Content Include="Scripts\MyScripts\AddCargo.js" />
+    <Content Include="Scripts\MyScripts\VehicleType.js" />
     <Content Include="Scripts\respond.js" />
     <Content Include="Scripts\respond.min.js" />
     <Content Include="Scripts\_references.js" />
@@ -294,6 +302,8 @@
     <Content Include="Views\UserCargo\AllUserCargos.cshtml" />
     <Content Include="Views\AllCargos\AllCargos.cshtml" />
     <Content Include="Views\Error\ErrorView.cshtml" />
+    <Content Include="Views\MyCars\AddCar.cshtml" />
+    <Content Include="Views\MyCars\AllCars.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
