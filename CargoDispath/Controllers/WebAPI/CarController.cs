@@ -34,6 +34,7 @@ namespace CargoDispath.Controllers.WebAPI
         public void Delete(int? id)
         {
             unitOfWork.Cars.Delete(id);
+            unitOfWork.Save();
         }
         
     }

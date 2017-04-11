@@ -310,6 +310,7 @@
     <Content Include="Views\LocateCar\LocateCar.cshtml" />
     <Content Include="Views\Search\SearchCar.cshtml" />
     <Content Include="Views\AllCargos\AllCars.cshtml" />
+    <Content Include="Views\UserCargo\AllUserCars.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

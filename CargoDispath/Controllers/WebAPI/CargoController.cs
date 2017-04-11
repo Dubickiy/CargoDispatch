@@ -44,7 +44,7 @@ namespace CargoDispath.Controllers.WebAPI
             
             return unitOfWork.Cargos.GetAll();
         }
-
+        //[Route("api/cargo/Delete")]
         [HttpDelete]
         public void Delete(int? id)
         {

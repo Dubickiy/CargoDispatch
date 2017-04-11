@@ -1,6 +1,7 @@
 ﻿"use strict";
 $(function () {
     ShowAllVehicle();
+    showAllUserCar();
     $("#form3").submit(function (e) {
         e.preventDefault();
         AddVehicle();
@@ -101,6 +102,11 @@ $(function () {
 
         return date;
     }
+    $("#tb9").on("click", "#delete", function () {
+        var i = $(this).closest('tr').attr('data-id');
+        console.log(i);
+        removeCar(i);
+    });
 });
 function AddVehicle() {
     var checkbox;
@@ -171,9 +177,51 @@ function ShowAllVehicle() {
                     + item.Volume + "</td><td>"
                     + item.DateOfSending + "</td><td>"
                     + item.LoadingType + "</td><td>"
-                    + checked + "</td><td id='btn'>"
+                    + checked + "</td></tr>"
             );
             });
+        }
+    });
+}
+function showAllUserCar() {
+    var table = $("#tb9");
+    $.ajax({
+        url: "/api/usercars/GetAll",
+        type: "GET",
+        success: function (response) {
+            $.each(response, function (key, item) {
+                var from = item.FromCity + "," + item.FromRegion;
+                var to = item.ToCity + "," + item.ToRegion;
+                var checked;
+                var btnDelete = '<span id="delete" class="glyphicon glyphicon-remove glyphicon-remove-entry"></span>';
+                if (item.IsElectronic == true) {
+                    checked = '<input type="checkbox" checked="true" disabled>'
+
+                }
+                else {
+                    checked = '<input type="checkbox" disabled>'
+                }
+                table.append('<tr  data-id=' + item.Id + ">" + '<td >' + from + "</td>" + '<td  >' + to + "</td><td>"
+                    + item.CarType + "</td><td>"
+                    + item.Weight + "</td><td>"
+                    + item.Volume + "</td><td>"
+                    + item.DateOfSending + "</td><td>"
+                    + item.LoadingType + "</td><td>"
+                    + checked + "</td><td>"
+                    + btnDelete + "</td></tr>"
+            );
+            });
+        }
+    });
+}
+function removeCar(id) {
+    var tableContent = $("td");
+    $.ajax({
+        url: "/api/usercar/Delete/" + id,
+        type: "DELETE",
+        success: function () {
+            tableContent.remove();
+            showAllUserCar();
         }
     });
 }

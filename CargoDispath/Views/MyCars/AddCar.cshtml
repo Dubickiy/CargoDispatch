@@ -1,4 +1,4 @@
-﻿
+﻿@model CargoDispath.DAL.Entities.Car
 @{
     ViewBag.Title = "Добавить автомобиль";
 }
@@ -64,9 +64,11 @@
                                 <div class="form-group">
                                     <label>Тех.паспорт *</label><br />
                                     <label for="inp1" class="btn btn-primary">
-                                        <input type="file" onchange="getPassportPhoto(this)" accept="image/*" id="inp1" style="display:none" name="TechPhoto" multiple />
+                                        <input type="file" onchange="getPassportPhoto(this)" accept="image/*" id="inp1" style="display:none" name="TechPhoto" multiple required/>
                                         Загрузить
                                     </label>
+                                    
+
                                 </div>
                             </div>
                             <div class="col-md-6">
@@ -76,6 +78,8 @@
                                         <input type="file" onchange="getCarPhoto(this)" accept="image/*" id="inp2" style="display:none" name="CarPhoto" multiple />
                                         Загрузить
                                     </label>
+                                    
+                                    
                                 </div>
                             </div>
                             <div class="col-md-6">

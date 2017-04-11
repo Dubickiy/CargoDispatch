@@ -15,6 +15,7 @@ namespace CargoDispath.Controllers.ViewController
     {
         private CargoContext db = new CargoContext("DBConnection");
         // GET: MyCars
+        [Authorize]
         public ActionResult AddCar()
         {
             return View();
@@ -35,6 +36,10 @@ namespace CargoDispath.Controllers.ViewController
                         var binaryReader = new BinaryReader(file.InputStream);
                         var imageBase64Data = Convert.ToBase64String(binaryReader.ReadBytes(file.ContentLength));
                         car.Photos.Add(new Photo { Name = "TechPhoto", Value = imageBase64Data, CarId = car.Id, });
+                    }
+                    else
+                    {
+                        ModelState.AddModelError("TechPhoto", "Наличие фото тех.паспорта - обязательно");
                     }
                 }
             }
@@ -65,6 +70,20 @@ namespace CargoDispath.Controllers.ViewController
 
             db._VehicleTypes.Load();
             var data = db._VehicleTypes.Local.ToList();
+
+            return Json(data, JsonRequestBehavior.AllowGet);
+        }
+        public ActionResult GetPhoto(int? id)
+        {
+            var photo = db._Photos.Where(a => a.CarId == id);
+            //var photos = db._mycars.Where(a => a.Id == id);
+            return Json(photo, JsonRequestBehavior.AllowGet);
+        }
+        [HttpGet]
+        public ActionResult GetCarInfo(String name)
+        {
+            db._UserCars.Load();
+            var data = db._Cars.Where(a => a.Name == name);
 
             return Json(data, JsonRequestBehavior.AllowGet);
         }

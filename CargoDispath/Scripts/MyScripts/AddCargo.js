@@ -37,6 +37,17 @@ $(function () {
         });
         getCarInfo(car);
     });
+    $("#cars1").change(function () {
+        var carType = $("#car1");
+        var loading = $("#loading1");
+        var car = "";
+        $("#cars1 option:selected").each(function () {
+            car += $(this).text();
+            //carType.empty();
+            //loading.empty();
+        });
+        getCarInfo(car);
+    });
     $("#fromcountry").change(function () {
         var country = "";
         $("#fromcountry option:selected").each(function () {
@@ -347,7 +358,7 @@ function getAllCars() {
 function removeCar(id) {
     var tableContent = $("td");
     $.ajax({
-        url: "/MyCars/RemoveCar",
+        url: "/api/car/Delete/" + id,
         type: "DELETE",
         data: { 'id': id },
         success: function () {
@@ -359,7 +370,7 @@ function removeCar(id) {
 function removeCargo(id) {
     var tableContent = $("td");
     $.ajax({
-        url: "/api/cargo/DeleteCargo/" + id,
+        url: "/api/cargo/Delete/" + id,
         type: "DELETE",
         success: function (data) {
             tableContent.remove();
@@ -913,9 +924,13 @@ function getCar() {
 }
 function getCarInfo(vehicle) {
     var car = $("#car1");
+    var car1 = $("#car2");
     var loading = $("#loading1");
+    var loading1 = $("#loading2");
     var volume = $("#volume1");
     var weight = $("#weight1");
+    var volume1 = $("#volume2");
+    var weight1 = $("#weight2");
     $.ajax({
         url: "/MyCars/GetCarInfo",
         type: "GET",
@@ -924,11 +939,14 @@ function getCarInfo(vehicle) {
         },
         success: function (response) {
             $.each(response, function (key, item) {
-                $("#loading2").val(item.LoadingType);
+               loading1.val(item.LoadingType);
+               car1.val(item.Type);
                 loading.val(item.LoadingType);
                 car.val(item.Body);
                 volume.val(item.Volume);
                 weight.val(item.Weight);
+                volume1.val(item.Volume);
+                weight1.val(item.Weight);
             });
         }
     });

@@ -35,5 +35,18 @@ namespace CargoDispath.Controllers.WebAPI
         {
             return unitOfWork.UserCars.GetAll();
         }
+        [Route("api/usercars/GetUserAll")]
+        [HttpGet]
+        public IEnumerable<UserCars> GetUserAll()
+        {
+            currentUserId = User.Identity.GetUserId();
+            return unitOfWork.UserCars.GetUserAll(currentUserId);
+        }
+        [HttpDelete]
+        public void Delete(int? id)
+        {
+            unitOfWork.UserCars.Delete(id);
+            unitOfWork.Save();
+        }
     }
 }
