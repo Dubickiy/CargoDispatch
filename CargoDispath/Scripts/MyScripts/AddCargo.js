@@ -18,7 +18,7 @@ $(function () {
     getVehicleTypes();
     showAllUserCargos();
     showAllCargos();
-    //getAllCars();
+    getAllCars();
     var dateObj = new Date();
     var month = dateObj.getUTCMonth() + 1;
     var day = dateObj.getUTCDate();
@@ -293,14 +293,14 @@ function AddCargo() {
 function SuccessAlert() {
     $("#alertSuccessCargo").addClass("alert-success");
     $("#alertSuccessCargo").addClass("glyphicon glyphicon-ok");
-    $("#alertSuccessCargo").append("   Груз добавлен");
+    $("#alertSuccessCargo").append("   Машина добавлена");
     $("#alertSuccessCargo").show();
 }
 function getAllCars() {
     var table = $("#tb4");
     var cars = $("#cars");
     $.ajax({
-        url: "/MyCars/GetAllCars",
+        url: "/api/car/GetAll",
         type: "GET",
         success: function (response) {
             $.each(response, function (key, item) {

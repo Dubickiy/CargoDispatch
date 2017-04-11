@@ -1,7 +1,6 @@
 ﻿using CargoDispath.DAL.EF;
 using CargoDispath.DAL.Interfaces;
 using CargoDispath.Entities;
-using System;
 using System.Collections.Generic;
 using System.Linq;
 
@@ -33,7 +32,117 @@ namespace CargoDispath.Repositories
 
         public IEnumerable<UserCars> Find(UserCars item)
         {
-            throw new NotImplementedException();
+            IEnumerable<UserCars> data = new List<UserCars>();
+
+            if (item.IsElectronic)
+            {
+                if (item.FromCountry != "" & item.FromRegion != "" & item.FromCity != "" & item.ToCountry != "" & item.ToRegion != "" & item.ToCity != ""
+                    & item.LoadingType != "" & item.CarType != "")
+                {
+                    data = db._UserCars.Where(a => a.IsElectronic == item.IsElectronic && a.FromCountry == item.FromCountry
+                    && a.FromRegion == item.FromRegion
+                    && a.FromCity == item.FromCity
+                    && a.ToCountry == item.ToCountry
+                    && a.ToRegion == item.ToRegion
+                    && a.ToCity == item.ToCity
+                    && a.LoadingType == item.LoadingType
+                    && a.CarType == item.CarType);
+                }
+                if (!string.IsNullOrEmpty(item.FromCountry))
+                {
+                    data = db._UserCars.Where(a => a.IsElectronic == item.IsElectronic && a.FromCountry == item.FromCountry);
+
+                }
+                if (!string.IsNullOrEmpty(item.FromRegion))
+                {
+                    data = db._UserCars.Where(a => a.IsElectronic == item.IsElectronic && a.FromRegion == item.FromRegion);
+                }
+                if (!string.IsNullOrEmpty(item.FromCity))
+                {
+                    data = db._UserCars.Where(a => a.IsElectronic == item.IsElectronic && a.FromCity == item.FromCity);
+                }
+                if (!string.IsNullOrEmpty(item.ToCountry))
+                {
+                    data = db._UserCars.Where(a => a.IsElectronic == item.IsElectronic && a.ToCountry == item.ToCountry);
+                }
+                if (!string.IsNullOrEmpty(item.ToRegion))
+                {
+                    data = db._UserCars.Where(a => a.IsElectronic == item.IsElectronic && a.ToRegion == item.ToRegion);
+                }
+                if (!string.IsNullOrEmpty(item.ToCity))
+                {
+                    data = db._UserCars.Where(a => a.IsElectronic == item.IsElectronic && a.ToCity == item.ToCity);
+                }
+                if (!string.IsNullOrEmpty(item.CarType))
+                {
+                    data = db._UserCars.Where(a => a.IsElectronic == item.IsElectronic && a.CarType == item.CarType);
+                }
+                if (!string.IsNullOrEmpty(item.LoadingType))
+                {
+                    data = db._UserCars.Where(a => a.IsElectronic == item.IsElectronic && a.LoadingType == item.LoadingType);
+                }
+                if (!string.IsNullOrEmpty(item.DateOfSending))
+                {
+                    data = db._UserCars.Where(a => a.IsElectronic == item.IsElectronic && a.DateOfSending == item.DateOfSending);
+
+                }
+
+            }
+            else
+            {
+                if (item.FromCountry != "" & item.FromRegion != "" & item.FromCity != "" & item.ToCountry != "" & item.ToRegion != "" & item.ToCity != ""
+                   & item.LoadingType != "" & item.CarType != "")
+                {
+                    data = db._UserCars.Where(a => a.FromCountry == item.FromCountry
+                    && a.FromRegion == item.FromRegion
+                    && a.FromCity == item.FromCity
+                    && a.ToCountry == item.ToCountry
+                    && a.ToRegion == item.ToRegion
+                    && a.ToCity == item.ToCity
+                    && a.LoadingType == item.LoadingType
+                    && a.CarType == item.CarType);
+                }
+                if (!string.IsNullOrEmpty(item.FromCountry))
+                {
+                    data = db._UserCars.Where(a => a.FromCountry == item.FromCountry);
+
+                }
+                if (!string.IsNullOrEmpty(item.FromRegion))
+                {
+                    data = db._UserCars.Where(a => a.FromRegion == item.FromRegion);
+                }
+                if (!string.IsNullOrEmpty(item.FromCity))
+                {
+                    data = db._UserCars.Where(a => a.FromCity == item.FromCity);
+                }
+                if (!string.IsNullOrEmpty(item.ToCountry))
+                {
+                    data = db._UserCars.Where(a => a.ToCountry == item.ToCountry);
+                }
+                if (!string.IsNullOrEmpty(item.ToRegion))
+                {
+                    data = db._UserCars.Where(a => a.ToRegion == item.ToRegion);
+                }
+                if (!string.IsNullOrEmpty(item.ToCity))
+                {
+                    data = db._UserCars.Where(a => a.ToCity == item.ToCity);
+                }
+                if (!string.IsNullOrEmpty(item.CarType))
+                {
+                    data = db._UserCars.Where(a => a.CarType == item.CarType);
+                }
+                if (!string.IsNullOrEmpty(item.LoadingType))
+                {
+                    data = db._UserCars.Where(a => a.LoadingType == item.LoadingType);
+                }
+                if (!string.IsNullOrEmpty(item.DateOfSending))
+                {
+                    data = db._UserCars.Where(a => a.DateOfSending == item.DateOfSending);
+
+                }
+            }
+            return data;
+            //throw new NotImplementedException();
         }
 
         public UserCars Get(int? id)

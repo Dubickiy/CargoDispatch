@@ -9,5 +9,9 @@ namespace CargoDispath.Controllers.ViewController
         {
             return View();
         }
+        public ActionResult AllCars()
+        {
+            return View();
+        }
     }
 }

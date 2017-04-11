@@ -36,25 +36,25 @@
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><i class="fa fa-sticky-note-o" aria-hidden="true"></i> Разместить <span class="caret"></span></a>
                             <ul class="dropdown-menu">
                                 <li><a href="/LocateCargo/Locate">Разместить груз</a></li>
-                                <li><a href="/PlaceCar/Index">Разместить авто</a></li>
+                                <li><a href="/LocateCar/LocateCar">Разместить авто</a></li>
                             </ul>
                         </li>
                         <li class="dropdown">
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><i class="fa fa-search fa-lg" aria-hidden="true"></i> Поиск <span class="caret"></span></a>
                             <ul class="dropdown-menu">
-                                <li><a href="/SearchCar/Index">Поиск автомобилей</a></li>
+                                <li><a href="/Search/SearchCar">Поиск автомобилей</a></li>
                                 <li><a href="/Search/Search">Поиск грузов</a></li>
                             </ul>
                         </li>
                         
                         
                         <li><a href="/AllCargos/AllCargos"><i class="fa fa-archive fa-lg" aria-hidden="true"></i> Все грузы</a></li>
-                        <li><a href="/PlaceCar/AllVehicle"><i class="fa fa-car fa-lg" aria-hidden="true"></i> Все авто</a></li>
+                        <li><a href="/AllCargos/AllCars"><i class="fa fa-car fa-lg" aria-hidden="true"></i> Все авто</a></li>
                         <li class="dropdown">
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><i class="fa fa-user-circle fa-lg" aria-hidden="true"></i> Личный кабинет <span class="caret"></span></a>
                             <ul class="dropdown-menu">
                                 <li><a href="/UserCargo/AllUserCargos">Мои грузы</a></li>
-                                <li><a href="#">Мои авто</a></li>
+                                <li><a href="/MyCars/AllCars">Мои авто</a></li>
                                 <li><a href="/MyCars/AddCar">Добавить авто</a></li>
                             </ul>
                         </li>
@@ -76,5 +76,6 @@
         @RenderSection("scripts", required: false)
         <script src="~/Scripts/MyScripts/AddCargo.js"></script>
         <script src="~/Scripts/MyScripts/VehicleType.js"></script>
+        <script src="~/Scripts/MyScripts/AddCar.js"></script>
 </body>
 </html>

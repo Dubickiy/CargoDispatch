@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNet.Identity.EntityFramework;
+using System;
 
 namespace CargoDispath.Models
 {
@@ -8,7 +9,8 @@ namespace CargoDispath.Models
         {
             
         }
-        public int Year { get; set; }
-       
+        public String Name { get; set; }
+        public String Surname { get; set; }
+
     }
 }

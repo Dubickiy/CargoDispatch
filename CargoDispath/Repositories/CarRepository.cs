@@ -3,6 +3,7 @@ using CargoDispath.DAL.Entities;
 using CargoDispath.DAL.Interfaces;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace CargoDispath.DAL.Repositories
 {
@@ -54,7 +55,8 @@ namespace CargoDispath.DAL.Repositories
 
         public IEnumerable<Car> GetUserAll(string UserId)
         {
-            throw new NotImplementedException();
+            return db._Cars.Where(a => a.UserId == UserId);
+            //throw new NotImplementedException();
         }
 
         public void Update(Car item)

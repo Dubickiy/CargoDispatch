@@ -1,0 +1,109 @@
+﻿
+@{
+    ViewBag.Title = "Разместить автомобиль";
+}
+<div class="body-container">
+    <div id="alertSuccessCar" class="alert" role="alert" style="float:right"></div>
+    <div class="round-rectangle add">
+        <div class="container">
+            @*<div class="row">
+                    <div id="alertSuccessCargo" class="alert" role="alert"></div>
+                </div>*@
+            <h2 class="section-title">Добавление объявления о транспорте</h2>
+            <form method="post" id="form3">
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label for="from">Откуда *</label>
+                            <select class="form-control input-margin-bottom" id="fromcountry1" name="FromCountry" required>
+                                <option selected disabled>Страна</option>
+                            </select>
+                            <select class="form-control input-margin-bottom" id="fromregion1" name="FromRegion" required>
+                                <option selected disabled>Область</option>
+                            </select>
+                            @*<input type="text" class="form-control input-margin-bottom" id="fromcountry" placeholder="Страна" name="FromCountry" required>*@
+                            @*<input type="text" class="form-control input-margin-bottom" id="fromregion" placeholder="Область" name="FromRegion" required>*@
+                            <input type="text" class="form-control input-margin-bottom" id="fromcity1" placeholder="Город" name="FromCity" required>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label for="where">Куда *</label>
+                            <select class="form-control input-margin-bottom" id="tocountry1" name="ToCountry">
+                                <option selected disabled>Страна</option>
+                            </select>
+                            <select class="form-control input-margin-bottom" id="toregion1" name="ToRegion">
+                                <option selected disabled>Область</option>
+                            </select>
+                            @*<input type="text" class="form-control input-margin-bottom" id="tocountry" placeholder="Страна" name="ToCountry" required>
+                                <input type="text" class="form-control input-margin-bottom" id="toregion" placeholder="Область" name="ToRegion" required>*@
+                            <input type="text" class="form-control input-margin-bottom" id="tocity1" placeholder="Город" name="ToCity" required>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label>Выберите автомобиль</label>
+                            <select class="form-control input-margin-bottom" id="cars1" name="Car">
+                                <option value="" disabled selected>--Выберите автомобиль--</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label>Тип транспорта *</label>
+                            <select class="form-control" id="car2" required name="CarType"></select>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <label for="weight">Грузоподъемность *</label>
+                        <div class="input-group">
+                            <input type="number" class="form-control" id="weight2" name="Weight" min="0" required>
+                            <span class="input-group-addon">тонн</span>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <label for="volume">Объем *</label>
+                        <div class="input-group">
+                            <input type="number" class="form-control" id="volume2" name="Volume" min="0" pattern="\d*" required>
+                            <span class="input-group-addon">куб. м</span>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label for="loading2">Тип погрузки *</label>
+                            <select class="form-control" id="loading2" name="LoadingType" required></select>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <label for="cargo-period">Период возможной отправки *</label>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="input-group">
+                                    <span class="input-group-addon">c</span>
+                                    <input type="text" class="form-control " id="dp7" name="DateOfSending" required>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="input-group">
+                                    <span class="input-group-addon">по</span>
+                                    <input type="text" class="form-control " id="dp8" name="DateOfSending" required>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-11" style="margin-top:5%">
+                        <div class="form-group">
+                            <input type="checkbox" id="electron2" name="isElectron"> Только "Электронная заявка"<br /><br />
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <button type="reset" id="reset" class="btn btn-default btn-lg btn-block btn-margin-top">Очистить</button>
+                    </div>
+                    <div class="col-md-6">
+                        <button type="submit" id="add" class="btn btn-primary btn-lg btn-block btn-margin-top">Разместить объявление</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
