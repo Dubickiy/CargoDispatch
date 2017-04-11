@@ -1,0 +1,87 @@
+﻿@model CargoDispath.Models.RegisterModel
+@{
+    ViewBag.Title = "Регистрация";
+}
+<div class="body-container">
+    <div class="round-rectangle log">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4 col-md-offset-3">
+                    <h2 class="section-title">Регистрация</h2>
+                </div>
+            </div>     
+            <form method="post" action="/Account/Register">
+                @Html.AntiForgeryToken()
+                <div class="row">
+                    <div class="col-md-6 col-md-offset-3">
+                        <div class="form-group">
+                            <label>Имя</label>
+                            <div class="input-group">
+                                <span class="input-group-addon"><i class="fa fa-user fa" aria-hidden="true"></i></span>
+                                <input type="text" class="input-group input-margin-bottom form-control" name="Name" />
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-6 col-md-offset-3">
+                        <div class="form-group">
+                            <label>Фамилия</label>
+                            <div class="input-group">
+                                <span class="input-group-addon"><i class="fa fa-user fa" aria-hidden="true"></i></span>
+                                <input type="text" class="input-group input-margin-bottom form-control" name="Surname" />
+                            </div>
+                          
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-6 col-md-offset-3">
+                        <div class="form-group">
+                            <label>Электронный адрес</label>
+                            <div class="input-group">
+                                <span class="input-group-addon"><i class="fa fa-envelope fa" aria-hidden="true"></i></span>
+                                <input type="email" class="input-group input-margin-bottom form-control" name="Email" required />
+                            </div>
+                            <span class="error">@Html.ValidationMessageFor(model => model.Email)</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-6 col-md-offset-3">
+                        <div class="form-group">
+                            <label>Пароль</label>
+                            <div class="input-group">
+                            <span class="input-group-addon"><i class="fa fa-lock fa-lg" aria-hidden="true"></i></span>
+                            <input type="password" class="input-group input-margin-bottom form-control" name="Password" required /></div>
+                            <span class="error">@Html.ValidationMessageFor(model => model.Password)</span>
+
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-6 col-md-offset-3">
+                        <div class="form-group">
+                            <label>Подтвердить пароль</label>
+                            <div class="input-group">
+                                <span class="input-group-addon"><i class="fa fa-lock fa-lg" aria-hidden="true"></i></span>
+                                <input type="password" class="input-group input-margin-bottom form-control" name="PasswordConfirm" required />
+                            </div>
+                            <span class="error">@Html.ValidationMessageFor(model => model.PasswordConfirm)</span>
+
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-6 col-md-offset-3">
+                        <button type="submit" class="btn btn-primary btn-lg btn-block">Регистрация</button>
+                    </div>
+                </div>
+            </form>
+
+        </div>
+
+    </div>
+</div>
+
+

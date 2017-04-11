@@ -1,0 +1,131 @@
+﻿/* Set padding to keep content from hitting the edges */
+.body-content {
+	padding-left: 15px;
+	padding-right: 15px;
+}
+
+/* Override the default bootstrap behavior where horizontal description lists 
+   will truncate terms that are too long to fit in the left column 
+*/
+.dl-horizontal dt {
+	white-space: normal;
+}
+
+/* Set width on the form input elements since they're 100% wide by default */
+input,
+select,
+textarea {
+	/*max-width: 280px;*/
+}
+
+
+#canvas1{
+	  border:1px solid #ccc;
+}
+
+
+.navbar-nav > li > a, .navbar-brand {
+	line-height: 50px;
+	font-size: 16px;
+}
+
+
+.navbar-default .navbar-brand {
+	font-size: 20px;
+	font-weight: bold;
+}
+
+.body-container {
+	margin-top: 100px;
+}
+
+.round-rectangle {
+	background-color: rgb(248, 248, 248);
+	margin: 0px auto;
+	border-radius: 20px;
+}
+
+.round-rectangle.add {
+	width: 1000px;
+}
+.round-rectangle.log {
+	width: 600px;
+}
+
+.round-rectangle.search {
+	width: 1300px;
+}
+.round-rectangle .container {
+	padding: 25px 15px 40px;
+}
+
+.round-rectangle.add .container {
+	width: 850px;
+}
+
+.add-cargo-form {
+	width: 850px;
+	margin: 0px auto;
+	padding: 20px 0px 40px;
+}
+.border {
+	border-bottom:2px solid #c7c6c6;
+}
+
+.form-group {
+	margin-bottom: 25px;
+}
+
+.form-control {
+	height: 40px;
+}
+
+.section-title {
+	margin-bottom: 40px;
+	font-weight: bold;
+	padding-bottom: 5px;
+}
+
+.input-margin-bottom {
+	margin-bottom: 5px;
+}
+
+.btn-margin-top {
+	margin-top: 20px;
+}
+
+.search-results {
+	width: 1300px;
+	margin: 60px auto 0px;
+}
+.all-cars-result{
+	width:1300px;
+	margin:60px auto 0px;
+}
+
+.glyphicon-remove-entry {
+	color: #d00000;
+}
+
+.glyphicon-remove-entry:hover {
+	cursor: pointer;
+}
+textarea{
+	resize:none;
+}
+
+.alert{
+	width:290px;
+	height:70px;
+}
+  .carousel{
+	background: #2f4357;
+	margin-top: 20px;
+}
+.carousel .item img{
+	margin: 0 auto;
+	height:300px; 
+}
+.error{
+	color:red;
+}
