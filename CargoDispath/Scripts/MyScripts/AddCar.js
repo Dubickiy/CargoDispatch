@@ -105,7 +105,7 @@ $(function () {
     $("#tb9").on("click", "#delete", function () {
         var i = $(this).closest('tr').attr('data-id');
         console.log(i);
-        removeCar(i);
+        removeUserCar(i);
     });
 });
 function AddVehicle() {
@@ -139,20 +139,20 @@ function AddVehicle() {
         data: JSON.stringify(vehicle),
         contentType: "application/json;charset=utf-8",
         success: function (response) {
-            SuccessAlert();
-            var load = setTimeout(function () {
-                $("#alertSuccessCar").empty();
-                $("#alertSuccessCar").hide();
-            }, 3000);
+            //SuccessAlert();
+            //var load = setTimeout(function () {
+            //    $("#alertSuccessCar").empty();
+            //    $("#alertSuccessCar").hide();
+            //}, 3000);
         }
     });
 }
-function SuccessAlert() {
-    $("#alertSuccessCargo").addClass("alert-success");
-    $("#alertSuccessCargo").addClass("glyphicon glyphicon-ok");
-    $("#alertSuccessCargo").append("   Груз добавлен");
-    $("#alertSuccessCargo").show();
-}
+//function SuccessAlert() {
+//    $("#alertSuccessCar").addClass("alert-success");
+//    $("#alertSuccessCar").addClass("glyphicon glyphicon-ok");
+//    $("#alertSuccessCar").append("   Груз добавлен");
+//    $("#alertSuccessCar").show();
+//}
 function ShowAllVehicle() {
     var table = $("#tb5");
     $.ajax({
@@ -214,7 +214,7 @@ function showAllUserCar() {
         }
     });
 }
-function removeCar(id) {
+function removeUserCar(id) {
     var tableContent = $("td");
     $.ajax({
         url: "/api/usercar/Delete/" + id,

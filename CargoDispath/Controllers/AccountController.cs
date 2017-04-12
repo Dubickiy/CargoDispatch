@@ -44,6 +44,8 @@ namespace CargoDispath.Controllers
                 ApplicationUser user = new ApplicationUser();
                 user.UserName = model.Email;
                 user.Email = model.Email;
+                user.Surname = model.Surname;
+                user.Name = model.Name;
                 IdentityResult result = await UserManager.CreateAsync(user, model.Password);
                 if (result.Succeeded)
                 {

@@ -20,5 +20,6 @@ namespace CargoDispath.Controllers.ViewController
         {
             return View();
         }
+        
     }
 }

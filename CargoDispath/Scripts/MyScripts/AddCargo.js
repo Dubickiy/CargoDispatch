@@ -200,11 +200,13 @@ $(function () {
     });
     $("#tb2").on("click", "#infoCargo", function () {
         var i = $(this).closest('tr').attr('data-id');
+        console.log(i);
         setCargoInfo(i);
 
 
     });
-    $("#tb4").on("click", "#deletecar", function () {
+    $("#tb4").on("click", "#deletecar1", function () {
+        console.log("Clicked");
         var i = $(this).closest('tr').attr('data-id');
         removeCar(i);
     });
@@ -239,7 +241,7 @@ $(function () {
 
 function setCargoInfo(id) {
     $.ajax({
-        url: "/Search/GetCargoInfo",
+        url: "/Search/SearchCargoInfo",
         type: "GET",
         data: { 'id': id },
         success: function (response) {
@@ -302,9 +304,11 @@ function AddCargo() {
     });
 }
 function SuccessAlert() {
+    $("#alertSuccessCargo").empty();
+    $("#alertSuccessCargo").hide();
     $("#alertSuccessCargo").addClass("alert-success");
-    $("#alertSuccessCargo").addClass("glyphicon glyphicon-ok");
-    $("#alertSuccessCargo").append("   Машина добавлена");
+    $("#alertSuccessCargo").append('<i class="fa fa-check-circle fa-lg" aria-hidden="true"></i><strong style="padding-left:15%"> Груз добавлен</strong>');
+    //$("#alertSuccessCargo").append("   <strong>Машина добавлена</strong>");
     $("#alertSuccessCargo").show();
 }
 function getAllCars() {
@@ -324,7 +328,7 @@ function getAllCars() {
                 else {
                     hasTrailer = 'Нет'
                 }
-                var btnDelete = '<span id="deletecar" class="glyphicon glyphicon-remove glyphicon-remove-entry"></span>';
+                var btnDelete = '<span id="deletecar1" class="glyphicon glyphicon-remove glyphicon-remove-entry"></span>';
                 var linkCarPhoto = '<span data-toggle="modal" data-target="#myModal"><a id="getPhoto" style="cursor:pointer">Посмотреть</a></span>';
                 var linkTechPhoto = '<span data-toggle="modal" data-target="#myModal"><a id="TechPhoto" style="cursor:pointer">Посмотреть</a></span>';
                 table.append("<tr data-id=" + item.Id + ">" + "<td>" + item.Name + "</td><td>"
@@ -374,7 +378,7 @@ function removeCargo(id) {
         type: "DELETE",
         success: function (data) {
             tableContent.remove();
-            showAllCargos();
+            showAllUserCargos();
         }
     });
 }
@@ -961,19 +965,26 @@ function getPhoto(id) {
             'id': id
         },
         success: function (response) {
-            for (var i = 0 ; i < response.length ; i++) {
-                if (response[i].Name == "CarPhoto") {
-                    $('<div class="item"><img src="' + 'data:image/png;base64,' + response[i].Value + '"><div class="carousel-caption"></div>   </div>').appendTo('.carousel-inner');
-                    $('<li data-target="#carousel-example-generic" data-slide-to="' + i + '"></li>').appendTo('.carousel-indicators')
+                for (var i = 0 ; i < response.length ; i++) {
+                    if (response[i].Name == "CarPhoto") {
+                        $('<div class="item"><img src="' + 'data:image/png;base64,' + response[i].Value + '"><div class="carousel-caption"></div>   </div>').appendTo('.carousel-inner');
+                        $('<li data-target="#carousel-example-generic" data-slide-to="' + i + '"></li>').appendTo('.carousel-indicators')
+                        $('.item').first().addClass('active');
+                        $('.carousel-indicators > li').first().addClass('active');
+                        $('#carousel-example-generic').carousel();
+                    }
+                    else {
+                       
+                    }
+                    //$('<div class="item"><img src="' +'data:image/png;base64,' + response[i].Value + '"><div class="carousel-caption"></div>   </div>').appendTo('.carousel-inner');
+                    //$('<li data-target="#carousel-example-generic" data-slide-to="' + i + '"></li>').appendTo('.carousel-indicators')
+                   
                 }
-                //$('<div class="item"><img src="' +'data:image/png;base64,' + response[i].Value + '"><div class="carousel-caption"></div>   </div>').appendTo('.carousel-inner');
-                //$('<li data-target="#carousel-example-generic" data-slide-to="' + i + '"></li>').appendTo('.carousel-indicators')
-
+               
             }
-            $('.item').first().addClass('active');
-            $('.carousel-indicators > li').first().addClass('active');
-            $('#carousel-example-generic').carousel();
-        }
+
+            
+        
     })
 }
 function getTechPhoto(id) {

@@ -87,5 +87,7 @@ namespace CargoDispath.Controllers.ViewController
 
             return Json(data, JsonRequestBehavior.AllowGet);
         }
+      
+            
     }
 }

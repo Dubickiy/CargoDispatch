@@ -44,7 +44,7 @@ namespace CargoDispath.Models
 
             // создаем письмо: message.Destination - адрес получателя
             var mail = new MailMessage(from, message.Destination);
-            mail.Subject = message.Subject;
+            mail.Subject = "CargoDispatch confirm email";
             mail.Body = message.Body;
             mail.IsBodyHtml = true;
 

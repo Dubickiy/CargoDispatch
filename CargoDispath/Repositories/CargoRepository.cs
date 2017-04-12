@@ -37,7 +37,7 @@ namespace CargoDispath.DAL.Repositories
             if (item.IsElectronic)
             {
                 if (item.FromCountry != "" & item.FromRegion != "" & item.FromCity != "" & item.ToCounry != "" & item.ToRegion != "" & item.ToCity != ""
-                    & item.LoadingType != "" & item.CarType != "")
+                    & item.LoadingType != "" & item.CarType != "" & item.Volume != 0 & item.Weight != 0)
                 {
                     data = db._Cargos.Where(a => a.IsElectronic == item.IsElectronic && a.FromCountry == item.FromCountry
                     && a.FromRegion == item.FromRegion
@@ -46,7 +46,9 @@ namespace CargoDispath.DAL.Repositories
                     && a.ToRegion == item.ToRegion
                     && a.ToCity == item.ToCity
                     && a.LoadingType == item.LoadingType
-                    && a.CarType == item.CarType);
+                    && a.CarType == item.CarType
+                    && a.Volume == item.Volume
+                    && a.Weight == item.Weight);
                 }
                 if (!string.IsNullOrEmpty(item.FromCountry))
                 {
@@ -86,12 +88,20 @@ namespace CargoDispath.DAL.Repositories
                     data = db._Cargos.Where(a => a.IsElectronic == item.IsElectronic && a.TimeOfNeccessaryLoading == item.TimeOfNeccessaryLoading);
 
                 }
+                if (item.Weight != 0)
+                {
+                    data = db._Cargos.Where(a =>a.IsElectronic == item.IsElectronic && a.Weight == item.Weight);
+                }
+                if (item.Weight != 0)
+                {
+                    data = db._Cargos.Where(a => a.IsElectronic == item.IsElectronic && a.Volume == item.Volume);
+                }
 
             }
             else
             {
                 if (item.FromCountry != "" & item.FromRegion != "" & item.FromCity != "" & item.ToCounry != "" & item.ToRegion != "" & item.ToCity != ""
-                   & item.LoadingType != "" & item.CarType != "")
+                   & item.LoadingType != "" & item.CarType != "" & item.Weight != 0 & item.Volume != 0)
                 {
                     data = db._Cargos.Where(a =>a.FromCountry == item.FromCountry
                     && a.FromRegion == item.FromRegion
@@ -100,7 +110,9 @@ namespace CargoDispath.DAL.Repositories
                     && a.ToRegion == item.ToRegion
                     && a.ToCity == item.ToCity
                     && a.LoadingType == item.LoadingType
-                    && a.CarType == item.CarType);
+                    && a.CarType == item.CarType
+                    && a.Weight == item.Weight
+                    && a.Volume == item.Volume);
                 }
                 if (!string.IsNullOrEmpty(item.FromCountry))
                 {
@@ -139,6 +151,14 @@ namespace CargoDispath.DAL.Repositories
                 {
                     data = db._Cargos.Where(a => a.TimeOfNeccessaryLoading == item.TimeOfNeccessaryLoading);
 
+                }
+                if (item.Weight != 0)
+                {
+                    data = db._Cargos.Where(a =>a.Weight == item.Weight);
+                }
+                if (item.Weight != 0)
+                {
+                    data = db._Cargos.Where(a =>  a.Volume == item.Volume);
                 }
             }
             return data;
