@@ -51,6 +51,12 @@ textarea {
 .round-rectangle.log {
 	width: 600px;
 }
+.round-rectangle.info {
+	width: 600px;
+}
+.infoelement{
+	margin-top:25px;
+}
 
 .round-rectangle.search {
 	width: 1300px;

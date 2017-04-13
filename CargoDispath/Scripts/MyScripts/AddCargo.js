@@ -201,7 +201,7 @@ $(function () {
     $("#tb2").on("click", "#infoCargo", function () {
         var i = $(this).closest('tr').attr('data-id');
         console.log(i);
-        setCargoInfo(i);
+        window.location.href = "/Search/SearchCargoInfo?id=" + i;
 
 
     });
@@ -243,9 +243,9 @@ function setCargoInfo(id) {
     $.ajax({
         url: "/Search/SearchCargoInfo",
         type: "GET",
-        data: { 'id': id },
+        data:{'id':id},
         success: function (response) {
-            //window.location.href = "/Search/CargoInfo"
+            window.location.href = "/Search/SearchCargoInfo"
         }
     });
 }
@@ -307,7 +307,7 @@ function SuccessAlert() {
     $("#alertSuccessCargo").empty();
     $("#alertSuccessCargo").hide();
     $("#alertSuccessCargo").addClass("alert-success");
-    $("#alertSuccessCargo").append('<i class="fa fa-check-circle fa-lg" aria-hidden="true"></i><strong style="padding-left:15%"> Груз добавлен</strong>');
+    $("#alertSuccessCargo").append('<i class="fa fa-check-circle fa-lg" aria-hidden="true"></i><strong class="text-center" style="padding-left:15%"> Груз добавлен</strong>');
     //$("#alertSuccessCargo").append("   <strong>Машина добавлена</strong>");
     $("#alertSuccessCargo").show();
 }

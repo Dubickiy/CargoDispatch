@@ -210,6 +210,7 @@
     <Compile Include="Controllers\ViewController\AllCargosController.cs" />
     <Compile Include="Controllers\ViewController\LocateCarController.cs" />
     <Compile Include="Controllers\ViewController\MyCarsController.cs" />
+    <Compile Include="Controllers\ViewController\ProfileController.cs" />
     <Compile Include="Controllers\ViewController\UserCargoController.cs" />
     <Compile Include="Controllers\ViewController\LocateCargoController.cs" />
     <Compile Include="Controllers\ViewController\SearchController.cs" />
@@ -312,7 +313,7 @@
     <Content Include="Views\AllCargos\AllCars.cshtml" />
     <Content Include="Views\UserCargo\AllUserCars.cshtml" />
     <Content Include="Views\Search\SearchCargoInfo.cshtml" />
-    <Content Include="Views\Search\SearchCargoInfo1.cshtml" />
+    <Content Include="Views\Profile\ProfilePage.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

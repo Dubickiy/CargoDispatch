@@ -22,18 +22,16 @@ namespace CargoDispath.Controllers.ViewController
         {
             return View();
         }
+
+
         [HttpGet]
         public ActionResult SearchCargoInfo(int? id)
         {
             Cargo cargo = unitOfWork.Cargos.Get(id);
-            if (cargo != null)
-            {
-                ViewBag.Cargo = cargo.Name;
-                return RedirectToAction("SearchCargoInfo", "Search");
-            }
+            ViewBag.From = cargo;
             return View(cargo);
             //return View("~/Views/Search/SearchCargoInfo.cshtml");
         }
-      
+
     }
 }

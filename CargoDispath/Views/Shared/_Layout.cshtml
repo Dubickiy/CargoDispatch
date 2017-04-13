@@ -46,25 +46,23 @@
                                 <li><a href="/Search/Search">Поиск грузов</a></li>
                             </ul>
                         </li>
-                        
-                        
-                        <li><a href="/AllCargos/AllCargos"><i class="fa fa-archive fa-lg" aria-hidden="true"></i> Все грузы</a></li>
-                        <li><a href="/AllCargos/AllCars"><i class="fa fa-car fa-lg" aria-hidden="true"></i> Все авто</a></li>
+                        <li><a href="/MyCars/AllCars"><i class="fa fa-car fa-lg" aria-hidden="true"></i> Автопарк</a></li>
                         <li class="dropdown">
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><i class="fa fa-user-circle fa-lg" aria-hidden="true"></i> Личный кабинет <span class="caret"></span></a>
                             <ul class="dropdown-menu">
+                                <li><a href="/Profile/ProfilePage">Профиль</a></li>
                                 <li><a href="/UserCargo/AllUserCargos">Мои грузы</a></li>
                                 <li><a href="/UserCargo/AllUserCars">Мои авто</a></li>
-                                <li><a href="/MyCars/AllCars">Автопарк</a></li>
-                                <li><a href="/MyCars/AddCar">Добавить авто</a></li>
+                                @*<li><a href="/MyCars/AddCar">Добавить авто</a></li>*@
                             </ul>
                         </li>
+                        @*<li><a href="/AllCargos/AllCargos"><i class="fa fa-archive fa-lg" aria-hidden="true"></i></a></li>
+                        <li><a href="/AllCargos/AllCars"><i class="fa fa-car fa-lg" aria-hidden="true"></i></a></li>*@
                         <li><a href="/Account/Logout"><span class="glyphicon glyphicon-log-out" aria-hidden="true"></span></a></li>
                     }
                     else
                     {
                         <li><a href="/Account/Register">Регистрация</a></li>
-
                         <li><a href="/Account/Login"><span class="glyphicon glyphicon-log-in" aria-hidden="true"></span></a></li>
                     }
                     
