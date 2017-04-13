@@ -102,7 +102,7 @@ namespace CargoDispath.Controllers
                         {
                             IsPersistent = true
                         }, claim);
-                        if (String.IsNullOrEmpty(returnUrl))
+                        if (String.IsNullOrEmpty(returnUrl)) 
                             return RedirectToAction("Index", "Home");
                         return Redirect(returnUrl);
 

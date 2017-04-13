@@ -146,20 +146,25 @@ function AddVehicle() {
         data: JSON.stringify(vehicle),
         contentType: "application/json;charset=utf-8",
         success: function (response) {
-            //SuccessAlert();
-            //var load = setTimeout(function () {
-            //    $("#alertSuccessCar").empty();
-            //    $("#alertSuccessCar").hide();
-            //}, 3000);
+            SuccessCarAlert();
+            var load = setTimeout(function () {
+                $("#alertSuccessCar").empty();
+                $("#alertSuccessCar").hide();
+            }, 3000);
         }
     });
 }
-//function SuccessAlert() {
-//    $("#alertSuccessCar").addClass("alert-success");
-//    $("#alertSuccessCar").addClass("glyphicon glyphicon-ok");
-//    $("#alertSuccessCar").append("   Груз добавлен");
-//    $("#alertSuccessCar").show();
-//}
+function SuccessCarAlert() {
+    $("#alertSuccessCar").empty();
+    $("#alertSuccessCar").hide();
+    $("#alertSuccessCar").addClass("alert-success");
+    $("#alertSuccessCar").addClass("text-center");
+    $("#alertSuccessCar").append('<i class="fa fa-check-circle fa-lg" aria-hidden="true"></i>'
+            + '<strong class="text-center"> Груз добавлен</strong>'
+           + '<p>Перейти:<a href="/UserCargo/AllUserCars" class="alert-link">Мои авто</a></p>');
+    //$("#alertSuccessCargo").append("   <strong>Машина добавлена</strong>");
+    $("#alertSuccessCar").show();
+}
 function ShowAllVehicle() {
     var table = $("#tb5");
     $.ajax({
@@ -193,7 +198,7 @@ function ShowAllVehicle() {
 function showAllUserCar() {
     var table = $("#tb9");
     $.ajax({
-        url: "/api/usercars/GetAll",
+        url: "/api/usercars/GetUserAll",
         type: "GET",
         success: function (response) {
             $.each(response, function (key, item) {

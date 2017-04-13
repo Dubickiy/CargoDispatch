@@ -294,7 +294,7 @@ function AddCargo() {
         contentType: "application/json;charset=utf-8",
         success: function (data) {
             //showInTable(data.id);
-            SuccessAlert();
+            SuccessCargoAlert();
             var load = setTimeout(function () {
                 $("#alertSuccessCargo").empty();
                 $("#alertSuccessCargo").hide();
@@ -303,7 +303,7 @@ function AddCargo() {
         }
     });
 }
-function SuccessAlert() {
+function SuccessCargoAlert() {
     $("#alertSuccessCargo").empty();
     $("#alertSuccessCargo").hide();
     $("#alertSuccessCargo").addClass("alert-success");
