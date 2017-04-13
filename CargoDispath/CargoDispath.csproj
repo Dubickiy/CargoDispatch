@@ -314,6 +314,7 @@
     <Content Include="Views\UserCargo\AllUserCars.cshtml" />
     <Content Include="Views\Search\SearchCargoInfo.cshtml" />
     <Content Include="Views\Profile\ProfilePage.cshtml" />
+    <Content Include="Views\Search\SearchCarInfo.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

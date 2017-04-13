@@ -7,6 +7,13 @@ $(function () {
         AddVehicle();
 
     });
+    $("#tb6").on("click", "#infoCar", function () {
+        var i = $(this).closest('tr').attr('data-id');
+        console.log(i);
+        window.location.href = "/Search/SearchCarInfo?id=" + i;
+
+
+    });
     $("#search1").click(function () {
         SearchCar();
     });
@@ -286,7 +293,7 @@ function SearchCar() {
                 else {
                     checked = '<input type="checkbox" disabled>'
                 }
-                table.append('<tr  data-id=' + item.Id + ">" + '<td >' + from + "</td>" + '<td  >' + to + "</td><td>"
+                table.append('<tr id="infoCar" data-id=' + item.Id + ">" + '<td >' + from + "</td>" + '<td  >' + to + "</td><td>"
                      + item.CarType + "</td><td>"
                      + item.Weight + "</td><td>"
                      + item.Volume + "</td><td>"

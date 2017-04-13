@@ -307,7 +307,10 @@ function SuccessAlert() {
     $("#alertSuccessCargo").empty();
     $("#alertSuccessCargo").hide();
     $("#alertSuccessCargo").addClass("alert-success");
-    $("#alertSuccessCargo").append('<i class="fa fa-check-circle fa-lg" aria-hidden="true"></i><strong class="text-center" style="padding-left:15%"> Груз добавлен</strong>');
+    $("#alertSuccessCargo").addClass("text-center");
+    $("#alertSuccessCargo").append('<i class="fa fa-check-circle fa-lg" aria-hidden="true"></i>'
+            + '<strong class="text-center"> Груз добавлен</strong>'
+           + '<p>Перейти:<a href="/UserCargo/AllUserCargos" class="alert-link">Мои грузы</a></p>');
     //$("#alertSuccessCargo").append("   <strong>Машина добавлена</strong>");
     $("#alertSuccessCargo").show();
 }
@@ -655,7 +658,7 @@ function showAllUserCargos() {
                     checked = '<input type="checkbox" disabled>'
                 }
                 table.append('<tr  data-id=' + item.Id + ">" + '<td >' + item.Id + "</td>" + '<td  >' + item.TimeOfNeccessaryLoading + "</td><td>"
-                    + item.carTypes + "</td><td>"
+                    + item.CarType + "</td><td>"
                     + item.FromRegion + ',' + '<p>' + item.FromCity + '</p>' + "</td><td>"
                     + item.ToRegion + ',' + '<p>' + item.ToCity + '</p>' + "</td><td>"
                     + item.Name + "</td><td>"
