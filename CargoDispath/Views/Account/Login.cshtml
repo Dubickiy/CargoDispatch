@@ -6,13 +6,13 @@
     <div class="round-rectangle log">
         <div class="container">
             <div class="row">
-                <div class="col-md-6 col-md-offset-3">
+                <div class="col-md-6 col-md-offset-2">
                 <h2 class="section-title">Вход на сайт</h2>
                 </div>
             </div>
             <form action="/Account/Login" method="post">
                 @Html.AntiForgeryToken()
-                <div class="row ">
+                <div class="row" style="display: none;">
                     <div class="col-md-6">
                         <div class="form-group">
                             <input type="hidden" name="returnUrl" class="input-group input-margin-bottom form-control" value="@ViewBag.returnUrl" />
@@ -20,7 +20,7 @@
                     </div>
                 </div>
                 <div class="row">
-                    <div class="col-md-6 col-md-offset-3">
+                    <div class="col-md-8 col-md-offset-2">
                         <div class="form-group">
                             <label>Электронный адрес</label>
                             <div class="input-group">
@@ -32,7 +32,7 @@
                     </div>
                 </div>
                 <div class="row">
-                    <div class="col-md-6 col-md-offset-3">
+                    <div class="col-md-8 col-md-offset-2">
                         <div class="form-group">
                             <label>Пароль</label>
                             <div class="input-group">
@@ -45,7 +45,7 @@
                     </div>
                 </div>
                 <div class="row">
-                    <div class="col-md-6 col-md-offset-3">
+                    <div class="col-md-8 col-md-offset-2">
                         <button type="submit" class="btn btn-primary btn-lg btn-block">Войти</button>
                     </div>
                 </div>
