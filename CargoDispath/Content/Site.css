@@ -5,10 +5,11 @@
 }
 
 body {
-    height: 100vh;
     background-image: url('../content/Images/road.png');
     -webkit-background-size: cover;
     background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
 }
 
 /* Override the default bootstrap behavior where horizontal description lists 
