@@ -1,4 +1,5 @@
 ﻿using CargoDispath.DAL.EF;
+using CargoDispath.DAL.Entities;
 using System.Data.Entity;
 using System.Linq;
 using System.Web.Mvc;
@@ -8,8 +9,12 @@ namespace CargoDispath.Controllers.ViewController
     {
         private CargoContext db = new CargoContext("DBConnection");
         // GET: LocateCargo
-        public ActionResult Locate()
+        public ActionResult Locate([Bind(Include = "Name")] Cargo cargo)
         {
+            if (cargo == null)
+            {
+                return View();
+            }
             return View();
         }
         public ActionResult GetCountries()

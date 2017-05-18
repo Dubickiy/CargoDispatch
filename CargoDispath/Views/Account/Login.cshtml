@@ -7,7 +7,7 @@
         <div class="container">
             <div class="row">
                 <div class="col-md-6 text-center">
-                <h2 class="section-title">Вход на сайт</h2>
+                    <h2 class="section-title">Вход на сайт</h2>
                 </div>
             </div>
             <form action="/Account/Login?ReturnUrl=@ViewBag.returnUrl" method="post">
@@ -19,10 +19,10 @@
                         </div>
                     </div>
                 </div>
-                <div class="row" @*style="display: none;"*@>
+                <div class="row" style="display: none;">
                     <div class="col-md-6 text-center">
                         <div class="form-group">
-                          <span style="color:lightgreen">@ViewBag.errorMessage</span>      
+                            <span style="color:lightgreen">@ViewBag.errorMessage</span>
                         </div>
                     </div>
                 </div>
@@ -46,7 +46,7 @@
                                 <span class="input-group-addon"><i class="fa fa-lock fa-lg" aria-hidden="true"></i></span>
                                 <input type="password" class="input-group input-margin-bottom form-control" name="Password" required />
                             </div>
-                            
+
                             <span class="error">@Html.ValidationMessageFor(model => model.Password)</span>
                         </div>
                     </div>
@@ -70,3 +70,5 @@
         </div>
     </div>
 </div>
+
+

@@ -13,7 +13,27 @@ var usedAu = userId;
 var cargoSession;
 "use strict";
 $(function () {
-    
+   
+    var myObj = JSON.parse(sessionStorage.getItem("cargo"));
+    var warningToast = sessionStorage.getItem("warning");
+    if (myObj != undefined) {
+        //alert("Done");
+        $('#name').val(myObj.Name);
+        $('#fromcountry').val(myObj.FromCountry),
+        $("#fromregion").val(myObj.FromRegion),
+        $('#fromcity').val(myObj.FromCity),
+        $('#tocountry').val(myObj.ToCountry),
+        $('#toregion').val(myObj.ToRegion),
+        $('#tocity').val(myObj.ToCity),
+        //$('#dp').val(myObj.T) + ' - ' + $('#dp1').val(),
+        $('#weight').val(myObj.Weight),
+        $('#volume').val(myObj.Volume),
+        $('#price').val(myObj.Price),
+        $('#loading').val(myObj.LoadingType),
+        $('#car').val(myObj.CarType)
+        sessionStorage.clear();
+    }
+    warningToastr(warningToast);
     getCountries();
     getLoadingTypes();
     getCarTypes();
@@ -78,7 +98,7 @@ $(function () {
 
 
 
-    });
+    }).on();
     $("#tocountry").change(function () {
         var country = "";
         $("#tocountry option:selected").each(function () {
@@ -257,16 +277,7 @@ $(function () {
         $("#fromcitysearch").val('');
     });
 });
-function isSession() {
-    //alert(cargoSession);
-    var casrgoSession = JSON.parse(localStorage.getItem("cargo"));
-    
-    if (cargoSession != null) {
-        alert("Done");
-        $("#name").val(cargo.Name);
-        alert("Done2");
-    }
-}
+
 function setCargoInfo(id) {
     $.ajax({
         url: "/Search/SearchCargoInfo",
@@ -279,9 +290,17 @@ function setCargoInfo(id) {
 }
 function getCargo(cargos) {
     cargo = cargos;
-    alert(cargo);
-}
 
+}
+function warningToastr(toast) {
+    if (toast) {
+        toastr.warning("Пожалуйста, войдите в систему для того, чтобы разместить объявление");
+        sessionStorage.clear();
+    }
+    else {
+
+    }
+}
 function AddCargo() {
     var dateObj = new Date();
     var month = dateObj.getUTCMonth() + 1;
@@ -325,14 +344,17 @@ function AddCargo() {
         success: function (data) {
             if (usedAu == "false") {
                 sessionStorage.setItem("cargo", JSON.stringify(cargo));
-               window.location.href = "/Account/Login?ReturnUrl=/LocateCargo/Locate&errorMessage=Пожалуйста, войдите в систему для того, чтобы разместить объявление";
+                sessionStorage.setItem("warning", true);
+                var myObj = JSON.parse(sessionStorage.getItem("cargo"));
+                
+                window.location.href = "/Account/Login?ReturnUrl=/LocateCargo/Locate?&errorMessage=Пожалуйста, войдите в систему для того, чтобы разместить объявление";
                
                 
             }
             else {
                 toastr.success("Объявление добавлено");
-                sessionStorage.setItem("cargo", JSON.stringify(cargo));
-                
+               // sessionStorage.setItem("cargo", JSON.stringify(cargo));
+                sessionStorage.clear();
                 //SuccessCargoAlert();
                 //var load = setTimeout(function () {
                 //    $("#alertSuccessCargo").empty();
