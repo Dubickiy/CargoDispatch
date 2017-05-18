@@ -1,0 +1,131 @@
+﻿@{
+    ViewBag.Title = "Разместить груз";
+}
+<div class="body-container">
+    <div id="alertSuccessCargo" class="alert" role="alert" style="float:right">
+    </div>
+    <div class="round-rectangle add">
+        <div class="container">
+            @*<div class="row">
+                    <div id="alertSuccessCargo" class="alert" role="alert"></div>
+                </div>*@
+            <h2 class="section-title">Добавление объявления о грузе</h2>
+            <form method="post" id="form1">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="form-group">
+                            <label for="name">Название *</label>
+                            <input type="text" class="form-control" id="name" name="Name" required>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label for="from">Откуда *</label>
+                            <select class="form-control input-margin-bottom" id="fromcountry" name="FromCountry" required>
+                                <option selected disabled>Страна</option>
+                            </select>
+                            <select class="form-control input-margin-bottom" id="fromregion" name="FromRegion" required>
+                                <option selected disabled>Область</option>
+                            </select>
+                            @*<input type="text" class="form-control input-margin-bottom" id="fromcountry" placeholder="Страна" name="FromCountry" required>*@
+                            @*<input type="text" class="form-control input-margin-bottom" id="fromregion" placeholder="Область" name="FromRegion" required>*@
+                            <input type="text" class="form-control input-margin-bottom" id="fromcity" placeholder="Город" name="FromCity" required>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label for="where">Куда *</label>
+                            <select class="form-control input-margin-bottom" id="tocountry" name="ToCountry">
+                                <option selected disabled>Страна</option>
+                            </select>
+                            <select class="form-control input-margin-bottom" id="toregion" name="ToRegion">
+                                <option selected disabled>Область</option>
+                            </select>
+                            @*<input type="text" class="form-control input-margin-bottom" id="tocountry" placeholder="Страна" name="ToCountry" required>
+                                <input type="text" class="form-control input-margin-bottom" id="toregion" placeholder="Область" name="ToRegion" required>*@
+                            <input type="text" class="form-control input-margin-bottom" id="tocity" placeholder="Город" name="ToCity" required>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <label for="weight">Вес *</label>
+                        <div class="input-group">
+                            <input type="number" class="form-control" id="weight" name="Weight" min="0" required>
+                            <span class="input-group-addon">тонн</span>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <label for="volume">Объем *</label>
+                        <div class="input-group">
+                            <input type="number" class="form-control" id="volume" name="Volume" min="0" pattern="\d*" required>
+                            <span class="input-group-addon">куб. м</span>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label for="loading">Тип погрузки *</label>
+                            <select class="form-control" id="loading" name="LoadingType" ></select>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <label for="cargo-period">Период необходимой погрузки *</label>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="input-group">
+                                    <span class="input-group-addon">c</span>
+                                    <input type="text" class="form-control " id="dp" name="TimeOfNeccessaryLoading" >
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="input-group">
+                                    <span class="input-group-addon">по</span>
+                                    <input type="text" class="form-control " id="dp1" name="TimeOfNeccessaryLoading" required>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label for="car">Тип кузова *</label>
+                            <select class="inputs form-control" id="car" name="CarType" ></select>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <label for="price">Сумма оплаты</label>
+                        <div class="input-group">
+                            <input type="number" class="form-control" id="price" name="Price" min="0">
+                            <span class="input-group-addon">грн.</span>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label for="price-type">Вид оплаты</label>
+                            <select class="inputs form-control" id="price-type">
+                                <option>Наличными</option>
+                                <option>БГ с ПДВ</option>
+                                <option>На карту</option>
+                                <option>БГ</option>
+                                <option>Софт</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="col-md-11">
+                        <div class="form-group">
+                            <input type="checkbox" id="electron" name="IsElectron"> Только "Электронная заявка"<br /><br />
+                            <input type="checkbox" id="rate"> Доступно перевозчикам с рейтингом не ниже
+                            <input type="radio" id="ckb1" class="radio-button" name="radio-group" disabled checked="checked" /> 2
+                            <input type="radio" id="ckb2" class="radio-button" name="radio-group" disabled /> 3
+                            <input type="radio" id="ckb3" class="radio-button" name="radio-group" disabled /> 4
+                            <input type="radio" id="ckb4" class="radio-button" name="radio-group" disabled /> 5
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <button type="reset" id="reset" class="btn btn-default btn-lg btn-block btn-margin-top">Очистить</button>
+                    </div>
+                    <div class="col-md-6">
+                        <button type="submit" id="add" class="btn btn-primary btn-lg btn-block btn-margin-top">Разместить объявление</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

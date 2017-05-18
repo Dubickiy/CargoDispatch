@@ -1,0 +1,63 @@
+﻿@model CargoDispath.Entities.UserCars
+@{
+    ViewBag.Title = "Информация об авто";
+}
+<div class="body-container">
+    <div class="round-rectangle info">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12"><h2 class="section-title text-center">Информация об авто</h2></div>
+            </div>
+            <div class="row text-center infoelement">
+                <div class="col-md-3 col-md-offset-2">
+                    Откуда
+                </div>
+                <div class="col-md-3 col-md-offset-2">
+                    @Model.FromCity, @Model.FromCountry
+                </div>
+            </div>
+            <div class="row text-center infoelement">
+                <div class="col-md-3 col-md-offset-2">
+                    Куда
+                </div>
+                <div class="col-md-3 col-md-offset-2">
+                    @Model.ToCity, @Model.ToRegion.
+                </div>
+            </div>
+            <div class="row text-center infoelement">
+                <div class="col-md-3 col-md-offset-2">
+                    Дата отпарвки
+                </div>
+                <div class="col-md-3 col-md-offset-2">
+                    @Model.DateOfSending
+                </div>
+            </div>
+            <div class="row text-center infoelement">
+                <div class="col-md-3 col-md-offset-2">
+                    Тип транспорта
+                </div>
+                <div class="col-md-3 col-md-offset-2">
+                    @Model.CarType
+                </div>
+            </div>
+            <div class="row text-center infoelement">
+                <div class="col-md-3 col-md-offset-2">
+                    Масса
+                </div>
+                <div class="col-md-3 col-md-offset-2">
+                    @Model.Weight
+                </div>
+            </div>
+            <div class="row text-center infoelement">
+                <div class="col-md-3 col-md-offset-2">
+                    Загрузка
+                </div>
+                <div class="col-md-3 col-md-offset-2">
+                    @Model.LoadingType
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+

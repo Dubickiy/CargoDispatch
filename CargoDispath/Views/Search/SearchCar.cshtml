@@ -1,0 +1,116 @@
+﻿
+@{
+    ViewBag.Title = "Поиск автомобилей";
+}
+<div class="body-container">
+    <div class="round-rectangle search">
+        <div class="container">
+            <h2 class="section-title">Поиск автомобилей</h2>
+            <form id="form2" method="get">
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label>Откуда</label>
+                                    <select class="form-control input-margin-bottom" id="fromcountrysearch1" name="FromCountry">
+                                        <option selected disabled>Страна</option>
+                                    </select>
+                                    <select class="form-control input-margin-bottom" id="fromregionsearch1" name="FromRegion">
+                                        <option selected disabled>Область</option>
+                                    </select>
+                                    @*<input type="text" class="form-control input-margin-bottom" id="fromcountrysearch" placeholder="Страна">
+                                        <input type="text" class="form-control input-margin-bottom" id="fromregionsearch" placeholder="Область">*@
+                                    <input type="text" class="form-control input-margin-bottom" id="fromcitysearch1" placeholder="Город" name="FromCity">
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label>Куда</label>
+                                    <select class="form-control input-margin-bottom" id="tocountrysearch1" name="ToCountry">
+                                        <option selected disabled>Страна</option>
+                                    </select>
+                                    <select class="form-control input-margin-bottom" id="toregionsearch1" name="ToRegion">
+                                        <option selected disabled>Область</option>
+                                    </select>
+                                    @*<input type="text" class="form-control input-margin-bottom" id="tocountrysearch" placeholder="Страна">
+                                        <input type="text" class="form-control input-margin-bottom" id="toregionsearch" placeholder="Область">*@
+                                    <input type="text" class="form-control input-margin-bottom" id="tocitysearch1" placeholder="Город" name="ToCity">
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label>Автомобиль</label>
+                                    <select class="form-control input-margin-bottom" id="car3" name="carTypes">
+                                        <option value="" disabled selected style="color:gray">Тип кузова</option>
+                                    </select>
+                                    <select class="form-control input-margin-bottom" id="loading3" name="loadingTypes">
+                                        <option value="" disabled selected style="color:gray">Тип погрузки</option>
+                                    </select>
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <div class="input-group">
+                                                <input type="number" class="form-control" id="weight2" min="0" name="Weight">
+                                                <span class="input-group-addon small-padding">тонн</span>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <div class="input-group">
+                                                <input type="number" class="form-control" id="volume3" min="0" name="Volume">
+                                                <span class="input-group-addon small-padding">куб. м</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="input-margin-bottom">
+                                    <input type="checkbox" id="electron3" name="isElectronic"> Только "Электронная заявка"
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <label>Дата</label>
+                                <div class="input-group input-margin-bottom">
+                                    <span class="input-group-addon">c</span>
+                                    <input type="text" class="form-control" id="dp9">
+                                </div>
+                                <div class="input-group input-margin-bottom">
+                                    <span class="input-group-addon">по</span>
+                                    <input type="text" class="form-control" id="dp10">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <button type="reset" class="btn btn-default btn-lg btn-block btn-margin-top">Очистить</button>
+                            </div>
+                            <div class="col-md-6">
+                                <button type="button" id="search1" class="btn btn-primary btn-lg btn-block btn-margin-top">Поиск</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4 form-group">
+                        <label>Карта</label>
+                        <div id="canvas1" style="height: 33.7em; width:39em;"></div>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+    <div class="search-results">
+        <table class="table table-hover" id="tb6">
+            <thead>
+                <tr class="names">
+                    <th>Откуда</th>
+                    <th>Куда</th>
+                    <th>Транспорт</th>
+                    <th>Вес</th>
+                    <th>Объем</th>
+                    <th>Дата</th>
+                    <th>Погрузка</th>
+                    <th>Заявка</th>
+                </tr>
+            </thead>
+        </table>
+    </div>
+</div>
+<script async defer
+        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAJfEV_zglc-fY_1ZtO6fVQAX89M5IDxik&signed_in=true&libraries=places&callback=initAuto"></script>

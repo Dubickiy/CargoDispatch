@@ -1,0 +1,55 @@
+﻿@model CargoDispath.Models.LoginModel
+@{
+    ViewBag.Title = "Вход";
+}
+<div class="body-container">
+    <div class="round-rectangle log">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6 col-md-offset-2">
+                <h2 class="section-title">Вход на сайт</h2>
+                </div>
+            </div>
+            <form action="/Account/Login" method="post">
+                @Html.AntiForgeryToken()
+                <div class="row" style="display: none;">
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <input type="hidden" name="returnUrl" class="input-group input-margin-bottom form-control" value="@ViewBag.returnUrl" />
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-8 col-md-offset-2">
+                        <div class="form-group">
+                            <label>Электронный адрес</label>
+                            <div class="input-group">
+                                <span class="input-group-addon"><i class="fa fa-envelope fa" aria-hidden="true"></i></span>
+                                <input type="email" class="input-group input-margin-bottom form-control" name="Email" required />
+                            </div>
+                            <span class="error">@Html.ValidationMessageFor(model => model.Email)</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-8 col-md-offset-2">
+                        <div class="form-group">
+                            <label>Пароль</label>
+                            <div class="input-group">
+                                <span class="input-group-addon"><i class="fa fa-lock fa-lg" aria-hidden="true"></i></span>
+                                <input type="password" class="input-group input-margin-bottom form-control" name="Password" required />
+                            </div>
+                            
+                            <span class="error">@Html.ValidationMessageFor(model => model.Password)</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-8 col-md-offset-2">
+                        <button type="submit" class="btn btn-primary btn-lg btn-block">Войти</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

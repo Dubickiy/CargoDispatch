@@ -1,0 +1,79 @@
+﻿@model CargoDispath.DAL.Entities.Cargo
+@{
+    ViewBag.Title = "Информация о грузе";
+}
+<div class="body-container">
+    <div class="round-rectangle info">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12"><h2 class="section-title text-center">Информация о грузе</h2></div>
+            </div>
+            <div class="row text-center infoelement">
+                <div class="col-md-3 col-md-offset-2">
+                    Откуда
+                </div>
+                <div class="col-md-3 col-md-offset-2">
+                    @Model.FromCity, @Model.FromRegion.
+                </div>
+            </div>
+            <div class="row text-center infoelement">
+                <div class="col-md-3 col-md-offset-2">
+                    Куда
+                </div>
+                <div class="col-md-3 col-md-offset-2">
+                    @Model.ToCity, @Model.ToRegion.
+                </div>
+            </div>
+            <div class="row text-center infoelement">
+                <div class="col-md-3 col-md-offset-2">
+                    Дата загрузки
+                </div>
+                <div class="col-md-3 col-md-offset-2">
+                    @Model.TimeOfNeccessaryLoading
+                </div>
+            </div>
+            <div class="row text-center infoelement">
+                <div class="col-md-3 col-md-offset-2">
+                    Тип кузова
+                </div>
+                <div class="col-md-3 col-md-offset-2">
+                    @Model.CarType
+                </div>
+            </div>
+            <div class="row text-center infoelement">
+                <div class="col-md-3 col-md-offset-2">
+                    Груз
+                </div>
+                <div class="col-md-3 col-md-offset-2">
+                    @Model.Name
+                </div>
+            </div>
+            <div class="row text-center infoelement">
+                <div class="col-md-3 col-md-offset-2">
+                    Масса
+                </div>
+                <div class="col-md-3 col-md-offset-2">
+                    @Model.Weight
+                </div>
+            </div>
+            <div class="row text-center infoelement">
+                <div class="col-md-3 col-md-offset-2">
+                    Загрузка
+                </div>
+                <div class="col-md-3 col-md-offset-2">
+                    @Model.LoadingType
+                </div>
+            </div>
+            <div class="row text-center infoelement">
+                <div class="col-md-3 col-md-offset-2">
+                    Оплата
+                </div>
+                <div class="col-md-3 col-md-offset-2">
+                    @Model.Price грн.
+                </div>
+            </div>
+            </div>
+        </div>
+    </div>
+            
+
