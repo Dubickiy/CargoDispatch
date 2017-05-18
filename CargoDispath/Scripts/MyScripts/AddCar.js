@@ -313,6 +313,10 @@ function SearchCar() {
                      + item.DateOfSending + "</td><td>"
                      + item.LoadingType + "</td><td>"
                      + checked + "</td><td id='btn'>"
+                     + "Телефон:" + item.PhoneNumber
+                     + "<br/>Пользователь:" + item.UserName
+                     + "<br/>Адрес:" + item.UserAdress
+                     + "</td></tr>"
              );
             });
         }

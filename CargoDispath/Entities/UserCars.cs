@@ -24,5 +24,8 @@ namespace CargoDispath.Entities
         public double Volume { get; set; }
         public String DateOfSending { get; set; }
         public bool IsElectronic { get; set; }
+        public String PhoneNumber { get; set; }
+        public String UserAdress { get; set; }
+        public String UserName { get; set; }
     }
 }

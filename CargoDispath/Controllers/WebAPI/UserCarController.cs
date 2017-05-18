@@ -1,7 +1,11 @@
 ﻿using CargoDispath.DAL.Repositories;
 using CargoDispath.Entities;
+using CargoDispath.Models;
 using Microsoft.AspNet.Identity;
+using Microsoft.AspNet.Identity.Owin;
+using Microsoft.Owin.Security;
 using System.Collections.Generic;
+using System.Web;
 using System.Web.Http;
 
 namespace CargoDispath.Controllers.WebAPI
@@ -10,6 +14,20 @@ namespace CargoDispath.Controllers.WebAPI
     {
         private EFUnitOfWork unitOfWork;
         string currentUserId;
+        private ApplicationUserManager UserManager
+        {
+            get
+            {
+                return HttpContext.Current.GetOwinContext().GetUserManager<ApplicationUserManager>();
+            }
+        }
+        private IAuthenticationManager AuthenticationManager
+        {
+            get
+            {
+                return HttpContext.Current.GetOwinContext().Authentication;
+            }
+        }
         public UserCarController()
         {
             unitOfWork = new EFUnitOfWork("DBConnection");
@@ -19,6 +37,11 @@ namespace CargoDispath.Controllers.WebAPI
         public void AddUserCar([FromBody] UserCars car)
         {
             currentUserId = User.Identity.GetUserId();
+            ApplicationUser user = UserManager.FindById(currentUserId);
+            var number = UserManager.GetPhoneNumber(currentUserId);
+            car.UserAdress = user.Adress;
+            car.UserName = user.Name + " " + user.Surname;
+            car.PhoneNumber = number;
             car.UserId = currentUserId;
             unitOfWork.UserCars.Create(car);
             unitOfWork.Save();

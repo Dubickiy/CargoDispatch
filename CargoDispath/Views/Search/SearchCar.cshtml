@@ -107,6 +107,10 @@
                     <th>Дата</th>
                     <th>Погрузка</th>
                     <th>Заявка</th>
+                    @if (User.Identity.IsAuthenticated)
+                    {
+                        <th>Контакты</th>
+                    }
                 </tr>
             </thead>
         </table>

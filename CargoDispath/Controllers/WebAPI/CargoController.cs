@@ -38,12 +38,6 @@ namespace CargoDispath.Controllers.WebAPI
        [Authorize]
         public   void AddCargo([FromBody] Cargo cargo)
         {
-                 var session = HttpContext.Current.Session;
-          
-            
-             isAuthorize = User.Identity.IsAuthenticated;
-            
-               
             currentUserId = User.Identity.GetUserId();
             ApplicationUser user = UserManager.FindById(currentUserId);
             var number =  UserManager.GetPhoneNumber(currentUserId);
