@@ -1,0 +1,240 @@
+c:\users\tateeda\documents\visual studio 2015\Projects\CargoDispath\CargoDispath\bin\ApplicationInsights.config
+c:\users\tateeda\documents\visual studio 2015\Projects\CargoDispath\CargoDispath\bin\roslyn\csc.exe
+c:\users\tateeda\documents\visual studio 2015\Projects\CargoDispath\CargoDispath\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
+c:\users\tateeda\documents\visual studio 2015\Projects\CargoDispath\CargoDispath\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
+c:\users\tateeda\documents\visual studio 2015\Projects\CargoDispath\CargoDispath\bin\roslyn\Microsoft.CodeAnalysis.dll
+c:\users\tateeda\documents\visual studio 2015\Projects\CargoDispath\CargoDispath\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
+c:\users\tateeda\documents\visual studio 2015\Projects\CargoDispath\CargoDispath\bin\roslyn\Microsoft.CSharp.Core.targets
+c:\users\tateeda\documents\visual studio 2015\Projects\CargoDispath\CargoDispath\bin\roslyn\Microsoft.VisualBasic.Core.targets
+c:\users\tateeda\documents\visual studio 2015\Projects\CargoDispath\CargoDispath\bin\roslyn\System.Collections.Immutable.dll
+c:\users\tateeda\documents\visual studio 2015\Projects\CargoDispath\CargoDispath\bin\roslyn\System.Reflection.Metadata.dll
+c:\users\tateeda\documents\visual studio 2015\Projects\CargoDispath\CargoDispath\bin\roslyn\vbc.exe
+c:\users\tateeda\documents\visual studio 2015\Projects\CargoDispath\CargoDispath\bin\roslyn\VBCSCompiler.exe
+c:\users\tateeda\documents\visual studio 2015\Projects\CargoDispath\CargoDispath\bin\roslyn\VBCSCompiler.exe.config
+c:\users\tateeda\documents\visual studio 2015\Projects\CargoDispath\CargoDispath\bin\CargoDispath.dll.config
+c:\users\tateeda\documents\visual studio 2015\Projects\CargoDispath\CargoDispath\bin\CargoDispath.dll
+c:\users\tateeda\documents\visual studio 2015\Projects\CargoDispath\CargoDispath\bin\CargoDispath.pdb
+c:\users\tateeda\documents\visual studio 2015\Projects\CargoDispath\CargoDispath\bin\Antlr3.Runtime.dll
+c:\users\tateeda\documents\visual studio 2015\Projects\CargoDispath\CargoDispath\bin\EntityFramework.dll
+c:\users\tateeda\documents\visual studio 2015\Projects\CargoDispath\CargoDispath\bin\EntityFramework.SqlServer.dll
+c:\users\tateeda\documents\visual studio 2015\Projects\CargoDispath\CargoDispath\bin\Microsoft.AI.Agent.Intercept.dll
+c:\users\tateeda\documents\visual studio 2015\Projects\CargoDispath\CargoDispath\bin\Microsoft.AI.DependencyCollector.dll
+c:\users\tateeda\documents\visual studio 2015\Projects\CargoDispath\CargoDispath\bin\Microsoft.AI.PerfCounterCollector.dll
+c:\users\tateeda\documents\visual studio 2015\Projects\CargoDispath\CargoDispath\bin\Microsoft.AI.ServerTelemetryChannel.dll
+c:\users\tateeda\documents\visual studio 2015\Projects\CargoDispath\CargoDispath\bin\Microsoft.AI.Web.dll
+c:\users\tateeda\documents\visual studio 2015\Projects\CargoDispath\CargoDispath\bin\Microsoft.AI.WindowsServer.dll
+c:\users\tateeda\documents\visual studio 2015\Projects\CargoDispath\CargoDispath\bin\Microsoft.ApplicationInsights.dll
+c:\users\tateeda\documents\visual studio 2015\Projects\CargoDispath\CargoDispath\bin\Microsoft.AspNet.Identity.Core.dll
+c:\users\tateeda\documents\visual studio 2015\Projects\CargoDispath\CargoDispath\bin\Microsoft.AspNet.Identity.EntityFramework.dll
+c:\users\tateeda\documents\visual studio 2015\Projects\CargoDispath\CargoDispath\bin\Microsoft.AspNet.Identity.Owin.dll
+c:\users\tateeda\documents\visual studio 2015\Projects\CargoDispath\CargoDispath\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
+c:\users\tateeda\documents\visual studio 2015\Projects\CargoDispath\CargoDispath\bin\Microsoft.Owin.dll
+c:\users\tateeda\documents\visual studio 2015\Projects\CargoDispath\CargoDispath\bin\Microsoft.Owin.Host.SystemWeb.dll
+c:\users\tateeda\documents\visual studio 2015\Projects\CargoDispath\CargoDispath\bin\Microsoft.Owin.Security.Cookies.dll
+c:\users\tateeda\documents\visual studio 2015\Projects\CargoDispath\CargoDispath\bin\Microsoft.Owin.Security.dll
+c:\users\tateeda\documents\visual studio 2015\Projects\CargoDispath\CargoDispath\bin\Microsoft.Owin.Security.OAuth.dll
+c:\users\tateeda\documents\visual studio 2015\Projects\CargoDispath\CargoDispath\bin\Microsoft.Web.Infrastructure.dll
+c:\users\tateeda\documents\visual studio 2015\Projects\CargoDispath\CargoDispath\bin\Newtonsoft.Json.dll
+c:\users\tateeda\documents\visual studio 2015\Projects\CargoDispath\CargoDispath\bin\Owin.dll
+c:\users\tateeda\documents\visual studio 2015\Projects\CargoDispath\CargoDispath\bin\System.Net.Http.Formatting.dll
+c:\users\tateeda\documents\visual studio 2015\Projects\CargoDispath\CargoDispath\bin\System.Web.Helpers.dll
+c:\users\tateeda\documents\visual studio 2015\Projects\CargoDispath\CargoDispath\bin\System.Web.Http.dll
+c:\users\tateeda\documents\visual studio 2015\Projects\CargoDispath\CargoDispath\bin\System.Web.Http.WebHost.dll
+c:\users\tateeda\documents\visual studio 2015\Projects\CargoDispath\CargoDispath\bin\System.Web.Mvc.dll
+c:\users\tateeda\documents\visual studio 2015\Projects\CargoDispath\CargoDispath\bin\System.Web.Optimization.dll
+c:\users\tateeda\documents\visual studio 2015\Projects\CargoDispath\CargoDispath\bin\System.Web.Razor.dll
+c:\users\tateeda\documents\visual studio 2015\Projects\CargoDispath\CargoDispath\bin\System.Web.WebPages.Deployment.dll
+c:\users\tateeda\documents\visual studio 2015\Projects\CargoDispath\CargoDispath\bin\System.Web.WebPages.dll
+c:\users\tateeda\documents\visual studio 2015\Projects\CargoDispath\CargoDispath\bin\System.Web.WebPages.Razor.dll
+c:\users\tateeda\documents\visual studio 2015\Projects\CargoDispath\CargoDispath\bin\WebGrease.dll
+c:\users\tateeda\documents\visual studio 2015\Projects\CargoDispath\CargoDispath\bin\EntityFramework.xml
+c:\users\tateeda\documents\visual studio 2015\Projects\CargoDispath\CargoDispath\bin\EntityFramework.SqlServer.xml
+c:\users\tateeda\documents\visual studio 2015\Projects\CargoDispath\CargoDispath\bin\Microsoft.AI.DependencyCollector.xml
+c:\users\tateeda\documents\visual studio 2015\Projects\CargoDispath\CargoDispath\bin\Microsoft.AI.ServerTelemetryChannel.xml
+c:\users\tateeda\documents\visual studio 2015\Projects\CargoDispath\CargoDispath\bin\Microsoft.AI.Web.xml
+c:\users\tateeda\documents\visual studio 2015\Projects\CargoDispath\CargoDispath\bin\Microsoft.AI.WindowsServer.xml
+c:\users\tateeda\documents\visual studio 2015\Projects\CargoDispath\CargoDispath\bin\Microsoft.ApplicationInsights.xml
+c:\users\tateeda\documents\visual studio 2015\Projects\CargoDispath\CargoDispath\bin\Microsoft.AspNet.Identity.Core.xml
+c:\users\tateeda\documents\visual studio 2015\Projects\CargoDispath\CargoDispath\bin\Microsoft.AspNet.Identity.EntityFramework.xml
+c:\users\tateeda\documents\visual studio 2015\Projects\CargoDispath\CargoDispath\bin\Microsoft.AspNet.Identity.Owin.xml
+c:\users\tateeda\documents\visual studio 2015\Projects\CargoDispath\CargoDispath\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+c:\users\tateeda\documents\visual studio 2015\Projects\CargoDispath\CargoDispath\bin\Microsoft.Owin.xml
+c:\users\tateeda\documents\visual studio 2015\Projects\CargoDispath\CargoDispath\bin\Microsoft.Owin.Host.SystemWeb.xml
+c:\users\tateeda\documents\visual studio 2015\Projects\CargoDispath\CargoDispath\bin\Microsoft.Owin.Security.xml
+c:\users\tateeda\documents\visual studio 2015\Projects\CargoDispath\CargoDispath\bin\Microsoft.Owin.Security.Cookies.xml
+c:\users\tateeda\documents\visual studio 2015\Projects\CargoDispath\CargoDispath\bin\Microsoft.Owin.Security.OAuth.xml
+c:\users\tateeda\documents\visual studio 2015\Projects\CargoDispath\CargoDispath\bin\System.Web.Helpers.xml
+c:\users\tateeda\documents\visual studio 2015\Projects\CargoDispath\CargoDispath\bin\System.Web.Mvc.xml
+c:\users\tateeda\documents\visual studio 2015\Projects\CargoDispath\CargoDispath\bin\System.Web.Optimization.xml
+c:\users\tateeda\documents\visual studio 2015\Projects\CargoDispath\CargoDispath\bin\System.Web.Razor.xml
+c:\users\tateeda\documents\visual studio 2015\Projects\CargoDispath\CargoDispath\bin\System.Web.WebPages.xml
+c:\users\tateeda\documents\visual studio 2015\Projects\CargoDispath\CargoDispath\bin\System.Web.WebPages.Deployment.xml
+c:\users\tateeda\documents\visual studio 2015\Projects\CargoDispath\CargoDispath\bin\System.Web.WebPages.Razor.xml
+c:\users\tateeda\documents\visual studio 2015\Projects\CargoDispath\CargoDispath\bin\Antlr3.Runtime.pdb
+c:\users\tateeda\documents\visual studio 2015\Projects\CargoDispath\CargoDispath\bin\Newtonsoft.Json.xml
+c:\users\tateeda\documents\visual studio 2015\Projects\CargoDispath\CargoDispath\bin\System.Net.Http.Formatting.xml
+c:\users\tateeda\documents\visual studio 2015\Projects\CargoDispath\CargoDispath\bin\System.Web.Http.xml
+c:\users\tateeda\documents\visual studio 2015\Projects\CargoDispath\CargoDispath\bin\System.Web.Http.WebHost.xml
+c:\users\tateeda\documents\visual studio 2015\Projects\CargoDispath\CargoDispath\obj\Debug\CargoDispath.csprojResolveAssemblyReference.cache
+c:\users\tateeda\documents\visual studio 2015\Projects\CargoDispath\CargoDispath\obj\Debug\CargoDispath.dll
+c:\users\tateeda\documents\visual studio 2015\Projects\CargoDispath\CargoDispath\obj\Debug\CargoDispath.pdb
+D:\CargoDispath\CargoDispath\bin\ApplicationInsights.config
+D:\CargoDispath\CargoDispath\bin\roslyn\csc.exe
+D:\CargoDispath\CargoDispath\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
+D:\CargoDispath\CargoDispath\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
+D:\CargoDispath\CargoDispath\bin\roslyn\Microsoft.CodeAnalysis.dll
+D:\CargoDispath\CargoDispath\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
+D:\CargoDispath\CargoDispath\bin\roslyn\Microsoft.CSharp.Core.targets
+D:\CargoDispath\CargoDispath\bin\roslyn\Microsoft.VisualBasic.Core.targets
+D:\CargoDispath\CargoDispath\bin\roslyn\System.Collections.Immutable.dll
+D:\CargoDispath\CargoDispath\bin\roslyn\System.Reflection.Metadata.dll
+D:\CargoDispath\CargoDispath\bin\roslyn\vbc.exe
+D:\CargoDispath\CargoDispath\bin\roslyn\VBCSCompiler.exe
+D:\CargoDispath\CargoDispath\bin\roslyn\VBCSCompiler.exe.config
+D:\CargoDispath\CargoDispath\bin\CargoDispath.dll.config
+D:\CargoDispath\CargoDispath\bin\CargoDispath.dll
+D:\CargoDispath\CargoDispath\bin\CargoDispath.pdb
+D:\CargoDispath\CargoDispath\bin\Antlr3.Runtime.dll
+D:\CargoDispath\CargoDispath\bin\EntityFramework.dll
+D:\CargoDispath\CargoDispath\bin\EntityFramework.SqlServer.dll
+D:\CargoDispath\CargoDispath\bin\Microsoft.AI.Agent.Intercept.dll
+D:\CargoDispath\CargoDispath\bin\Microsoft.AI.DependencyCollector.dll
+D:\CargoDispath\CargoDispath\bin\Microsoft.AI.PerfCounterCollector.dll
+D:\CargoDispath\CargoDispath\bin\Microsoft.AI.ServerTelemetryChannel.dll
+D:\CargoDispath\CargoDispath\bin\Microsoft.AI.Web.dll
+D:\CargoDispath\CargoDispath\bin\Microsoft.AI.WindowsServer.dll
+D:\CargoDispath\CargoDispath\bin\Microsoft.ApplicationInsights.dll
+D:\CargoDispath\CargoDispath\bin\Microsoft.AspNet.Identity.Core.dll
+D:\CargoDispath\CargoDispath\bin\Microsoft.AspNet.Identity.EntityFramework.dll
+D:\CargoDispath\CargoDispath\bin\Microsoft.AspNet.Identity.Owin.dll
+D:\CargoDispath\CargoDispath\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
+D:\CargoDispath\CargoDispath\bin\Microsoft.Owin.dll
+D:\CargoDispath\CargoDispath\bin\Microsoft.Owin.Host.SystemWeb.dll
+D:\CargoDispath\CargoDispath\bin\Microsoft.Owin.Security.Cookies.dll
+D:\CargoDispath\CargoDispath\bin\Microsoft.Owin.Security.dll
+D:\CargoDispath\CargoDispath\bin\Microsoft.Owin.Security.OAuth.dll
+D:\CargoDispath\CargoDispath\bin\Microsoft.Web.Infrastructure.dll
+D:\CargoDispath\CargoDispath\bin\Newtonsoft.Json.dll
+D:\CargoDispath\CargoDispath\bin\Owin.dll
+D:\CargoDispath\CargoDispath\bin\System.Net.Http.Formatting.dll
+D:\CargoDispath\CargoDispath\bin\System.Web.Helpers.dll
+D:\CargoDispath\CargoDispath\bin\System.Web.Http.dll
+D:\CargoDispath\CargoDispath\bin\System.Web.Http.WebHost.dll
+D:\CargoDispath\CargoDispath\bin\System.Web.Mvc.dll
+D:\CargoDispath\CargoDispath\bin\System.Web.Optimization.dll
+D:\CargoDispath\CargoDispath\bin\System.Web.Razor.dll
+D:\CargoDispath\CargoDispath\bin\System.Web.WebPages.Deployment.dll
+D:\CargoDispath\CargoDispath\bin\System.Web.WebPages.dll
+D:\CargoDispath\CargoDispath\bin\System.Web.WebPages.Razor.dll
+D:\CargoDispath\CargoDispath\bin\WebGrease.dll
+D:\CargoDispath\CargoDispath\bin\EntityFramework.xml
+D:\CargoDispath\CargoDispath\bin\EntityFramework.SqlServer.xml
+D:\CargoDispath\CargoDispath\bin\Microsoft.AI.DependencyCollector.xml
+D:\CargoDispath\CargoDispath\bin\Microsoft.AI.ServerTelemetryChannel.xml
+D:\CargoDispath\CargoDispath\bin\Microsoft.AI.Web.xml
+D:\CargoDispath\CargoDispath\bin\Microsoft.AI.WindowsServer.xml
+D:\CargoDispath\CargoDispath\bin\Microsoft.ApplicationInsights.xml
+D:\CargoDispath\CargoDispath\bin\Microsoft.AspNet.Identity.Core.xml
+D:\CargoDispath\CargoDispath\bin\Microsoft.AspNet.Identity.EntityFramework.xml
+D:\CargoDispath\CargoDispath\bin\Microsoft.AspNet.Identity.Owin.xml
+D:\CargoDispath\CargoDispath\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+D:\CargoDispath\CargoDispath\bin\Microsoft.Owin.xml
+D:\CargoDispath\CargoDispath\bin\Microsoft.Owin.Host.SystemWeb.xml
+D:\CargoDispath\CargoDispath\bin\Microsoft.Owin.Security.xml
+D:\CargoDispath\CargoDispath\bin\Microsoft.Owin.Security.Cookies.xml
+D:\CargoDispath\CargoDispath\bin\Microsoft.Owin.Security.OAuth.xml
+D:\CargoDispath\CargoDispath\bin\System.Web.Helpers.xml
+D:\CargoDispath\CargoDispath\bin\System.Web.Mvc.xml
+D:\CargoDispath\CargoDispath\bin\System.Web.Optimization.xml
+D:\CargoDispath\CargoDispath\bin\System.Web.Razor.xml
+D:\CargoDispath\CargoDispath\bin\System.Web.WebPages.xml
+D:\CargoDispath\CargoDispath\bin\System.Web.WebPages.Deployment.xml
+D:\CargoDispath\CargoDispath\bin\System.Web.WebPages.Razor.xml
+D:\CargoDispath\CargoDispath\bin\Antlr3.Runtime.pdb
+D:\CargoDispath\CargoDispath\bin\Newtonsoft.Json.xml
+D:\CargoDispath\CargoDispath\bin\System.Net.Http.Formatting.xml
+D:\CargoDispath\CargoDispath\bin\System.Web.Http.xml
+D:\CargoDispath\CargoDispath\bin\System.Web.Http.WebHost.xml
+D:\CargoDispath\CargoDispath\obj\Debug\CargoDispath.csprojResolveAssemblyReference.cache
+D:\CargoDispath\CargoDispath\obj\Debug\CargoDispath.dll
+D:\CargoDispath\CargoDispath\obj\Debug\CargoDispath.pdb
+C:\Users\Vladislav\Desktop\CargoDispath\CargoDispath\bin\ApplicationInsights.config
+C:\Users\Vladislav\Desktop\CargoDispath\CargoDispath\bin\roslyn\csc.exe
+C:\Users\Vladislav\Desktop\CargoDispath\CargoDispath\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
+C:\Users\Vladislav\Desktop\CargoDispath\CargoDispath\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
+C:\Users\Vladislav\Desktop\CargoDispath\CargoDispath\bin\roslyn\Microsoft.CodeAnalysis.dll
+C:\Users\Vladislav\Desktop\CargoDispath\CargoDispath\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
+C:\Users\Vladislav\Desktop\CargoDispath\CargoDispath\bin\roslyn\Microsoft.CSharp.Core.targets
+C:\Users\Vladislav\Desktop\CargoDispath\CargoDispath\bin\roslyn\Microsoft.VisualBasic.Core.targets
+C:\Users\Vladislav\Desktop\CargoDispath\CargoDispath\bin\roslyn\System.Collections.Immutable.dll
+C:\Users\Vladislav\Desktop\CargoDispath\CargoDispath\bin\roslyn\System.Reflection.Metadata.dll
+C:\Users\Vladislav\Desktop\CargoDispath\CargoDispath\bin\roslyn\vbc.exe
+C:\Users\Vladislav\Desktop\CargoDispath\CargoDispath\bin\roslyn\VBCSCompiler.exe
+C:\Users\Vladislav\Desktop\CargoDispath\CargoDispath\bin\roslyn\VBCSCompiler.exe.config
+C:\Users\Vladislav\Desktop\CargoDispath\CargoDispath\bin\CargoDispath.dll.config
+C:\Users\Vladislav\Desktop\CargoDispath\CargoDispath\bin\CargoDispath.dll
+C:\Users\Vladislav\Desktop\CargoDispath\CargoDispath\bin\CargoDispath.pdb
+C:\Users\Vladislav\Desktop\CargoDispath\CargoDispath\bin\Antlr3.Runtime.dll
+C:\Users\Vladislav\Desktop\CargoDispath\CargoDispath\bin\EntityFramework.dll
+C:\Users\Vladislav\Desktop\CargoDispath\CargoDispath\bin\EntityFramework.SqlServer.dll
+C:\Users\Vladislav\Desktop\CargoDispath\CargoDispath\bin\Microsoft.AI.Agent.Intercept.dll
+C:\Users\Vladislav\Desktop\CargoDispath\CargoDispath\bin\Microsoft.AI.DependencyCollector.dll
+C:\Users\Vladislav\Desktop\CargoDispath\CargoDispath\bin\Microsoft.AI.PerfCounterCollector.dll
+C:\Users\Vladislav\Desktop\CargoDispath\CargoDispath\bin\Microsoft.AI.ServerTelemetryChannel.dll
+C:\Users\Vladislav\Desktop\CargoDispath\CargoDispath\bin\Microsoft.AI.Web.dll
+C:\Users\Vladislav\Desktop\CargoDispath\CargoDispath\bin\Microsoft.AI.WindowsServer.dll
+C:\Users\Vladislav\Desktop\CargoDispath\CargoDispath\bin\Microsoft.ApplicationInsights.dll
+C:\Users\Vladislav\Desktop\CargoDispath\CargoDispath\bin\Microsoft.AspNet.Identity.Core.dll
+C:\Users\Vladislav\Desktop\CargoDispath\CargoDispath\bin\Microsoft.AspNet.Identity.EntityFramework.dll
+C:\Users\Vladislav\Desktop\CargoDispath\CargoDispath\bin\Microsoft.AspNet.Identity.Owin.dll
+C:\Users\Vladislav\Desktop\CargoDispath\CargoDispath\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
+C:\Users\Vladislav\Desktop\CargoDispath\CargoDispath\bin\Microsoft.Owin.dll
+C:\Users\Vladislav\Desktop\CargoDispath\CargoDispath\bin\Microsoft.Owin.Host.SystemWeb.dll
+C:\Users\Vladislav\Desktop\CargoDispath\CargoDispath\bin\Microsoft.Owin.Security.Cookies.dll
+C:\Users\Vladislav\Desktop\CargoDispath\CargoDispath\bin\Microsoft.Owin.Security.dll
+C:\Users\Vladislav\Desktop\CargoDispath\CargoDispath\bin\Microsoft.Owin.Security.OAuth.dll
+C:\Users\Vladislav\Desktop\CargoDispath\CargoDispath\bin\Microsoft.Web.Infrastructure.dll
+C:\Users\Vladislav\Desktop\CargoDispath\CargoDispath\bin\Newtonsoft.Json.dll
+C:\Users\Vladislav\Desktop\CargoDispath\CargoDispath\bin\Owin.dll
+C:\Users\Vladislav\Desktop\CargoDispath\CargoDispath\bin\System.Net.Http.Formatting.dll
+C:\Users\Vladislav\Desktop\CargoDispath\CargoDispath\bin\System.Web.Helpers.dll
+C:\Users\Vladislav\Desktop\CargoDispath\CargoDispath\bin\System.Web.Http.dll
+C:\Users\Vladislav\Desktop\CargoDispath\CargoDispath\bin\System.Web.Http.WebHost.dll
+C:\Users\Vladislav\Desktop\CargoDispath\CargoDispath\bin\System.Web.Mvc.dll
+C:\Users\Vladislav\Desktop\CargoDispath\CargoDispath\bin\System.Web.Optimization.dll
+C:\Users\Vladislav\Desktop\CargoDispath\CargoDispath\bin\System.Web.Razor.dll
+C:\Users\Vladislav\Desktop\CargoDispath\CargoDispath\bin\System.Web.WebPages.Deployment.dll
+C:\Users\Vladislav\Desktop\CargoDispath\CargoDispath\bin\System.Web.WebPages.dll
+C:\Users\Vladislav\Desktop\CargoDispath\CargoDispath\bin\System.Web.WebPages.Razor.dll
+C:\Users\Vladislav\Desktop\CargoDispath\CargoDispath\bin\WebGrease.dll
+C:\Users\Vladislav\Desktop\CargoDispath\CargoDispath\bin\EntityFramework.xml
+C:\Users\Vladislav\Desktop\CargoDispath\CargoDispath\bin\EntityFramework.SqlServer.xml
+C:\Users\Vladislav\Desktop\CargoDispath\CargoDispath\bin\Microsoft.AI.DependencyCollector.xml
+C:\Users\Vladislav\Desktop\CargoDispath\CargoDispath\bin\Microsoft.AI.ServerTelemetryChannel.xml
+C:\Users\Vladislav\Desktop\CargoDispath\CargoDispath\bin\Microsoft.AI.Web.xml
+C:\Users\Vladislav\Desktop\CargoDispath\CargoDispath\bin\Microsoft.AI.WindowsServer.xml
+C:\Users\Vladislav\Desktop\CargoDispath\CargoDispath\bin\Microsoft.ApplicationInsights.xml
+C:\Users\Vladislav\Desktop\CargoDispath\CargoDispath\bin\Microsoft.AspNet.Identity.Core.xml
+C:\Users\Vladislav\Desktop\CargoDispath\CargoDispath\bin\Microsoft.AspNet.Identity.EntityFramework.xml
+C:\Users\Vladislav\Desktop\CargoDispath\CargoDispath\bin\Microsoft.AspNet.Identity.Owin.xml
+C:\Users\Vladislav\Desktop\CargoDispath\CargoDispath\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+C:\Users\Vladislav\Desktop\CargoDispath\CargoDispath\bin\Microsoft.Owin.xml
+C:\Users\Vladislav\Desktop\CargoDispath\CargoDispath\bin\Microsoft.Owin.Host.SystemWeb.xml
+C:\Users\Vladislav\Desktop\CargoDispath\CargoDispath\bin\Microsoft.Owin.Security.xml
+C:\Users\Vladislav\Desktop\CargoDispath\CargoDispath\bin\Microsoft.Owin.Security.Cookies.xml
+C:\Users\Vladislav\Desktop\CargoDispath\CargoDispath\bin\Microsoft.Owin.Security.OAuth.xml
+C:\Users\Vladislav\Desktop\CargoDispath\CargoDispath\bin\System.Web.Helpers.xml
+C:\Users\Vladislav\Desktop\CargoDispath\CargoDispath\bin\System.Web.Mvc.xml
+C:\Users\Vladislav\Desktop\CargoDispath\CargoDispath\bin\System.Web.Optimization.xml
+C:\Users\Vladislav\Desktop\CargoDispath\CargoDispath\bin\System.Web.Razor.xml
+C:\Users\Vladislav\Desktop\CargoDispath\CargoDispath\bin\System.Web.WebPages.xml
+C:\Users\Vladislav\Desktop\CargoDispath\CargoDispath\bin\System.Web.WebPages.Deployment.xml
+C:\Users\Vladislav\Desktop\CargoDispath\CargoDispath\bin\System.Web.WebPages.Razor.xml
+C:\Users\Vladislav\Desktop\CargoDispath\CargoDispath\bin\Antlr3.Runtime.pdb
+C:\Users\Vladislav\Desktop\CargoDispath\CargoDispath\bin\Newtonsoft.Json.xml
+C:\Users\Vladislav\Desktop\CargoDispath\CargoDispath\bin\System.Net.Http.Formatting.xml
+C:\Users\Vladislav\Desktop\CargoDispath\CargoDispath\bin\System.Web.Http.xml
+C:\Users\Vladislav\Desktop\CargoDispath\CargoDispath\bin\System.Web.Http.WebHost.xml
+C:\Users\Vladislav\Desktop\CargoDispath\CargoDispath\obj\Debug\CargoDispath.csprojResolveAssemblyReference.cache
+C:\Users\Vladislav\Desktop\CargoDispath\CargoDispath\obj\Debug\CargoDispath.dll
+C:\Users\Vladislav\Desktop\CargoDispath\CargoDispath\obj\Debug\CargoDispath.pdb
