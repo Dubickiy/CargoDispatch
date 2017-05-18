@@ -29,16 +29,53 @@ namespace CargoDispath.Controllers
         // GET: Account
         public ActionResult Register()
         {
+            //TempData["register"] = model.Name;
             return View();
         }
-        public ActionResult Login(string returnUrl)
+        public ActionResult Login(string returnUrl, string errorMessage)
         {
             ViewBag.returnUrl = returnUrl;
+            ViewBag.errorMessage = errorMessage;
+            return View();
+        }
+        public ActionResult ForgotPassword()
+        {
+            return View();
+        }
+        [AllowAnonymous]
+        public ActionResult ForgotPasswordConfirmation()
+        {
+            return View();
+        }
+        [AllowAnonymous]
+        public ActionResult ResetPassword(string code)
+        {
+            return code == null ? View("Error") : View();
+        }
+        [AllowAnonymous]
+        public ActionResult ResetPasswordConfirmation()
+        {
+            return View();
+        }
+        [AllowAnonymous]
+        [HttpGet]
+        public ActionResult ConfirmInfo(string id)
+        {
+            ViewBag.Id = id;
             return View();
         }
         [HttpPost]
         public async Task<ActionResult> Register(RegisterModel model)
         {
+            Session["UserName"] = model.Name;
+            Session["UserSurname"] = model.Surname;
+            Session["UserEmail"] = model.Email;
+            var user_name = Session["UserName"].ToString();
+            var user_surname = Session["UserSurname"].ToString();
+            var user_email = Session["UserEmail"].ToString();
+            ViewBag.Name = user_name;
+            ViewBag.Surname = user_surname;
+            ViewBag.Email = user_email;
             if (ModelState.IsValid)
             {
                 ApplicationUser user = new ApplicationUser();
@@ -46,9 +83,13 @@ namespace CargoDispath.Controllers
                 user.Email = model.Email;
                 user.Surname = model.Surname;
                 user.Name = model.Name;
+                
+                
                 IdentityResult result = await UserManager.CreateAsync(user, model.Password);
+                
                 if (result.Succeeded)
                 {
+                    Session.Clear();
                     var code = await UserManager.GenerateEmailConfirmationTokenAsync(user.Id);
                     var callbackUrl = Url.Action("ConfirmEmail", "Account", new { userId = user.Id, code = code },
                        protocol: Request.Url.Scheme);
@@ -59,6 +100,13 @@ namespace CargoDispath.Controllers
                 }
                 else
                 {
+                    
+                   
+                    if (!string.IsNullOrEmpty(TempData["register"].ToString()))
+                    {
+                        ViewBag.Name = TempData["register"];
+                    }
+                       
                     foreach (string error in result.Errors)
                     {
                         if (model.Password.Length < 6)
@@ -83,6 +131,9 @@ namespace CargoDispath.Controllers
         [AllowAnonymous]
         public async Task<ActionResult> Login(LoginModel model, string returnUrl)
         {
+            Session["UserEmail"] = model.Email;
+            var user_email = Session["UserEmail"].ToString();
+            ViewBag.Email = user_email;
             if (ModelState.IsValid)
             {
                 ApplicationUser user = await UserManager.FindAsync(model.Email, model.Password);
@@ -95,6 +146,14 @@ namespace CargoDispath.Controllers
                 {
                     if (user.EmailConfirmed == true)
                     {
+                        if(user.PhoneNumber == null)
+                        {
+                            var usId = user.Id;
+                            return Redirect("/Account/ConfirmInfo?id="+usId);
+                            //
+                            //return RedirectToAction("ConfirmInfo", "Account", new { userId = usId});
+                        }
+                        Session.Clear();
                         ClaimsIdentity claim = await UserManager.CreateIdentityAsync(user,
                                                 DefaultAuthenticationTypes.ApplicationCookie);
                         AuthenticationManager.SignOut();
@@ -107,14 +166,15 @@ namespace CargoDispath.Controllers
                         return Redirect(returnUrl);
 
                     }
-                else
-                {
+                    else
+                    {
                     ModelState.AddModelError("Email", "Не подтвержден email.");
-                }
+                    }
 
-                }
+                    }
             }
             ViewBag.returnUrl = returnUrl;
+            
             return View(model);
         }
         public async Task<ActionResult> ConfirmEmail(string userId, string code)
@@ -127,10 +187,94 @@ namespace CargoDispath.Controllers
             return RedirectToAction("Login", "Account");
             // return View();
         }
+        [HttpPost]
+        public async Task<ActionResult> ConfirmInfo(ConfirmInfoModel model, string Id)
+        {
+
+            if (ModelState.IsValid)
+            {
+                var result = await UserManager.FindByIdAsync(Id);
+                ApplicationUser user = await UserManager.FindByIdAsync(Id);
+                
+                var identity = await UserManager.CreateIdentityAsync(user, DefaultAuthenticationTypes.ApplicationCookie);
+                var number = await UserManager.SetPhoneNumberAsync(Id, model.PhoneNumber);
+                user.Adress = model.Adress;
+                await UserManager.UpdateAsync(user);
+                //result.Adress = model.Adress;
+                //result.PhoneNumber = model.PhoneNumber;
+                if (user.EmailConfirmed == true)
+                {
+                    
+                    Session.Clear();
+                    ClaimsIdentity claim = await UserManager.CreateIdentityAsync(user,
+                                            DefaultAuthenticationTypes.ApplicationCookie);
+                    AuthenticationManager.SignOut();
+                    AuthenticationManager.SignIn(new AuthenticationProperties
+                    {
+                        IsPersistent = true
+                    }, claim);
+                    //if (String.IsNullOrEmpty(returnUrl))
+                        return RedirectToAction("Index", "Home");
+                    //return Redirect(returnUrl);
+
+                }
+                else
+                {
+                    ModelState.AddModelError("Email", "Не подтвержден email.");
+                }
+
+            }
+            return View(model);
+        }
+
         public ActionResult Logout()
         {
             AuthenticationManager.SignOut();
             return RedirectToAction("Index", "Home");
+        }
+        [HttpPost]
+        [AllowAnonymous]
+        [ValidateAntiForgeryToken]
+        public async Task<ActionResult> ForgotPassword(ForgotPasswordModel model)
+        {
+            if (ModelState.IsValid)
+            {
+                var user = await UserManager.FindByNameAsync(model.Email);
+                if (user == null || !(await UserManager.IsEmailConfirmedAsync(user.Id)))
+                {
+                    return View("ForgotPasswordConfirmation");
+                }
+                string code = await UserManager.GeneratePasswordResetTokenAsync(user.Id);
+                var callbackUrl = Url.Action("ResetPassword", "Account",
+                    new { userId = user.Id, code = code }, protocol: Request.Url.Scheme);
+                await UserManager.SendEmailAsync(user.Id, "Сброс пароля",
+                    "Для сброса пароля, перейдите по ссылке <a href=\"" + callbackUrl + "\">сбросить</a>");
+                return RedirectToAction("ForgotPasswordConfirmation", "Account");
+            }
+            return View(model);
+        }
+        [HttpPost]
+        [AllowAnonymous]
+        [ValidateAntiForgeryToken]
+        public async Task<ActionResult> ResetPassword(ResetPassword model, string code)
+        {
+            if (!ModelState.IsValid)
+            {
+                return View(model);
+            }
+            var user = await UserManager.FindByNameAsync(model.Email);
+            if (user == null)
+            {
+                // Не показывать, что пользователь не существует
+                return RedirectToAction("ResetPasswordConfirmation", "Account");
+            }
+            var result = await UserManager.ResetPasswordAsync(user.Id, model.Code, model.Password);
+            if (result.Succeeded)
+            {
+                return RedirectToAction("ResetPasswordConfirmation", "Account");
+            }
+            //AddErrors(result);
+            return View();
         }
     }
 

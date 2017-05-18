@@ -112,7 +112,13 @@
                     <th>Погрузка</th>
                     <th>Оплата</th>
                     <th>Размещено</th>
+
                     <th>Э. з.</th>
+                    @if (User.Identity.IsAuthenticated)
+                    {
+                        <th>Контакты</th>
+                    }
+                    
                 </tr>
             </thead>
         </table>

@@ -9,9 +9,11 @@ var map1, autocomplete;
 //var Countries = [
 //    name:"Украина",
 //]
-
+var usedAu = userId;
+var cargoSession;
 "use strict";
 $(function () {
+    
     getCountries();
     getLoadingTypes();
     getCarTypes();
@@ -19,6 +21,23 @@ $(function () {
     showAllUserCargos();
     showAllCargos();
     getAllCars();
+    toastr.options = {
+        "closeButton": false,
+        "debug": false,
+        "newestOnTop": false,
+        "progressBar": false,
+        "positionClass": "toast-top-right",
+        "preventDuplicates": false,
+        "onclick": null,
+        "showDuration": "300",
+        "hideDuration": "1000",
+        "timeOut": "5000",
+        "extendedTimeOut": "1000",
+        "showEasing": "swing",
+        "hideEasing": "linear",
+        "showMethod": "fadeIn",
+        "hideMethod": "fadeOut"
+    }
     var dateObj = new Date();
     var month = dateObj.getUTCMonth() + 1;
     var day = dateObj.getUTCDate();
@@ -238,7 +257,16 @@ $(function () {
         $("#fromcitysearch").val('');
     });
 });
-
+function isSession() {
+    //alert(cargoSession);
+    var casrgoSession = JSON.parse(localStorage.getItem("cargo"));
+    
+    if (cargoSession != null) {
+        alert("Done");
+        $("#name").val(cargo.Name);
+        alert("Done2");
+    }
+}
 function setCargoInfo(id) {
     $.ajax({
         url: "/Search/SearchCargoInfo",
@@ -253,6 +281,7 @@ function getCargo(cargos) {
     cargo = cargos;
     alert(cargo);
 }
+
 function AddCargo() {
     var dateObj = new Date();
     var month = dateObj.getUTCMonth() + 1;
@@ -287,18 +316,31 @@ function AddCargo() {
         LoadingType: $('#loading').val(),
         CarType: $('#car').val()
     };
+    
     $.ajax({
         url: '/api/cargo/AddCargo',
         type: 'POST',
         data: JSON.stringify(cargo),
         contentType: "application/json;charset=utf-8",
         success: function (data) {
+            if (usedAu == "false") {
+                sessionStorage.setItem("cargo", JSON.stringify(cargo));
+               window.location.href = "/Account/Login?ReturnUrl=/LocateCargo/Locate&errorMessage=Пожалуйста, войдите в систему для того, чтобы разместить объявление";
+               
+                
+            }
+            else {
+                toastr.success("Объявление добавлено");
+                sessionStorage.setItem("cargo", JSON.stringify(cargo));
+                
+                //SuccessCargoAlert();
+                //var load = setTimeout(function () {
+                //    $("#alertSuccessCargo").empty();
+                //    $("#alertSuccessCargo").hide();
+                //}, 3000);
+            }
             //showInTable(data.id);
-            SuccessCargoAlert();
-            var load = setTimeout(function () {
-                $("#alertSuccessCargo").empty();
-                $("#alertSuccessCargo").hide();
-            }, 3000);
+            
 
         }
     });
@@ -768,18 +810,40 @@ function searchCargo() {
                 else {
                     checked = '<input type="checkbox" disabled>'
                 }
-                table.append('<tr id="infoCargo" data-id=' + item.Id + '>' + "<td>" + item.TimeOfNeccessaryLoading + "</td><td>"
-                    + item.CarType+ "</td><td>"
+
+                if (usedAu == "false") {
+                    table.append('<tr id="infoCargo" data-id=' + item.Id + '>' + "<td>" + item.TimeOfNeccessaryLoading + "</td><td>"
+                    + item.CarType + "</td><td>"
                     + item.FromRegion + ',' + '<p>' + item.FromCity + '</p>' + "</td><td>"
-                    + item.ToRegion + ',' + '<p>' + item.ToCity + '</p>' + "</td><td>"
+                     + item.ToRegion + ',' + '<p>' + item.ToCity + '</p>' + "</td><td>"
                     + item.Name + "</td><td>"
                     + item.Weight + "</td><td>"
                     + item.Volume + "</td><td>"
                     + item.LoadingType + "</td><td>"
-                    + item.Price + "</td><td>"
-                    + today + "</td><td>"
+                     + item.Price + "</td><td>"
+                     + today + "</td><td>"
                     + checked + "</td></tr>"
-            );
+                    );
+                }
+                else {
+                    table.append('<tr id="infoCargo" data-id=' + item.Id + '>' + "<td>" + item.TimeOfNeccessaryLoading + "</td><td>"
+                        + item.CarType + "</td><td>"
+                        + item.FromRegion + ',' + '<p>' + item.FromCity + '</p>' + "</td><td>"
+                        + item.ToRegion + ',' + '<p>' + item.ToCity + '</p>' + "</td><td>"
+                        + item.Name + "</td><td>"
+                        + item.Weight + "</td><td>"
+                        + item.Volume + "</td><td>"
+                        + item.LoadingType + "</td><td>"
+                        + item.Price + "</td><td>"
+                        + today + "</td><td>"
+                        + checked + "</td><td>"
+                        + "Телефон:" + item.PhoneNumber
+                        + "<br/>Пользователь:" + item.UserName
+                        + "<br/>Адрес:" + item.UserAdress
+                        + "</td></tr>"
+                    );
+                }
+
             });
         }
     });

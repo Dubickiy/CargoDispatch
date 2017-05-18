@@ -8,12 +8,10 @@ namespace CargoDispath.Controllers.ViewController
     {
         private CargoContext db = new CargoContext("DBConnection");
         // GET: LocateCargo
-        [Authorize]
         public ActionResult Locate()
         {
             return View();
         }
-        [Authorize]
         public ActionResult GetCountries()
         {
             db._Countries.Load();
@@ -21,7 +19,6 @@ namespace CargoDispath.Controllers.ViewController
 
             return Json(data, JsonRequestBehavior.AllowGet);
         }
-        [Authorize]
         public ActionResult GetRegions(string id)
         {
 
@@ -29,14 +26,12 @@ namespace CargoDispath.Controllers.ViewController
             var data = db._Regions.Where(a => a.Country.Name == id);
             return Json(data, JsonRequestBehavior.AllowGet);
         }
-        [Authorize]
         public ActionResult GetLoadingTypes()
         {
             db._LoadignTypes.Load();
             var data = db._LoadignTypes.ToList();
             return Json(data, JsonRequestBehavior.AllowGet);
         }
-        [Authorize]
         [HttpGet]
         public ActionResult GetCarTypes()
         {

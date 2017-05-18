@@ -1,4 +1,5 @@
-﻿"use strict";
+﻿var usedAu1 = userId;
+"use strict";
 $(function () {
     ShowAllVehicle();
     showAllUserCar();
@@ -146,11 +147,18 @@ function AddVehicle() {
         data: JSON.stringify(vehicle),
         contentType: "application/json;charset=utf-8",
         success: function (response) {
-            SuccessCarAlert();
-            var load = setTimeout(function () {
-                $("#alertSuccessCar").empty();
-                $("#alertSuccessCar").hide();
-            }, 3000);
+            if (usedAu1 == "false") {
+                window.location.href = "/Account/Login?ReturnUrl=/LocateCar/LocateCar&errorMessage=Пожалуйста, войдите в систему для того, чтобы разместить объявление";
+            }
+            else {
+                toastr.success("Объявление добавлено");
+                //SuccessCarAlert();
+                //var load = setTimeout(function () {
+                //    $("#alertSuccessCar").empty();
+                //    $("#alertSuccessCar").hide();
+                //}, 3000);
+            }
+            
         }
     });
 }

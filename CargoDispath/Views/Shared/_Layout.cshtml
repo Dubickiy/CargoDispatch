@@ -7,13 +7,16 @@
     @Styles.Render("~/Content/css")
     @Scripts.Render("~/bundles/modernizr")
     @Scripts.Render("~/bundles/jquery")
+    <link href="~/Content/toastr.css" rel="stylesheet" />
     <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
     <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
     <script src="https://code.jquery.com/ui/1.10.4/jquery-ui.js"></script>
+    
     <link rel="stylesheet" href="~/Content/font-awesome.min.css">
     <link rel="stylesheet" href="~/Content/font-awesome.css">
     <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+   
 </head>
 <body>
     <nav class="navbar navbar-default navbar-fixed-top">
@@ -70,10 +73,16 @@
             </div>
         </div>
     </nav>
+   
         @RenderBody()
         @RenderSection("scripts", required: false)
+    <script>
+        var userId = "@User.Identity.IsAuthenticated".toLowerCase();
+    </script>
         <script src="~/Scripts/MyScripts/AddCargo.js"></script>
         <script src="~/Scripts/MyScripts/VehicleType.js"></script>
         <script src="~/Scripts/MyScripts/AddCar.js"></script>
+        <script src="~/Scripts/toastr.js"></script>
+        
 </body>
 </html>

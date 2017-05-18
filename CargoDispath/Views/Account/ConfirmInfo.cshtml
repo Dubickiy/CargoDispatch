@@ -1,0 +1,63 @@
+﻿@model CargoDispath.Models.ConfirmInfoModel
+@{
+    ViewBag.Title = "Личная информация";
+}
+
+<div class="body-container">
+    <div class="round-rectangle log">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6 text-center">
+                    <h2 class="section-title">Личная информация</h2>
+                </div>
+            </div>
+            <form method="post" action="/Account/ConfirmInfo?Id=@ViewBag.Id">
+                @Html.AntiForgeryToken()
+                @*<div class="row" style="display: none;">
+                    <div class="col-md-6 text-center">
+                        <div class="form-group">
+                            <span style="color:lightgreen">@ViewBag.returnUrl</span>
+                        </div>
+                    </div>
+                </div>*@
+                <div class="row" style="display: none;">
+                    <div class="col-md-6 text-center">
+                        <div class="form-group">
+                            <span style="color:lightgreen">@ViewBag.Id</span>
+                        </div>
+                    </div>
+                </div>
+              
+                <div class="row">
+                    <div class="col-md-4 col-md-offset-1">
+                        <div class="form-group">
+                            <label>Номер телефона</label>
+                            <div class="input-group">
+                                <span class="input-group-addon"><i class="fa fa-mobile fa" aria-hidden="true"></i></span>
+                                <input type="text" class="input-group input-margin-bottom form-control" name="PhoneNumber" />
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-4 col-md-offset-1">
+                        <div class="form-group">
+                            <label>Адрес</label>
+                            <div class="input-group">
+                                <span class="input-group-addon"><i class="fa fa-address-card-o fa" aria-hidden="true"></i></span>
+                                <input type="text" class="input-group input-margin-bottom form-control" name="Adress" />
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-md-4 col-md-offset-1">
+                        <button type="submit" class="btn btn-primary btn-lg btn-block">Заполнить</button>
+                    </div>
+                </div>
+            </form>
+            </div>
+        </div>
+    </div>

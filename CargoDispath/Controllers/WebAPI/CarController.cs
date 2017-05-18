@@ -16,6 +16,7 @@ namespace CargoDispath.Controllers.WebAPI
         }
         [Route("api/car/AddCar")]
         [HttpPost]
+        [Authorize]
         public void AddCar([FromBody] Car car)
         {
             currentUserId = User.Identity.GetUserId();

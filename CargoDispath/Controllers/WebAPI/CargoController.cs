@@ -1,7 +1,11 @@
 ﻿using CargoDispath.DAL.Entities;
 using CargoDispath.DAL.Repositories;
+using CargoDispath.Models;
 using Microsoft.AspNet.Identity;
+using Microsoft.AspNet.Identity.Owin;
+using Microsoft.Owin.Security;
 using System.Collections.Generic;
+using System.Web;
 using System.Web.Http;
 
 namespace CargoDispath.Controllers.WebAPI
@@ -10,23 +14,53 @@ namespace CargoDispath.Controllers.WebAPI
     {
         private EFUnitOfWork unitOfWork;
         string currentUserId;
+        bool isAuthorize;
+        private ApplicationUserManager UserManager
+        {
+            get
+            {
+                return HttpContext.Current.GetOwinContext().GetUserManager<ApplicationUserManager>();
+            }
+        }
+        private IAuthenticationManager AuthenticationManager
+        {
+            get
+            {
+                return HttpContext.Current.GetOwinContext().Authentication;
+            }
+        }
         public CargoController()
         {
             unitOfWork = new EFUnitOfWork("DBConnection");
         }
+        
         [Route("api/cargo/AddCargo")]
-        [HttpPost]
-        public void AddCargo([FromBody] Cargo cargo)
+       [Authorize]
+        public   void AddCargo([FromBody] Cargo cargo)
         {
+                 var session = HttpContext.Current.Session;
+          
+            
+             isAuthorize = User.Identity.IsAuthenticated;
+            
+               
             currentUserId = User.Identity.GetUserId();
+            ApplicationUser user = UserManager.FindById(currentUserId);
+            var number =  UserManager.GetPhoneNumber(currentUserId);
             cargo.UserId = currentUserId;
+            cargo.PhoneNumber = number;
+            cargo.UserName = user.Name + " " + user.Surname;
+            cargo.UserAdress = user.Adress;
             unitOfWork.Cargos.Create(cargo);
             unitOfWork.Save();
+           
+            
         }
         [Route("api/cargo/GetUserAll")]
         [HttpGet]
         public IEnumerable<Cargo> GetUserAll()
         {
+            
             currentUserId = User.Identity.GetUserId();
             return unitOfWork.Cargos.GetUserAll(currentUserId);
         }

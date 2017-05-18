@@ -11,6 +11,7 @@ namespace CargoDispath.Models
         }
         public String Name { get; set; }
         public String Surname { get; set; }
+        public String Adress { get; set; }
 
     }
 }

@@ -22,6 +22,9 @@ namespace CargoDispath.DAL.Entities
         public bool IsElectronic { get; set; }
         public String LoadingType { get; set; }
         public String CarType { get; set; }
+        public String PhoneNumber { get; set; }
+        public String UserAdress { get; set; }
+        public String UserName { get; set; }
 
     }
 }

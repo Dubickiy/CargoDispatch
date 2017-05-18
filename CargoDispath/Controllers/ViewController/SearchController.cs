@@ -13,12 +13,12 @@ namespace CargoDispath.Controllers.ViewController
             unitOfWork = new EFUnitOfWork("DBConnection");
         }
         // GET: Search
-        [Authorize]
+        [AllowAnonymous]
         public ActionResult Search()
         {
             return View();
         }
-        [Authorize]
+        [AllowAnonymous]
         public ActionResult SearchCar()
         {
             return View();
