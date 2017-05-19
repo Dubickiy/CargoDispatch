@@ -15,25 +15,28 @@ var cargoSession;
 $(function () {
    
     var myObj = JSON.parse(sessionStorage.getItem("cargo"));
-    var warningToast = sessionStorage.getItem("warning");
+    var warningToast = JSON.parse(localStorage.getItem("toast"));
     if (myObj != undefined) {
-        //alert("Done");
         $('#name').val(myObj.Name);
-        $('#fromcountry').val(myObj.FromCountry),
-        $("#fromregion").val(myObj.FromRegion),
-        $('#fromcity').val(myObj.FromCity),
-        $('#tocountry').val(myObj.ToCountry),
-        $('#toregion').val(myObj.ToRegion),
-        $('#tocity').val(myObj.ToCity),
+        $('#fromcountry').val(myObj.FromCountry);
+        $("#fromregion").val(myObj.FromRegion);
+        $('#fromcity').val(myObj.FromCity);
+        $('#tocountry').val(myObj.ToCountry);
+        $('#toregion').val(myObj.ToRegion);
+        $('#tocity').val(myObj.ToCity);
         //$('#dp').val(myObj.T) + ' - ' + $('#dp1').val(),
-        $('#weight').val(myObj.Weight),
-        $('#volume').val(myObj.Volume),
-        $('#price').val(myObj.Price),
-        $('#loading').val(myObj.LoadingType),
-        $('#car').val(myObj.CarType)
-        sessionStorage.clear();
+        $('#weight').val(myObj.Weight);
+        $('#volume').val(myObj.Volume);
+        $('#price').val(myObj.Price);
+        $('#loading').val(myObj.LoadingType);
+        $('#car').val(myObj.CarType);
+       // sessionStorage.clear();
     }
-    warningToastr(warningToast);
+    if (warningToast != undefined) {
+        warningToastr(warningToast.toast, warningToast.message, warningToast.status);
+       //localStorage.clear();
+
+    }
     getCountries();
     getLoadingTypes();
     getCarTypes();
@@ -292,14 +295,21 @@ function getCargo(cargos) {
     cargo = cargos;
 
 }
-function warningToastr(toast) {
+function warningToastr(toast, message, status) {
     if (toast) {
-        toastr.warning("Пожалуйста, войдите в систему для того, чтобы разместить объявление");
-        sessionStorage.clear();
+        if (status == "warning") {
+            toastr.warning(message);
+            localStorage.clear();
+        }
     }
-    else {
+   
+    //if (toast) {
+    //    toastr.warning("Пожалуйста, войдите в систему для того, чтобы разместить объявление");
+    //    //sessionStorage.clear();
+    //}
+    //else {
 
-    }
+    //}
 }
 function AddCargo() {
     var dateObj = new Date();
@@ -343,10 +353,17 @@ function AddCargo() {
         contentType: "application/json;charset=utf-8",
         success: function (data) {
             if (usedAu == "false") {
-                sessionStorage.setItem("cargo", JSON.stringify(cargo));
-                sessionStorage.setItem("warning", true);
-                var myObj = JSON.parse(sessionStorage.getItem("cargo"));
+                var warningToast = {
+                    toast: true,
+                    message: "Пожалуйста, войдите в систему для того, чтобы разместить объявление",
+                    status: "warning"
+                };
                 
+                sessionStorage.setItem("cargo", JSON.stringify(cargo));
+                localStorage.setItem("toast", JSON.stringify(warningToast));
+                //sessionStorage.setItem("warning", true);
+                //var myObj = JSON.parse(localStorage.getItem("cargo"));
+                //alert(myObj.Name);
                 window.location.href = "/Account/Login?ReturnUrl=/LocateCargo/Locate?&errorMessage=Пожалуйста, войдите в систему для того, чтобы разместить объявление";
                
                 

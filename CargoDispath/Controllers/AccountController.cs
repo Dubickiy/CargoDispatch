@@ -96,17 +96,12 @@ namespace CargoDispath.Controllers
                     await UserManager.SendEmailAsync(user.Id, "Подтверждение электронной почты",
                        "Для завершения регистрации перейдите по ссылке:: <a href=\""
                                                        + callbackUrl + "\">завершить регистрацию</a>");
-                    return View("DisplayEmail");
+                    //return View("DisplayEmail");
+                    return RedirectToAction("Index", "Home", new { message = "На указанный электронный адрес отправлены дальнейшие действия по завершению регистрации" });
                 }
                 else
                 {
-                    
-                   
-                    if (!string.IsNullOrEmpty(TempData["register"].ToString()))
-                    {
-                        ViewBag.Name = TempData["register"];
-                    }
-                       
+  
                     foreach (string error in result.Errors)
                     {
                         if (model.Password.Length < 6)

@@ -51,3 +51,15 @@
             </div>*@
         </div>
 </div>
+@section Scripts{
+   
+        @if (ViewBag.message != null)
+        {
+            <script>
+                $(document).ready(function () {
+                    toastr.success("@ViewBag.message");
+                })
+
+            </script>
+        }
+}
