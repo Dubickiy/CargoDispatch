@@ -9,6 +9,7 @@ namespace CargoDispath.Controllers
     public class HomeController : Controller
     {
         public ActionResult Index(String message)
+
         {
             ViewBag.message = message;
             return View();

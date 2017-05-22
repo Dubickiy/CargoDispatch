@@ -19,7 +19,10 @@ $(function () {
     if (myObj != undefined) {
         $('#name').val(myObj.Name);
         $('#fromcountry').val(myObj.FromCountry);
+        //var fromcntr = $('#fromcountry').val(myObj.FromCountry);
+        //var fromrgn = getRegion(fromcntr, "fromcountry");
         $("#fromregion").val(myObj.FromRegion);
+
         $('#fromcity').val(myObj.FromCity);
         $('#tocountry').val(myObj.ToCountry);
         $('#toregion').val(myObj.ToRegion);
@@ -28,8 +31,14 @@ $(function () {
         $('#weight').val(myObj.Weight);
         $('#volume').val(myObj.Volume);
         $('#price').val(myObj.Price);
-        $('#loading').val(myObj.LoadingType);
+        //$('#loading').val(myObj.LoadingType);
         $('#car').val(myObj.CarType);
+        $("#loading").append(
+                   $('<option/>', {
+                       value: myObj.LoadingType,
+                       html: myObj.LoadingType
+                   })
+                   )
        // sessionStorage.clear();
     }
     if (warningToast != undefined) {
@@ -37,13 +46,43 @@ $(function () {
        //localStorage.clear();
 
     }
-    getCountries();
-    getLoadingTypes();
-    getCarTypes();
-    getVehicleTypes();
-    showAllUserCargos();
-    showAllCargos();
-    getAllCars();
+  
+    $.get("/LocateCargo/GetCountries").then(function (countries) {
+        console.log(countries);
+        getCountries(countries);
+        return $.get("/LocateCargo/GetLoadingTypes");
+
+    }).then(function (loadingTypes) {
+        console.log(loadingTypes);
+        getLoadingTypes(loadingTypes);
+        return $.get("/LocateCargo/GetCarTypes");
+    }).then(function (carTypes) {
+        console.log(carTypes);
+        getCarTypes(carTypes);
+        return $.get("/MyCars/GetVehicleTypes");
+    }).then(function (vehicleTypes) {
+        console.log(vehicleTypes);
+        getVehicleTypes(vehicleTypes);
+        return $.get("/api/cargo/GetAll");
+    }).then(function (allCargos) {
+        console.log(allCargos);
+        showAllCargos(allCargos);
+        return $.get("/api/car/GetAll");
+    }).then(function (allCars) {
+        console.log(allCars);
+        getAllCars(allCars);
+        return $.get("/api/cargo/GetUserAll");
+    }).then(function (userCargos) {
+        console.log(userCargos);
+        showAllUserCargos(userCargos);
+    });
+    //getCountries();
+    //getLoadingTypes();
+    //getCarTypes();
+   // getVehicleTypes();
+   // showAllUserCargos();
+   // showAllCargos();
+    //getAllCars();
     toastr.options = {
         "closeButton": false,
         "debug": false,
@@ -274,6 +313,7 @@ $(function () {
         console.log(i)
     })
     $("#search").click(function () {
+        deleteMarkers();
         searchCargo();
     });
     $("#fromregionsearch").click(function () {
@@ -366,6 +406,7 @@ function AddCargo() {
                 //alert(myObj.Name);
                 window.location.href = "/Account/Login?ReturnUrl=/LocateCargo/Locate?&errorMessage=Пожалуйста, войдите в систему для того, чтобы разместить объявление";
                
+               
                 
             }
             else {
@@ -395,13 +436,13 @@ function SuccessCargoAlert() {
     //$("#alertSuccessCargo").append("   <strong>Машина добавлена</strong>");
     $("#alertSuccessCargo").show();
 }
-function getAllCars() {
+function getAllCars(response) {
     var table = $("#tb4");
     var cars = $("#cars");
-    $.ajax({
-        url: "/api/car/GetAll",
-        type: "GET",
-        success: function (response) {
+    //$.ajax({
+    //    url: "/api/car/GetAll",
+    //    type: "GET",
+    //    success: function (response) {
             $.each(response, function (key, item) {
 
                 var hasTrailer;
@@ -440,8 +481,8 @@ function getAllCars() {
                     })
                     )
             });
-        }
-    });
+    //    }
+    //});
 }
 function removeCar(id) {
     var tableContent = $("td");
@@ -451,6 +492,9 @@ function removeCar(id) {
         data: { 'id': id },
         success: function () {
             tableContent.remove();
+            $.get("/api/car/GetAll").then(function (cargos) {
+                 getAllCars();
+            });
             getAllCars();
         }
     });
@@ -462,16 +506,19 @@ function removeCargo(id) {
         type: "DELETE",
         success: function (data) {
             tableContent.remove();
-            showAllUserCargos();
+            $.get("/api/cargo/GetUserAll").then(function (cargos) {
+                showAllUserCargos(cargos);
+            });
+            //showAllUserCargos();
         }
     });
 }
 
-function getCountries() {
-    $.ajax({
-        url: "/LocateCargo/GetCountries",
-        type: "GET",
-        success: function (response) {
+function getCountries(response) {
+    //$.ajax({
+    //    url: "/LocateCargo/GetCountries",
+    //    type: "GET",
+    //    success: function (response) {
             $.each(response, function (key, item) {
                 $('#fromcountry').append(
                     $('<option/>', {
@@ -525,8 +572,8 @@ function getCountries() {
                 })
                 )
             });
-        }
-    });
+    //    }
+    //});
 }
 function getRegion(id, section) {
     $.ajax({
@@ -606,14 +653,14 @@ function getRegion(id, section) {
         }
     });
 }
-function getLoadingTypes() {
+function getLoadingTypes(response) {
     var loading = $("#loading");
     var loading1 = $("#loading1");
     var loading2 = $("#loading2");
-    $.ajax({
-        url: "/LocateCargo/GetLoadingTypes",
-        type: "GET",
-        success: function (response) {
+    //$.ajax({
+    //    url: "/LocateCargo/GetLoadingTypes",
+    //    type: "GET",
+        //success: function (response) {
             loading.empty();
             loading2.empty();
             $.each(response, function (key, item) {
@@ -642,17 +689,17 @@ function getLoadingTypes() {
                   })
                   )
             });
-        }
-    });
+        //}
+   // });
 }
-function getCarTypes() {
+function getCarTypes(response) {
     var car = $("#car");
     var car1 = $("#car1");
     var carbody = $("#mycarbody");
-    $.ajax({
-        url: "/LocateCargo/GetCarTypes",
-        type: "GET",
-        success: function (response) {
+    //$.ajax({
+    //    url: "/LocateCargo/GetCarTypes",
+    //    type: "GET",
+    //    success: function (response) {
             car.empty();
             //car1.empty();
             carbody.empty();
@@ -683,16 +730,16 @@ function getCarTypes() {
                   })
                   )
             });
-        }
-    });
+    //    }
+    //});
 
 }
-function getVehicleTypes() {
+function getVehicleTypes(response) {
     var vehicle = $("#mycartype");
-    $.ajax({
-        url: "/MyCars/GetVehicleTypes",
-        type: "GET",
-        success: function (response) {
+    //$.ajax({
+    //    url: "/MyCars/GetVehicleTypes",
+    //    type: "GET",
+    //    success: function (response) {
             vehicle.empty();
             vehicle.append('<option disabled selected>');
             $.each(response, function (key, item) {
@@ -712,10 +759,10 @@ function getVehicleTypes() {
             });
 
 
-        }
-    });
+    //    }
+    //});
 }
-function showAllUserCargos() {
+function showAllUserCargos(response) {
     var table = $("#tb3");
     var dateObj = new Date();
     var month = dateObj.getUTCMonth() + 1;
@@ -723,10 +770,11 @@ function showAllUserCargos() {
     var tmday = dateObj.getUTCDate() + 1;
     var year = dateObj.getUTCFullYear();
     var today = day + "/" + month + "/" + year;
-    $.ajax({
-        url: "/api/cargo/GetUserAll",
-        type: "GET",
-        success: function (response) {
+    
+    //$.ajax({
+    //    url: "/api/cargo/GetUserAll",
+    //    type: "GET",
+    //    success: function (response) {
             $.each(response, function (key, item) {
 
                 var checked;
@@ -752,10 +800,10 @@ function showAllUserCargos() {
                     + btnDelete + "</td></tr>"
             );
             });
-        }
-    });
+    //    }
+    //});
 }
-function showAllCargos() {
+function showAllCargos(response) {
     var table = $("#tb7");
     var dateObj = new Date();
     var month = dateObj.getUTCMonth() + 1;
@@ -763,10 +811,10 @@ function showAllCargos() {
     var tmday = dateObj.getUTCDate() + 1;
     var year = dateObj.getUTCFullYear();
     var today = day + "/" + month + "/" + year;
-    $.ajax({
-        url: "/api/cargo/GetAll",
-        type: "GET",
-        success: function (response) {
+    //$.ajax({
+    //    url: "/api/cargo/GetAll",
+    //    type: "GET",
+    //    success: function (response) {
             $.each(response, function (key, item) {
 
                 var checked;
@@ -791,8 +839,8 @@ function showAllCargos() {
                     + checked + "</td></tr>"
             );
             });
-        }
-    });
+    //    }
+    //});
 }
 function searchCargo() {
     var dateObj = new Date();
@@ -841,6 +889,8 @@ function searchCargo() {
         contentType: "application/json;charset=utf-8",
         success: function (response) {
             $.each(response, function (key, item) {
+               
+                var cargo = item.FromCountry + "," + item.FromRegion + "," + item.FromCity;
                 var checked;
                 if (item.IsElectronic == true) {
                     checked = '<input type="checkbox" checked="true" disabled>'
@@ -882,6 +932,8 @@ function searchCargo() {
                         + "</td></tr>"
                     );
                 }
+                //
+                geocodeCountry(geocode, map1, cargo);
 
             });
         }
@@ -926,6 +978,23 @@ function geocodeCountry(geocoder, resultsMap, address) {
     geocoder.geocode({ 'address': address }, function (results, status) {
         if (status === google.maps.GeocoderStatus.OK) {
             resultsMap.setCenter(results[0].geometry.location);
+            var marker = new google.maps.Marker({
+                map: resultsMap,
+                position: results[0].geometry.location,
+
+            });
+            markers.push(marker);
+        } else {
+            //alert('Geocode was not successful for the following reason: ' + status);
+        }
+
+    });
+}
+function geocodeCargos(geocoder, resultsMap, cargo) {
+    geocoder.geocode({ 'address': address }, function (results, status) {
+        if (status === google.maps.GeocoderStatus.OK) {
+            resultsMap.setCenter(results[0].geometry.location);
+            resultsMap.setZoom(12);
             var marker = new google.maps.Marker({
                 map: resultsMap,
                 position: results[0].geometry.location,

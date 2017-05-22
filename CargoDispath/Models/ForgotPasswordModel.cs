@@ -10,7 +10,7 @@ namespace CargoDispath.Models
     {
         [Required]
         [EmailAddress]
-        [Display(Name = "Почта")]
+        //[Display(Name = "Почта")]
         public string Email { get; set; }
     }
 }

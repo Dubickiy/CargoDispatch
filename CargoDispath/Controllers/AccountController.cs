@@ -106,7 +106,7 @@ namespace CargoDispath.Controllers
                     {
                         if (model.Password.Length < 6)
                         {
-                            ModelState.AddModelError("Password", "Длина пароля больше 6-ти символов");
+                            ModelState.AddModelError("Password", "Пароль должен состоять минимум из 6 символов");
                         }
                        else if (model.Email.Equals(user.Email))
                         {
@@ -219,6 +219,18 @@ namespace CargoDispath.Controllers
                 }
 
             }
+            else
+            {
+                if(model.Adress == null)
+                {
+                    ModelState.AddModelError("Adress", "Поле обязательно для заполнения.");
+                }
+                if(model.PhoneNumber == null)
+                {
+                    ModelState.AddModelError("PhoneNumber", "Поле обязательно для заполнения.");
+                }
+                //ModelState.AddModelError("Password", "Неверный логин или пароль.");
+            }
             return View(model);
         }
 
@@ -237,14 +249,15 @@ namespace CargoDispath.Controllers
                 var user = await UserManager.FindByNameAsync(model.Email);
                 if (user == null || !(await UserManager.IsEmailConfirmedAsync(user.Id)))
                 {
-                    return View("ForgotPasswordConfirmation");
+                    ModelState.AddModelError("Email", "Такого электронного адреса не существует в системе");
+                    return View("ForgotPassword");
                 }
                 string code = await UserManager.GeneratePasswordResetTokenAsync(user.Id);
                 var callbackUrl = Url.Action("ResetPassword", "Account",
                     new { userId = user.Id, code = code }, protocol: Request.Url.Scheme);
                 await UserManager.SendEmailAsync(user.Id, "Сброс пароля",
                     "Для сброса пароля, перейдите по ссылке <a href=\"" + callbackUrl + "\">сбросить</a>");
-                return RedirectToAction("ForgotPasswordConfirmation", "Account");
+                return RedirectToAction("Index", "Home", new { message = "Проверьте электронную почту, чтобы сбросить пароль." });
             }
             return View(model);
         }
@@ -266,7 +279,7 @@ namespace CargoDispath.Controllers
             var result = await UserManager.ResetPasswordAsync(user.Id, model.Code, model.Password);
             if (result.Succeeded)
             {
-                return RedirectToAction("ResetPasswordConfirmation", "Account");
+                return RedirectToAction("Index", "Home");
             }
             //AddErrors(result);
             return View();

@@ -467,6 +467,6 @@ C:\Users\Vladislav\Desktop\Новая папка\CargoDispatch-master\CargoDispa
 C:\Users\Vladislav\Desktop\Новая папка\CargoDispatch-master\CargoDispath\bin\System.Net.Http.Formatting.xml
 C:\Users\Vladislav\Desktop\Новая папка\CargoDispatch-master\CargoDispath\bin\System.Web.Http.xml
 C:\Users\Vladislav\Desktop\Новая папка\CargoDispatch-master\CargoDispath\bin\System.Web.Http.WebHost.xml
-C:\Users\Vladislav\Desktop\Новая папка\CargoDispatch-master\CargoDispath\obj\Debug\CargoDispath.csprojResolveAssemblyReference.cache
 C:\Users\Vladislav\Desktop\Новая папка\CargoDispatch-master\CargoDispath\obj\Debug\CargoDispath.dll
 C:\Users\Vladislav\Desktop\Новая папка\CargoDispatch-master\CargoDispath\obj\Debug\CargoDispath.pdb
+C:\Users\Vladislav\Desktop\Новая папка\CargoDispatch-master\CargoDispath\bin\NGeo.dll

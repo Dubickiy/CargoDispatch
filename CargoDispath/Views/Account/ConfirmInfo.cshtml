@@ -35,7 +35,9 @@
                             <div class="input-group">
                                 <span class="input-group-addon"><i class="fa fa-mobile fa" aria-hidden="true"></i></span>
                                 <input type="text" class="input-group input-margin-bottom form-control" name="PhoneNumber" />
+                                
                             </div>
+                            <span class="error">@Html.ValidationMessageFor(model => model.PhoneNumber)</span>
                         </div>
                     </div>
                 </div>
@@ -46,7 +48,9 @@
                             <div class="input-group">
                                 <span class="input-group-addon"><i class="fa fa-address-card-o fa" aria-hidden="true"></i></span>
                                 <input type="text" class="input-group input-margin-bottom form-control" name="Adress" />
+                                
                             </div>
+                            <span class="error">@Html.ValidationMessageFor(model => model.Adress)</span>
 
                         </div>
                     </div>

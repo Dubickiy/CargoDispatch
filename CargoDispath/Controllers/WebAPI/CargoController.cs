@@ -14,7 +14,7 @@ namespace CargoDispath.Controllers.WebAPI
     {
         private EFUnitOfWork unitOfWork;
         string currentUserId;
-        bool isAuthorize;
+       // bool isAuthorize;
         private ApplicationUserManager UserManager
         {
             get
