@@ -185,7 +185,21 @@ namespace CargoDispath.Controllers
         [HttpPost]
         public async Task<ActionResult> ConfirmInfo(ConfirmInfoModel model, string Id)
         {
-
+            Session["PhoneNumber"] = model.PhoneNumber;
+            Session["Adress"] = model.Adress;
+            if (!string.IsNullOrEmpty(model.PhoneNumber))
+            {
+                var user_number = Session["PhoneNumber"].ToString();
+                ViewBag.PhoneNumber = user_number;
+            }
+            if (!string.IsNullOrEmpty(model.Adress))
+            {
+                var user_adress = Session["Adress"].ToString();
+                ViewBag.Adress = user_adress;
+            }
+            
+           
+            
             if (ModelState.IsValid)
             {
                 var result = await UserManager.FindByIdAsync(Id);
@@ -224,10 +238,12 @@ namespace CargoDispath.Controllers
                 if(model.Adress == null)
                 {
                     ModelState.AddModelError("Adress", "Поле обязательно для заполнения.");
+                    return View(model);
                 }
                 if(model.PhoneNumber == null)
                 {
                     ModelState.AddModelError("PhoneNumber", "Поле обязательно для заполнения.");
+                    return View(model);
                 }
                 //ModelState.AddModelError("Password", "Неверный логин или пароль.");
             }

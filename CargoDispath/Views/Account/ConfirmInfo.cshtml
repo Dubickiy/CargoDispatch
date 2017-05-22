@@ -34,7 +34,7 @@
                             <label>Номер телефона</label>
                             <div class="input-group">
                                 <span class="input-group-addon"><i class="fa fa-mobile fa" aria-hidden="true"></i></span>
-                                <input type="text" class="input-group input-margin-bottom form-control" name="PhoneNumber" />
+                                <input type="text" class="input-group input-margin-bottom form-control" name="PhoneNumber" value="@ViewBag.PhoneNumber"/>
                                 
                             </div>
                             <span class="error">@Html.ValidationMessageFor(model => model.PhoneNumber)</span>
@@ -47,7 +47,7 @@
                             <label>Адрес</label>
                             <div class="input-group">
                                 <span class="input-group-addon"><i class="fa fa-address-card-o fa" aria-hidden="true"></i></span>
-                                <input type="text" class="input-group input-margin-bottom form-control" name="Adress" />
+                                <input type="text" class="input-group input-margin-bottom form-control" name="Adress" value="@ViewBag.Adress" />
                                 
                             </div>
                             <span class="error">@Html.ValidationMessageFor(model => model.Adress)</span>
