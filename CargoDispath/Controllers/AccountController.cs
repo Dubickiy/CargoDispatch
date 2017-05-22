@@ -284,6 +284,24 @@ namespace CargoDispath.Controllers
             //AddErrors(result);
             return View();
         }
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult EditUser(ApplicationUser model)
+        {
+
+            //var result = await UserManager.FindByIdAsync(Id);
+            ApplicationUser user = UserManager.FindById(model.Id); //UserManager.FindByIdAsync(model.Id);
+            //var identity = await UserManager.CreateIdentityAsync(user, DefaultAuthenticationTypes.ApplicationCookie);
+            //var number = await UserManager.SetPhoneNumberAsync(model.Id, model.PhoneNumber);
+            user.Name = model.Name;
+            user.Surname = model.Surname;
+            user.Email = model.UserName;
+            user.PhoneNumber = model.PhoneNumber;
+            user.Adress = model.Adress;
+             UserManager.UpdateAsync(user);
+
+            return Json(user);
+        }
     }
 
 }

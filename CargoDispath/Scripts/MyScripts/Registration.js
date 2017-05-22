@@ -1,29 +1,26 @@
 ﻿$(function () {
-    $("#registration").submit(function (e) {
+    //$('#editing').click(function () {
+    //    console.log("Done1");
+    //    $('#myModal1').on('shown.bs.modal', function () {
+    //        console.log("Done");
+    //    });
+    //    console.log("Done3");
+    //})
+    $("#editing").on("click", function () {
+        console.log("Done1");
+        $('#myModalEdit').modal('show');
+        //$('#myModalEdit').on('shown.bs.modal', function () {
+        //    console.log("Done");
+        //});
+    });
+    $("#editForm").click(function (e) {
         e.preventDefault();
-        
-        var user = {
-            Name: $("#userName").val(),
-            Surname: $("#userSurname").val(),
-            Email: $("#userMail").val(),
-            Password: $("#userPass").val(),
-            ConfirmPassword: $("#userPassConfirm").val()
-        };
-        sessionStorage.setItem("user", JSON.stringify(user));
-        $.ajax({
-            url: "/Account/Register",
-            data: JSON.stringify(user),
-            type: "POST",
-            contentType: "application/json;charset=utf-8",
-            success: function () {
-                sessionStorage.clear();
-            },
-            error: function () {
-                var userObject = JSON.parse(sessionStorage.getItem("user"));
-                $("#userName").val(userObject.Name);
-                $("#userSurname").val(userObject.Surname);
+       // $('#myModalEdit').modal('hide');
+        $.post("/Account/EditUser").then(function (user) {
+            if (user != null) {
+                console.log(user);
+                $('#myModalEdit').modal('hide');
             }
-           
         });
     });
-})
+});

@@ -43,52 +43,106 @@
         </div>
     </div>
 </div>
-<div class="modal fade" id="myModal1" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+@Html.Partial("ViewName")
+@{ Html.RenderPartial("ViewName");  }
+<div class="modal fade" tabindex="-1" role="dialog" id="myModalEdit">
     <div class="modal-dialog" role="document">
         <div class="modal-content">
-            <div class="modal-body">
-                <div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title">Редактирование профиля</h4>
+            </div>
+            <form id="editForm" method="post">
+                <div class="modal-body">
+                   
                     <div class="container">
-                        <!-- Indicators -->
-                        @*<ol class="carousel-indicators">
-                            </ol>*@
-                        <!-- Wrapper for slides -->
-                        <div class="carousel-inner">
+                       
+                        <div class="row">
+                            <div class="col-md-4 col-md-offset-1">
+                                <div class="form-group">
+                                    <label>Имя</label>
+                                    <div class="input-group">
+                                        <span class="input-group-addon"><i class="fa fa-user fa" aria-hidden="true"></i></span>
+                                        <input type="text" class="input-group input-margin-bottom form-control" name="Name" value="@Model.Name" />
+                                    </div>
+                                </div>
+                            </div>
                         </div>
-                        <!-- Controls -->
-                        <a class="left carousel-control" href="#carousel-example-generic" role="button" data-slide="prev">
-                            <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
-                            <span class="sr-only">Previous</span>
-                        </a>
-                        <a class="right carousel-control" href="#carousel-example-generic" role="button" data-slide="next">
-                            <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
-                            <span class="sr-only">Next</span>
-                        </a>
-                    </div>
-                </div>
-                @*<img id="photo1" clas
-                    s="img-responsive"/>*@
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-default" data-dismiss="modal">Закрыть</button>
-            </div>
-        </div>
-    </div>
-</div>
-@section Scripts{
+                        <div class="row">
+                            <div class="col-md-4 col-md-offset-1">
+                                <div class="form-group">
+                                    <label>Фамилия</label>
+                                    <div class="input-group">
+                                        <span class="input-group-addon"><i class="fa fa-user fa" aria-hidden="true"></i></span>
+                                        <input type="text" class="input-group input-margin-bottom form-control" name="Surname" value="@Model.Surname" />
+                                    </div>
 
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-4 col-md-offset-1">
+                                <div class="form-group">
+                                    <label>Электронный адрес</label>
+                                    <div class="input-group">
+                                        <span class="input-group-addon"><i class="fa fa-envelope fa" aria-hidden="true"></i></span>
+                                        <input type="email" class="input-group input-margin-bottom form-control" name="Email" value="@Model.UserName"/>
+                                    </div>
+                                    <span class="error">@Html.ValidationMessageFor(model => model.Email)</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-4 col-md-offset-1">
+                                <div class="form-group">
+                                    <label>Номер телефона</label>
+                                    <div class="input-group">
+                                        <span class="input-group-addon"><i class="fa fa-mobile fa" aria-hidden="true"></i></span>
+                                        <input type="text" class="input-group input-margin-bottom form-control" name="PhoneNumber"  value="@Model.PhoneNumber"/>
+
+                                    </div>
+                                    <span class="error">@Html.ValidationMessageFor(model => model.PhoneNumber)</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-4 col-md-offset-1">
+                                <div class="form-group">
+                                    <label>Адрес</label>
+                                    <div class="input-group">
+                                        <span class="input-group-addon"><i class="fa fa-address-card-o fa" aria-hidden="true"></i></span>
+                                        <input type="text" class="input-group input-margin-bottom form-control" name="Adress" value="@Model.Adress"/>
+
+                                    </div>
+                                    <span class="error">@Html.ValidationMessageFor(model => model.Adress)</span>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Отмена</button>
+                    <button type="submit" class="btn btn-primary" id="sumbitEdit">Сохранить</button>
+                </div>
+            </form>
+        </div><!-- /.modal-content -->
+    </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
+@*@section Scripts{
 
         <script>
-            $(document).ready(function () {
-                console.log("Done2");
-                $('#editing').click(function () {
-                    console.log("Done1");
-                    $('#myModal1').on('shown.bs.modal', function () {
-                        console.log("Done");
-                    });
-                    console.log("Done3");
-                })
-            });
-        </script>
-}
+                $(document).ready(function () {
+                    $.get("/Account/EditUser").then(function (user) {
+                        if (user != null) {
 
+                            console.log(user);
+                        }
+                        
+
+                    })
+                })
+
+        </script>
+}*@
