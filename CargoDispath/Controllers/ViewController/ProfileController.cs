@@ -17,12 +17,18 @@ namespace CargoDispath.Controllers.ViewController
         }
         string currentUser;
         // GET: Profile
+        [HttpGet]
         public ActionResult ProfilePage()
         {
             currentUser = User.Identity.GetUserId();
             ApplicationUser user = UserManager.FindById(currentUser);
-            ViewBag.User = user;
-            return View(user);
+            ViewBag.userEdit = user;
+            return View();
         }
+        //public ActionResult EditView()
+        //{
+        //    currentUser = User.Identity.GetUserId();
+            
+        //}
     }
 }

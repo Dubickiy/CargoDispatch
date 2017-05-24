@@ -13,14 +13,14 @@
         //    console.log("Done");
         //});
     });
-    $("#editForm").click(function (e) {
-        e.preventDefault();
-       // $('#myModalEdit').modal('hide');
-        $.post("/Account/EditUser").then(function (user) {
-            if (user != null) {
-                console.log(user);
-                $('#myModalEdit').modal('hide');
-            }
-        });
-    });
+    //$("#editForm").click(function (e) {
+    //    e.preventDefault();
+    //   // $('#myModalEdit').modal('hide');
+    //    $.post("/Account/EditUser").then(function (user) {
+    //        if (user != null) {
+    //            console.log(user);
+    //            $('#myModalEdit').modal('hide');
+    //        }
+    //    });
+    //});
 });

@@ -1,4 +1,4 @@
-﻿@model CargoDispath.Models.ApplicationUser
+﻿@model CargoDispath.Models.EditProfile
 @{
     ViewBag.Title = "Профиль";
 }
@@ -12,27 +12,27 @@
             </div>
             <div class="row">
                 <div class="col-md-8  infoelement">
-                    E-mail: @Model.UserName
+                    E-mail: @ViewBag.userEdit.UserName
                 </div>
             </div>
             <div class="row">
                 <div class="col-md-8  infoelement">
-                   Имя: @Model.Name
+                   Имя: @ViewBag.userEdit.Name
                 </div>
             </div>
             <div class="row">
                 <div class="col-md-8  infoelement">
-                    Фамилия: @Model.Surname
+                    Фамилия: @ViewBag.userEdit.Surname
                 </div>
             </div>
             <div class="row">
                 <div class="col-md-8  infoelement">
-                    Номер телефона: @Model.PhoneNumber
+                    Номер телефона: @ViewBag.userEdit.PhoneNumber
                 </div>
             </div>
             <div class="row">
                 <div class="col-md-8  infoelement">
-                    Адрес: @Model.Adress
+                    Адрес: @ViewBag.userEdit.Adress
                 </div>
             </div>
             <div class="row" style="margin-top:15px;">
@@ -43,8 +43,6 @@
         </div>
     </div>
 </div>
-@Html.Partial("ViewName")
-@{ Html.RenderPartial("ViewName");  }
 <div class="modal fade" tabindex="-1" role="dialog" id="myModalEdit">
     <div class="modal-dialog" role="document">
         <div class="modal-content">
@@ -52,7 +50,8 @@
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
                 <h4 class="modal-title">Редактирование профиля</h4>
             </div>
-            <form id="editForm" method="post">
+            <form id="editForm" method="post" action="/Account/EditUser">
+                @Html.AntiForgeryToken()
                 <div class="modal-body">
                    
                     <div class="container">
@@ -63,7 +62,7 @@
                                     <label>Имя</label>
                                     <div class="input-group">
                                         <span class="input-group-addon"><i class="fa fa-user fa" aria-hidden="true"></i></span>
-                                        <input type="text" class="input-group input-margin-bottom form-control" name="Name" value="@Model.Name" />
+                                        <input type="text" class="input-group input-margin-bottom form-control" name="Name" value="@ViewBag.userEdit.Name" />
                                     </div>
                                 </div>
                             </div>
@@ -74,7 +73,7 @@
                                     <label>Фамилия</label>
                                     <div class="input-group">
                                         <span class="input-group-addon"><i class="fa fa-user fa" aria-hidden="true"></i></span>
-                                        <input type="text" class="input-group input-margin-bottom form-control" name="Surname" value="@Model.Surname" />
+                                        <input type="text" class="input-group input-margin-bottom form-control" name="Surname" value="@ViewBag.userEdit.Surname" />
                                     </div>
 
                                 </div>
@@ -86,9 +85,9 @@
                                     <label>Электронный адрес</label>
                                     <div class="input-group">
                                         <span class="input-group-addon"><i class="fa fa-envelope fa" aria-hidden="true"></i></span>
-                                        <input type="email" class="input-group input-margin-bottom form-control" name="Email" value="@Model.UserName"/>
+                                        <input type="email" class="input-group input-margin-bottom form-control" name="Email" value="@ViewBag.userEdit.UserName"/>
                                     </div>
-                                    <span class="error">@Html.ValidationMessageFor(model => model.Email)</span>
+                                    @*<span class="error">@Html.ValidationMessageFor(model => model.Email)</span>*@
                                 </div>
                             </div>
                         </div>
@@ -98,10 +97,10 @@
                                     <label>Номер телефона</label>
                                     <div class="input-group">
                                         <span class="input-group-addon"><i class="fa fa-mobile fa" aria-hidden="true"></i></span>
-                                        <input type="text" class="input-group input-margin-bottom form-control" name="PhoneNumber"  value="@Model.PhoneNumber"/>
+                                        <input type="text" class="input-group input-margin-bottom form-control" name="PhoneNumber"  value="@ViewBag.userEdit.PhoneNumber"/>
 
                                     </div>
-                                    <span class="error">@Html.ValidationMessageFor(model => model.PhoneNumber)</span>
+                                    @*<span class="error">@Html.ValidationMessageFor(model => model.PhoneNumber)</span>*@
                                 </div>
                             </div>
                         </div>
@@ -111,10 +110,10 @@
                                     <label>Адрес</label>
                                     <div class="input-group">
                                         <span class="input-group-addon"><i class="fa fa-address-card-o fa" aria-hidden="true"></i></span>
-                                        <input type="text" class="input-group input-margin-bottom form-control" name="Adress" value="@Model.Adress"/>
+                                        <input type="text" class="input-group input-margin-bottom form-control" name="Adress" value="@ViewBag.userEdit.Adress"/>
 
                                     </div>
-                                    <span class="error">@Html.ValidationMessageFor(model => model.Adress)</span>
+                                    @*<span class="error">@Html.ValidationMessageFor(model => model.Adress)</span>*@
 
                                 </div>
                             </div>

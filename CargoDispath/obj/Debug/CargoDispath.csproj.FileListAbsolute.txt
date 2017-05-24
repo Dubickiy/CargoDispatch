@@ -470,4 +470,3 @@ C:\Users\Vladislav\Desktop\Новая папка\CargoDispatch-master\CargoDispa
 C:\Users\Vladislav\Desktop\Новая папка\CargoDispatch-master\CargoDispath\obj\Debug\CargoDispath.dll
 C:\Users\Vladislav\Desktop\Новая папка\CargoDispatch-master\CargoDispath\obj\Debug\CargoDispath.pdb
 C:\Users\Vladislav\Desktop\Новая папка\CargoDispatch-master\CargoDispath\bin\NGeo.dll
-C:\Users\Vladislav\Desktop\Новая папка\CargoDispatch-master\CargoDispath\obj\Debug\CargoDispath.csprojResolveAssemblyReference.cache
