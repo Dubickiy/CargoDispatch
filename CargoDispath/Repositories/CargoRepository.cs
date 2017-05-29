@@ -33,7 +33,10 @@ namespace CargoDispath.DAL.Repositories
         public IEnumerable<Cargo> Find(Cargo item)
         {
             IEnumerable<Cargo> data = new List<Cargo>();
-           
+            if (item.FromRegion == "Все области")
+            {
+                item.FromRegion = "";
+            }
             if (item.IsElectronic)
             {
                 if (item.FromCountry != "" & item.FromRegion != "" & item.FromCity != "" & item.ToCounry != "" & item.ToRegion != "" & item.ToCity != ""

@@ -296,6 +296,7 @@ function SearchCar() {
         },
         success: function (response) {
             $.each(response, function (key, item) {
+                var car = item.FromCountry + "," + item.FromRegion + "," + item.FromCity;
                 var from = item.FromCity + "," + item.FromRegion;
                 var to = item.ToCity + "," + item.ToRegion;
                 var checked;
@@ -318,6 +319,7 @@ function SearchCar() {
                      + "<br/>Адрес:" + item.UserAdress
                      + "</td></tr>"
              );
+                geocodeCountry(geocode, map1, car);
             });
         }
     });

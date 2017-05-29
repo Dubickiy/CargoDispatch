@@ -156,7 +156,7 @@ $(function () {
         $("#fromcountrysearch option:selected").each(function () {
             country += $(this).text();
             $("#fromregionsearch").empty();
-            $("#fromregionsearch").append('<option disabled selected>Область');
+            $("#fromregionsearch").append('<option  selected>Все области');
         });
         getRegion(country, "fromcountrysearch");
         deleteMarkers();
@@ -169,14 +169,24 @@ $(function () {
 
         });
         deleteMarkers();
-        geocodeCountry(geocode, map1, this.value);
+        if (region == "Все области") {
+            console.log(region);
+            console.log("Done");
+            geocodeCountry(geocode, map1, "Украина");
+            
+        }
+        else {
+            geocodeCountry(geocode, map1, this.value);
+            console.log("Not done");
+        }
+        
     });
     $("#tocountrysearch").change(function () {
         var country = "";
         $("#tocountrysearch option:selected").each(function () {
             country += $(this).text();
             $("#toregionsearch").empty();
-            $("#toregionsearch").append('<option disabled selected>Область');
+            $("#toregionsearch").append('<option  selected>Все области');
         });
         getRegion(country, "tocountrysearch");
     });

@@ -13,6 +13,9 @@
         //    console.log("Done");
         //});
     });
+    $('.modal').on('hidden.bs.modal', function () {
+        $(this).find('form')[0].reset();
+    });
     //$("#editForm").click(function (e) {
     //    e.preventDefault();
     //   // $('#myModalEdit').modal('hide');
