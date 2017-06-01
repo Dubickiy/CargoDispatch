@@ -11,9 +11,10 @@ var map1, autocomplete;
 //]
 var usedAu = userId;
 var cargoSession;
-"use strict";
+var content;
+
 $(function () {
-   
+    "use strict";
     var myObj = JSON.parse(sessionStorage.getItem("cargo"));
     var warningToast = JSON.parse(localStorage.getItem("toast"));
     if (myObj != undefined) {
@@ -168,14 +169,15 @@ $(function () {
             region += $(this).text();
 
         });
-        deleteMarkers();
+       
         if (region == "Все области") {
             console.log(region);
             console.log("Done");
-            geocodeCountry(geocode, map1, "Украина");
+            geocodeCountry(geocode, map1, region);
             
         }
         else {
+            deleteMarkers();
             geocodeCountry(geocode, map1, this.value);
             console.log("Not done");
         }
@@ -246,7 +248,19 @@ $(function () {
     $('#dp5').datepicker();
     $('#dp6').datepicker();
     $("#dp").attr("placeholder", today);
+    $("#dp").datepicker({ dateFormat: 'dd-mm-yy' }).val();
+    $("#dp1").datepicker({ dateFormat: 'dd-mm-yy' }).val();
+    $("#dp2").datepicker({ dateFormat: 'dd-mm-yy' }).val();
+    $("#dp3").datepicker({ dateFormat: 'dd-mm-yy' }).val();
+    $("#dp4").datepicker({ dateFormat: 'dd-mm-yy' }).val();
+    $("#dp5").datepicker({ dateFormat: 'dd-mm-yy' }).val();
+    $("#dp6").datepicker({ dateFormat: 'dd-mm-yy' }).val();
+    $("#dp7").datepicker({ dateFormat: 'dd-mm-yy' }).val();
+    $("#dp8").datepicker({ dateFormat: 'dd-mm-yy' }).val();
+    $("#dp9").datepicker({ dateFormat: 'dd-mm-yy' }).val();
+    $("#dp10").datepicker({ dateFormat: 'dd-mm-yy' }).val();
     $("#dp1").attr("placeholder", tommorowday);
+
     $("#dp3").attr("placeholder", today);
     $("#dp4").attr("placeholder", tommorowday);
     $("#dp5").attr("placeholder", today);
@@ -420,14 +434,9 @@ function AddCargo() {
                 
             }
             else {
-                toastr.success("Объявление добавлено");
-               // sessionStorage.setItem("cargo", JSON.stringify(cargo));
+                //toastr.success("Объявление добавлено");
                 sessionStorage.clear();
-                //SuccessCargoAlert();
-                //var load = setTimeout(function () {
-                //    $("#alertSuccessCargo").empty();
-                //    $("#alertSuccessCargo").hide();
-                //}, 3000);
+                window.location.href = '/Home/Index?message=success';
             }
             //showInTable(data.id);
             
@@ -435,17 +444,7 @@ function AddCargo() {
         }
     });
 }
-function SuccessCargoAlert() {
-    $("#alertSuccessCargo").empty();
-    $("#alertSuccessCargo").hide();
-    $("#alertSuccessCargo").addClass("alert-success");
-    $("#alertSuccessCargo").addClass("text-center");
-    $("#alertSuccessCargo").append('<i class="fa fa-check-circle fa-lg" aria-hidden="true"></i>'
-            + '<strong class="text-center"> Груз добавлен</strong>'
-           + '<p>Перейти:<a href="/UserCargo/AllUserCargos" class="alert-link">Мои грузы</a></p>');
-    //$("#alertSuccessCargo").append("   <strong>Машина добавлена</strong>");
-    $("#alertSuccessCargo").show();
-}
+
 function getAllCars(response) {
     var table = $("#tb4");
     var cars = $("#cars");
@@ -943,7 +942,7 @@ function searchCargo() {
                     );
                 }
                 //
-                geocodeCountry(geocode, map1, cargo);
+                geocodeCargos(geocode, map1, cargo, item);
 
             });
         }
@@ -993,6 +992,7 @@ function geocodeCountry(geocoder, resultsMap, address) {
                 position: results[0].geometry.location,
 
             });
+           
             markers.push(marker);
         } else {
             //alert('Geocode was not successful for the following reason: ' + status);
@@ -1000,8 +1000,21 @@ function geocodeCountry(geocoder, resultsMap, address) {
 
     });
 }
-function geocodeCargos(geocoder, resultsMap, cargo) {
-    geocoder.geocode({ 'address': address }, function (results, status) {
+function geocodeCargos(geocoder, resultsMap, cargo, cargoObject) {
+    var contentString = '<div id="content">' +
+        'Откуда - ' + cargoObject.FromCity + "," + cargoObject.FromRegion +
+        '<br/>Куда - ' + cargoObject.ToCity + "," + cargoObject.ToRegion +
+        '<br/>Дата - ' + cargoObject.TimeOfNeccessaryLoading +
+        '<br/>Вес - ' + cargoObject.Weight + "т" +
+        '<br/>Обьект - ' + cargoObject.Volume + "куб.м" +
+        '<br/>Тип авто - ' + cargoObject.CarType +
+        '<br/>Погрузка - ' + cargoObject.LoadingType +
+        '<br/>Контакты - ' + cargoObject.UserName + "<br/>" + cargoObject.PhoneNumber
+        '</div>';
+    var infowindow = new google.maps.InfoWindow({
+        content: contentString
+    });
+    geocoder.geocode({ 'address': cargo }, function (results, status) {
         if (status === google.maps.GeocoderStatus.OK) {
             resultsMap.setCenter(results[0].geometry.location);
             resultsMap.setZoom(12);
@@ -1010,12 +1023,19 @@ function geocodeCargos(geocoder, resultsMap, cargo) {
                 position: results[0].geometry.location,
 
             });
+            marker.addListener("click", function () {
+                infowindow.close();
+                infowindow.open(resultsMap, marker);
+            });
             markers.push(marker);
         } else {
             //alert('Geocode was not successful for the following reason: ' + status);
         }
 
     });
+}
+function addInfo() {
+
 }
 function clearMarkers() {
     setMapOnAll(null);

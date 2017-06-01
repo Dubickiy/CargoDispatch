@@ -53,7 +53,7 @@ $(function () {
         $("#fromcountrysearch1 option:selected").each(function () {
             country += $(this).text();
             $("#fromregionsearch1").empty();
-            $("#fromregionsearch1").append('<option disabled selected>Область');
+            $("#fromregionsearch1").append('<option disabled selected>Все области');
         });
         getRegion(country, "fromcountrysearch1");
         deleteMarkers();
@@ -65,8 +65,8 @@ $(function () {
         var country = "";
         $("#tocountrysearch1 option:selected").each(function () {
             country += $(this).text();
-            $("#toregion1search1").empty();
-            $("#toregion1search1toregionsearch1").append('<option disabled selected>Область');
+            $("#toregionsearch1").empty();
+            $("#toregionsearch1").append('<option disabled selected>Все области');
         });
         getRegion(country, "tocountrysearch1");
 
@@ -319,7 +319,7 @@ function SearchCar() {
                      + "<br/>Адрес:" + item.UserAdress
                      + "</td></tr>"
              );
-                geocodeCountry(geocode, map1, car);
+                geocodeCargo(geocode, map1, car, item);
             });
         }
     });

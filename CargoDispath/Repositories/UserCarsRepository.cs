@@ -33,6 +33,10 @@ namespace CargoDispath.Repositories
         public IEnumerable<UserCars> Find(UserCars item)
         {
             IEnumerable<UserCars> data = new List<UserCars>();
+            if (item.FromRegion == "Все области")
+            {
+                item.FromRegion = "";
+            }
 
             if (item.IsElectronic)
             {
