@@ -151,7 +151,9 @@ function AddVehicle() {
                 window.location.href = "/Account/Login?ReturnUrl=/LocateCar/LocateCar&errorMessage=Пожалуйста, войдите в систему для того, чтобы разместить объявление";
             }
             else {
-                toastr.success("Объявление добавлено");
+                sessionStorage.clear();
+                window.location.href = '/Home/Index?message=Ваше объявление было успешно размещено. Разместить еще одно?';
+               // toastr.success("Объявление добавлено");
                 //SuccessCarAlert();
                 //var load = setTimeout(function () {
                 //    $("#alertSuccessCar").empty();

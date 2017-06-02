@@ -57,7 +57,13 @@
         {
             <script>
                 $(document).ready(function () {
-                    toastr.success("@ViewBag.message");
+                    if ("@ViewBag.message" == "Ваше объявление было успешно размещено. Разместить еще одно?") {
+                        toastr.success('Ваше объявление было успешно размещено. <a href="/LocateCargo/Locate">Разместить еще одно?</a>');
+                    }
+                    else {
+                        toastr.success("@ViewBag.message");
+                    }
+
 
                 });
 

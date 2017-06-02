@@ -436,7 +436,7 @@ function AddCargo() {
             else {
                 //toastr.success("Объявление добавлено");
                 sessionStorage.clear();
-                window.location.href = '/Home/Index?message=success';
+                window.location.href = '/Home/Index?message=Ваше объявление было успешно размещено. Разместить еще одно?';
             }
             //showInTable(data.id);
             
