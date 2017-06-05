@@ -205,7 +205,7 @@ $(function () {
         geocodeCity(geocode, map1, this.value);
     });
 
-    var dateFormat = "mm/dd/yy";
+    var dateFormat = "dd/mm/yy";
     var from = $("#dp")
             .datepicker({
                 minDate: 0
@@ -245,20 +245,20 @@ $(function () {
           .on("change", function () {
               from3.datepicker("option", "maxDate", getDate(this));
           });
-    $('#dp5').datepicker();
-    $('#dp6').datepicker();
+    //$('#dp5').datepicker();
+    //$('#dp6').datepicker();
     $("#dp").attr("placeholder", today);
-    $("#dp").datepicker({ dateFormat: 'dd-mm-yy' }).val();
-    $("#dp1").datepicker({ dateFormat: 'dd-mm-yy' }).val();
-    $("#dp2").datepicker({ dateFormat: 'dd-mm-yy' }).val();
-    $("#dp3").datepicker({ dateFormat: 'dd-mm-yy' }).val();
-    $("#dp4").datepicker({ dateFormat: 'dd-mm-yy' }).val();
-    $("#dp5").datepicker({ dateFormat: 'dd-mm-yy' }).val();
-    $("#dp6").datepicker({ dateFormat: 'dd-mm-yy' }).val();
-    $("#dp7").datepicker({ dateFormat: 'dd-mm-yy' }).val();
-    $("#dp8").datepicker({ dateFormat: 'dd-mm-yy' }).val();
-    $("#dp9").datepicker({ dateFormat: 'dd-mm-yy' }).val();
-    $("#dp10").datepicker({ dateFormat: 'dd-mm-yy' }).val();
+    $("#dp").datepicker("option", "dateFormat", "dd-mm-yy").val();
+    $("#dp1").datepicker("option", "dateFormat", "dd-mm-yy").val();
+    $("#dp2").datepicker("option", "dateFormat", "dd-mm-yy").val();
+    $("#dp3").datepicker("option", "dateFormat", "dd-mm-yy").val();
+    $("#dp4").datepicker("option", "dateFormat", "dd-mm-yy").val();
+    $("#dp5").datepicker("option", "dateFormat", "dd-mm-yy").val();
+    $("#dp6").datepicker("option", "dateFormat", "dd-mm-yy").val();
+    $("#dp7").datepicker("option", "dateFormat", "dd-mm-yy").val();
+    $("#dp8").datepicker("option", "dateFormat", "dd-mm-yy").val();
+    $("#dp9").datepicker("option", "dateFormat", "dd-mm-yy").val();
+    $("#dp10").datepicker("option", "dateFormat", "dd-mm-yy").val();
     $("#dp1").attr("placeholder", tommorowday);
 
     $("#dp3").attr("placeholder", today);
@@ -471,7 +471,7 @@ function getAllCars(response) {
                     + linkTechPhoto + "</td><td>"
                     + linkCarPhoto + "</td><td>"
                     + hasTrailer + "</td><td>"
-                    + item.Volume + "</td><td>"
+                    + item.Volume + "куб.м" + "</td><td>"
                     + item.LoadingType + "</td><td>"
                     + btnDelete + "</td></tr>"
             );
@@ -800,10 +800,10 @@ function showAllUserCargos(response) {
                     + item.FromRegion + ',' + '<p>' + item.FromCity + '</p>' + "</td><td>"
                     + item.ToRegion + ',' + '<p>' + item.ToCity + '</p>' + "</td><td>"
                     + item.Name + "</td><td>"
-                    + item.Weight + "</td><td>"
-                    + item.Volume + "</td><td>"
+                    + item.Weight + " т" + "</td><td>"
+                    + item.Volume + " куб.м" + "</td><td>"
                     + item.LoadingType + "</td><td>"
-                    + item.Price + "</td><td>"
+                    + item.Price + " грн" + "</td><td>"
                     + today + "</td><td>"
                     + checked + "</td><td id='btn'>"
                     + btnDelete + "</td></tr>"
@@ -840,10 +840,10 @@ function showAllCargos(response) {
                     + item.FromRegion + ',' + '<p>' + item.FromCity + '</p>' + "</td><td>"
                     + item.ToRegion + ',' + '<p>' + item.ToCity + '</p>' + "</td><td>"
                     + item.Name + "</td><td>"
-                    + item.Weight + "</td><td>"
-                    + item.Volume + "</td><td>"
+                    + item.Weight + " т" + "</td><td>"
+                    + item.Volume + " куб.м" + "</td><td>"
                     + item.LoadingType + "</td><td>"
-                    + item.Price + "</td><td>"
+                    + item.Price + " грн" + "</td><td>"
                     + today + "</td><td>"
                     + checked + "</td></tr>"
             );
@@ -915,10 +915,10 @@ function searchCargo() {
                     + item.FromRegion + ',' + '<p>' + item.FromCity + '</p>' + "</td><td>"
                      + item.ToRegion + ',' + '<p>' + item.ToCity + '</p>' + "</td><td>"
                     + item.Name + "</td><td>"
-                    + item.Weight + "</td><td>"
-                    + item.Volume + "</td><td>"
+                    + item.Weight + " т" + "</td><td>"
+                    + item.Volume + " куб.м" + "</td><td>"
                     + item.LoadingType + "</td><td>"
-                     + item.Price + "</td><td>"
+                     + item.Price + " грн" + "</td><td>"
                      + today + "</td><td>"
                     + checked + "</td></tr>"
                     );
@@ -929,10 +929,10 @@ function searchCargo() {
                         + item.FromRegion + ',' + '<p>' + item.FromCity + '</p>' + "</td><td>"
                         + item.ToRegion + ',' + '<p>' + item.ToCity + '</p>' + "</td><td>"
                         + item.Name + "</td><td>"
-                        + item.Weight + "</td><td>"
-                        + item.Volume + "</td><td>"
+                        + item.Weight + " т" + "</td><td>"
+                        + item.Volume  + " куб.м" + "</td><td>"
                         + item.LoadingType + "</td><td>"
-                        + item.Price + "</td><td>"
+                        + item.Price + " грн" + "</td><td>"
                         + today + "</td><td>"
                         + checked + "</td><td>"
                         + "Телефон:" + item.PhoneNumber
@@ -1001,15 +1001,15 @@ function geocodeCountry(geocoder, resultsMap, address) {
     });
 }
 function geocodeCargos(geocoder, resultsMap, cargo, cargoObject) {
+    deleteMarkers();
     var contentString = '<div id="content">' +
         'Откуда - ' + cargoObject.FromCity + "," + cargoObject.FromRegion +
         '<br/>Куда - ' + cargoObject.ToCity + "," + cargoObject.ToRegion +
-        '<br/>Дата - ' + cargoObject.TimeOfNeccessaryLoading +
+        '<br/>Период погрузки - ' + cargoObject.TimeOfNeccessaryLoading +
         '<br/>Вес - ' + cargoObject.Weight + "т" +
-        '<br/>Обьект - ' + cargoObject.Volume + "куб.м" +
-        '<br/>Тип авто - ' + cargoObject.CarType +
+        '<br/>Обьем - ' + cargoObject.Volume + "куб.м" +
+        '<br/>Кузов- ' + cargoObject.CarType +
         '<br/>Погрузка - ' + cargoObject.LoadingType +
-        '<br/>Контакты - ' + cargoObject.UserName + "<br/>" + cargoObject.PhoneNumber
         '</div>';
     var infowindow = new google.maps.InfoWindow({
         content: contentString
@@ -1017,7 +1017,41 @@ function geocodeCargos(geocoder, resultsMap, cargo, cargoObject) {
     geocoder.geocode({ 'address': cargo }, function (results, status) {
         if (status === google.maps.GeocoderStatus.OK) {
             resultsMap.setCenter(results[0].geometry.location);
-            resultsMap.setZoom(12);
+           // resultsMap.setZoom(12);
+            var marker = new google.maps.Marker({
+                map: resultsMap,
+                position: results[0].geometry.location,
+
+            });
+            marker.addListener("click", function () {
+                infowindow.close();
+                infowindow.open(resultsMap, marker);
+            });
+            markers.push(marker);
+        } else {
+            //alert('Geocode was not successful for the following reason: ' + status);
+        }
+
+    });
+}
+function geocodeCars(geocoder, resultsMap, cargo, cargoObject) {
+    deleteMarkers();
+    var contentString = '<div id="content">' +
+        'Откуда - ' + cargoObject.FromCity + "," + cargoObject.FromRegion +
+        '<br/>Куда - ' + cargoObject.ToCity + "," + cargoObject.ToRegion +
+        '<br/>Период погрузки - ' + cargoObject.DateOfSending +
+        '<br/>Грузоподъемность - ' + cargoObject.Weight + "т" +
+        '<br/>Обьем - ' + cargoObject.Volume + "куб.м" +
+        '<br/>Кузов- ' + cargoObject.CarType +
+        '<br/>Погрузка - ' + cargoObject.LoadingType +
+        '</div>';
+    var infowindow = new google.maps.InfoWindow({
+        content: contentString
+    });
+    geocoder.geocode({ 'address': cargo }, function (results, status) {
+        if (status === google.maps.GeocoderStatus.OK) {
+            resultsMap.setCenter(results[0].geometry.location);
+            // resultsMap.setZoom(12);
             var marker = new google.maps.Marker({
                 map: resultsMap,
                 position: results[0].geometry.location,

@@ -195,8 +195,8 @@ function ShowAllVehicle() {
                 }
                 table.append('<tr  data-id=' + item.Id + ">" + '<td >' + from + "</td>" + '<td  >' + to + "</td><td>"
                     + item.CarType + "</td><td>"
-                    + item.Weight + "</td><td>"
-                    + item.Volume + "</td><td>"
+                    + item.Weight + " т" + "</td><td>"
+                    + item.Volume + " куб.м" + "</td><td>"
                     + item.DateOfSending + "</td><td>"
                     + item.LoadingType + "</td><td>"
                     + checked + "</td></tr>"
@@ -225,8 +225,8 @@ function showAllUserCar() {
                 }
                 table.append('<tr  data-id=' + item.Id + ">" + '<td >' + from + "</td>" + '<td  >' + to + "</td><td>"
                     + item.CarType + "</td><td>"
-                    + item.Weight + "</td><td>"
-                    + item.Volume + "</td><td>"
+                    + item.Weight + " т" + "</td><td>"
+                    + item.Volume + " куб.м" + "</td><td>"
                     + item.DateOfSending + "</td><td>"
                     + item.LoadingType + "</td><td>"
                     + checked + "</td><td>"
@@ -311,8 +311,8 @@ function SearchCar() {
                 }
                 table.append('<tr id="infoCar" data-id=' + item.Id + ">" + '<td >' + from + "</td>" + '<td  >' + to + "</td><td>"
                      + item.CarType + "</td><td>"
-                     + item.Weight + "</td><td>"
-                     + item.Volume + "</td><td>"
+                     + item.Weight + " т" + "</td><td>"
+                     + item.Volume + " куб.м" + "</td><td>"
                      + item.DateOfSending + "</td><td>"
                      + item.LoadingType + "</td><td>"
                      + checked + "</td><td id='btn'>"
@@ -321,7 +321,7 @@ function SearchCar() {
                      + "<br/>Адрес:" + item.UserAdress
                      + "</td></tr>"
              );
-                geocodeCargo(geocode, map1, car, item);
+                geocodeCars(geocode, map1, car, item);
             });
         }
     });

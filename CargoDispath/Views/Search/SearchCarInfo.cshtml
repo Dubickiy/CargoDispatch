@@ -6,54 +6,70 @@
     <div class="round-rectangle info">
         <div class="container">
             <div class="row">
-                <div class="col-md-12"><h2 class="section-title text-center">Информация об авто</h2></div>
+                <div class="col-md-6"><h2 class="section-title text-center">Информация об авто</h2></div>
             </div>
             <div class="row text-center infoelement">
-                <div class="col-md-3 col-md-offset-2">
+                <div class="col-md-3">
                     Откуда
                 </div>
-                <div class="col-md-3 col-md-offset-2">
+                <div class="col-md-3">
                     @Model.FromCity, @Model.FromCountry
                 </div>
             </div>
             <div class="row text-center infoelement">
-                <div class="col-md-3 col-md-offset-2">
+                <div class="col-md-3">
                     Куда
                 </div>
-                <div class="col-md-3 col-md-offset-2">
+                <div class="col-md-3">
                     @Model.ToCity, @Model.ToRegion.
                 </div>
             </div>
             <div class="row text-center infoelement">
-                <div class="col-md-3 col-md-offset-2">
-                    Дата отпарвки
+                <div class="col-md-3">
+                    Дата отправки
                 </div>
-                <div class="col-md-3 col-md-offset-2">
+                <div class="col-md-3">
                     @Model.DateOfSending
                 </div>
             </div>
             <div class="row text-center infoelement">
-                <div class="col-md-3 col-md-offset-2">
+                <div class="col-md-3">
                     Тип транспорта
                 </div>
-                <div class="col-md-3 col-md-offset-2">
+                <div class="col-md-3">
                     @Model.CarType
                 </div>
             </div>
             <div class="row text-center infoelement">
-                <div class="col-md-3 col-md-offset-2">
+                <div class="col-md-3">
                     Масса
                 </div>
-                <div class="col-md-3 col-md-offset-2">
+                <div class="col-md-3">
                     @Model.Weight
                 </div>
             </div>
             <div class="row text-center infoelement">
-                <div class="col-md-3 col-md-offset-2">
+                <div class="col-md-3">
                     Загрузка
                 </div>
-                <div class="col-md-3 col-md-offset-2">
+                <div class="col-md-3">
                     @Model.LoadingType
+                </div>
+            </div>
+            <div class="row text-center infoelement">
+                <div class="col-md-3">
+                    Владелец
+                </div>
+                <div class="col-md-3">
+                    @Model.UserName
+                </div>
+            </div>
+            <div class="row text-center infoelement">
+                <div class="col-md-3">
+                    Телеофон
+                </div>
+                <div class="col-md-3">
+                    @Model.PhoneNumber
                 </div>
             </div>
         </div>

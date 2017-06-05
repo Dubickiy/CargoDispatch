@@ -39,8 +39,13 @@ namespace CargoDispath.Controllers
             ViewBag.errorMessage = errorMessage;
             return View();
         }
-        public ActionResult ForgotPassword()
+        public ActionResult ForgotPassword(string email)
         {
+            if (!String.IsNullOrEmpty(email))
+            {
+                ViewBag.email = email;
+            }
+            
             return View();
         }
         [AllowAnonymous]
