@@ -702,6 +702,5 @@ C:\Users\Vladislav\Desktop\Новая папка\CargoDispatch-master\CargoDispa
 \\Mac\Home\Desktop\CargoDispatch\CargoDispatch-master\CargoDispath\bin\System.Net.Http.Formatting.xml
 \\Mac\Home\Desktop\CargoDispatch\CargoDispatch-master\CargoDispath\bin\System.Web.Http.xml
 \\Mac\Home\Desktop\CargoDispatch\CargoDispatch-master\CargoDispath\bin\System.Web.Http.WebHost.xml
-\\Mac\Home\Desktop\CargoDispatch\CargoDispatch-master\CargoDispath\obj\Debug\CargoDispath.csprojResolveAssemblyReference.cache
 \\Mac\Home\Desktop\CargoDispatch\CargoDispatch-master\CargoDispath\obj\Debug\CargoDispath.dll
 \\Mac\Home\Desktop\CargoDispatch\CargoDispatch-master\CargoDispath\obj\Debug\CargoDispath.pdb

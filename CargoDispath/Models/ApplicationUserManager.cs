@@ -1,9 +1,11 @@
 ﻿
+using CargoDispath.App_Start;
 using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.EntityFramework;
 using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin;
 using Microsoft.Owin.Security.DataProtection;
+using System;
 using System.Net.Mail;
 using System.Threading.Tasks;
 
@@ -15,15 +17,24 @@ namespace CargoDispath.Models
         public ApplicationUserManager(IUserStore<ApplicationUser> store)
            : base(store)
         {
+           
+            
+
         }
         public static ApplicationUserManager Create(IdentityFactoryOptions<ApplicationUserManager> options,
                                                 IOwinContext context)
         {
-            var provider = new DpapiDataProtectionProvider("CargoDispath");
+            //var provider = new DpapiDataProtectionProvider("CargoDispath");
+            var dataProtectionProvider = Startup.DataProtectionProvider;
+            
             ApplicationContext db = context.Get<ApplicationContext>();
             ApplicationUserManager manager = new ApplicationUserManager(new UserStore<ApplicationUser>(db));
             manager.EmailService = new EmailService();
-            manager.UserTokenProvider = new DataProtectorTokenProvider<ApplicationUser>(provider.Create("EmailConfirmation"));
+           /// manager.UserTokenProvider = new DataProtectorTokenProvider<ApplicationUser>(provider.Create("EmailConfirmation"))
+           /// this.UserTokenProvider =
+            manager.UserTokenProvider =
+                new DataProtectorTokenProvider<ApplicationUser>(dataProtectionProvider.Create("EmailConfirmation"));
+
             return manager;
         }
     }
@@ -31,8 +42,8 @@ namespace CargoDispath.Models
     {
         public Task SendAsync(IdentityMessage message)
         {
-            var from = "vlad.dubitsky.test@gmail.com";
-            var pass = "vladik2687";
+            var from = "vladislav.dubitsky@tateeda.com";
+            var pass = "vlad2687";
 
             // адрес и порт smtp-сервера, с которого мы и будем отправлять письмо
             SmtpClient client = new SmtpClient("smtp.gmail.com", 25);
